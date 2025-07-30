@@ -37,7 +37,7 @@ function Footer({ handleClose }) {
         {/* Colonne de gauche */}
         <div>
           <Link to="/" className="text-xl font-bold text-white">
-            <img src={logoSvg} alt="Logo Nevernamed Esport" className="h-10 w-auto" />
+            <img src={logoSvg} alt="Logo Nevernamed Esport" className="h-20 w-auto" />
           </Link>
           <div className="text-sm text-gray-400 mt-2">
             © 2025 Nevernamed Esport. All rights reserved

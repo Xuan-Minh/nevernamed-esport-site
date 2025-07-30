@@ -1,9 +1,10 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LoadingScreen from "./components/LoadingScreen"; // Importer le nouveau composant
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import TeamsPage from "./pages/TeamsPage";
@@ -18,22 +19,46 @@ const InfoIcon = () => (
 );
 
 function App() {
-   const [isFooterOpen, setIsFooterOpen] = useState(false);
-   return (
-    <div className="relative min-h-screen">
-      <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
-      <Header />
+  const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [isFooterOpen, setIsFooterOpen] = useState(false);
 
-      <main>
-        <Routes>
+  useEffect(() => {
+    // Simuler le chargement
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          // Petite pause avant de faire disparaître l'écran
+          setTimeout(() => setLoading(false), 300);
+          return 100;
+        }
+        return prev + 1;
+      });
+    }, 20); // Augmente la vitesse de chargement
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative min-h-screen">
+      <AnimatePresence>
+        {loading && <LoadingScreen progress={progress} />}
+      </AnimatePresence>
+
+      {/* Contenu principal */}
+      <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
+        <Header />
+        <main>
+          <Routes>
           <Route index element={<HomePage />} />
           <Route path="/a-propos" element={<AboutUsPage />} />
           <Route path="/equipes" element={<TeamsPage />} />
           <Route path="/partenaires" element={<PartnersPage />} />
           <Route path="/socialhub" element={<SocialsPage />} />
           <Route path="/politiques" element={<PolitiquesPage />} />
-        </Routes>
-      </main>
+          </Routes>
+        </main>
       </div>
 
       {/* Bouton pour ouvrir le footer */}

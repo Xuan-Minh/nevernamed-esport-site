@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+       colors: {
+        'brand-dark': '#000719', // Ajout de votre couleur
+        'brand-accent': '#2F3C94'
+      },
       fontFamily: {
         unbounded: ['Unbounded', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],

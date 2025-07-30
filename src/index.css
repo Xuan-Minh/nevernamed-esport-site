@@ -23,7 +23,32 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.brand-background {
+  /* Layer 1 (Base) : Votre couleur de fond solide */
+  background-color: #000719;
 
+  /* On combine les couches d'images. La première est au-dessus. */
+  background-image: 
+    /* Layer 3 (Top): Le motif de points */
+    radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    /* Layer 2 (Middle): Le dégradé linéaire */
+    linear-gradient(
+      to bottom, 
+      rgba(0, 0, 0, 0) 54%,
+      rgba(47, 60, 148, 0.2) 100%
+    );
+  
+  /* On définit la taille pour chaque image de fond respective */
+  background-size: 32px 32px, auto; /* 32px pour le motif, auto pour le dégradé */
+
+  /* Le fond reste fixe lors du défilement */
+  background-attachment: fixed;
+}
+
+/* 2. Appliquer la classe au body */
+body {
+  @apply brand-background;
+}
 a {
   font-weight: 500;
   color: #646cff;
