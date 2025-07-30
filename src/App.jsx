@@ -8,6 +8,7 @@ import TeamsPage from "./pages/TeamsPage";
 import PartnersPage from "./pages/PartnersPage";
 import SocialsPage from "./pages/SocialsPage";
 
+
 function App() {
   return (
     // Ce div est le conteneur général. PAS de classes de centrage ici.
