@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
+import mainLogo from '../assets/mainlogo.png'; // 1. Importer le logo
 
 function Header() {
 
@@ -9,7 +10,7 @@ function Header() {
 
         <div>
         <Link to="/" className="text-xl font-bold text-white">
-          NEVERNAMED
+           <img src={mainLogo} alt="Logo Nevernamed Esport" className="h-10 w-auto" />
         </Link>
         </div>
 
@@ -17,7 +18,7 @@ function Header() {
           <Link to="/equipes" className="text-xl font-bold text-white">TEAMS</Link>
           <Link to="/a-propos" className="text-xl font-bold text-white">ABOUT US</Link>
           <Link to="/partenaires" className="text-xl font-bold text-white">PARTNERS</Link>
-          <Link to="/contact" className="text-xl font-bold text-white">SOCIALS</Link>
+          <Link to="/socialhub" className="text-xl font-bold text-white">SOCIALS</Link>
         </div>
 
          <div className="flex justify-end">

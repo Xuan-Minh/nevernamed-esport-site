@@ -24,7 +24,6 @@ function LanguageSwitcher() {
   
     const getCurrentLanguage = () => {
     const languageCode = i18n.language.split('-')[0]; // Prend 'fr' de 'fr-FR'
-    // Trouve une langue qui commence par le code détecté, ou prend la première par défaut
     return languages.find(lang => lang.code === languageCode) || languages[0];
   };
 

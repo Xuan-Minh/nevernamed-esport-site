@@ -8,6 +8,4 @@ function PartnersPage() {
   );
 }
 
-// La ligne la plus importante : il faut exporter le composant
-// pour pouvoir l'importer ailleurs.
 export default PartnersPage;
