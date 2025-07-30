@@ -1,4 +1,6 @@
 import React from 'react';
+import { Routes, Route, useLocation } from "react-router-dom"; // <-- IMPORTATIONS
+import HomePage from "./pages/HomePage";
 
 const AboutPage = () => {
   return (
