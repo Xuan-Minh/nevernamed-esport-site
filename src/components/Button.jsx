@@ -1,3 +1,4 @@
+import arrowSvg from '../assets/arrow.svg';
 function Button({ children, onClick }) {
   return (
     <button

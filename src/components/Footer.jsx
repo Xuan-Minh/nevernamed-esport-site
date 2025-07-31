@@ -17,8 +17,8 @@ function Footer({ handleClose }) {
   };
 
   return (
-    <motion.footer
-      className="font-unbounded fixed bottom-0 left-0 w-full p-4 border-t border-gray-600 bg-brand z-50"
+ <motion.footer
+      className="font-unbounded fixed bottom-0 left-0 w-full p-4 border-t border-gray-600 bg-brand-dark z-50"
       variants={footerVariants}
       initial="hidden"
       animate="visible"
