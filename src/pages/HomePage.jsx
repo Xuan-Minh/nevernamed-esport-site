@@ -1,6 +1,7 @@
 import React from 'react';
 import Separator from '../components/Separator';
 import SponsorsBanner from '../components/SponsorsBanner';
+import Button from '../components/Button';
 
 
 const HomePage = () => {
@@ -11,6 +12,10 @@ const HomePage = () => {
       <Separator/>
       <SponsorsBanner/>
       <Separator/>  
+      <Button>
+      Test
+      </Button>
+
     </div>
   );
 };
