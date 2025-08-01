@@ -2,6 +2,7 @@ import React from 'react';
 import Separator from '../components/Separator';
 import SponsorsBanner from '../components/SponsorsBanner';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 
 const HomePage = () => {
@@ -12,9 +13,11 @@ const HomePage = () => {
       <Separator/>
       <SponsorsBanner/>
       <Separator/>  
+      <Link to="/equipes " className="mt-4"> 
       <Button>
-      Test
+      Découvrir nos rosters
       </Button>
+      </Link>
 
     </div>
   );
