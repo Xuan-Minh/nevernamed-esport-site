@@ -1,17 +1,20 @@
 function Nowornever() {
   return (
-    // Le conteneur prend toute la largeur et cache le débordement
+    // Le conteneur qui cache le débordement
     <div className="w-full overflow-x-hidden py-16">
-      {/* Le conteneur flex qui sera animé */}
-      <div className="flex animate-marquee-full">
-        {/* Chaque enfant doit avoir une base de 100% de la largeur et ne pas rétrécir */}
-        <div className="flex-shrink-0 w-full flex justify-around items-center font-amanojaku text-9xl text-white/10 text-nowrap">
-          <span>NOW OR NEVER </span>
-          <span>NOW OR NEVER </span>
-          <span>NOW OR NEVER </span>
+      {/* Le conteneur qui empêche le retour à la ligne */}
+      <div className="flex whitespace-nowrap">
+        {/* Premier bloc de texte, animé */}
+        <div className="animate-marquee flex-shrink-0">
+          <span className="font-amanojaku text-9xl text-white/10 px-8">NOW OR NEVER</span>
+          <span className="font-amanojaku text-9xl text-white/10 px-8">NOW OR NEVER</span>
+          <span className="font-amanojaku text-9xl text-white/10 px-8">NOW OR NEVER</span>
         </div>
-        {/* Le deuxième enfant est une copie exacte pour la boucle */}
-
+        <div className="animate-marquee flex-shrink-0" aria-hidden="true">
+          <span className="font-amanojaku text-9xl text-white/10 px-8">NOW OR NEVER</span>
+          <span className="font-amanojaku text-9xl text-white/10 px-8">NOW OR NEVER</span>
+          <span className="font-amanojaku text-9xl text-white/10 px-8">NOW OR NEVER</span>
+        </div>
       </div>
     </div>
   );
