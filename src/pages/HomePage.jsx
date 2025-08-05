@@ -8,6 +8,7 @@ import SponsorsBanner from '../components/SponsorsBanner';
 import Nowornever from '../components/Nowornever';
 import LatestPost from '../components/LatestPost';
 import heroVideo from '../assets/valreal.mp4';
+import testImage from '../assets/test.jpg';
 
 const HomePage = ({ isLoading }) => {
   return (
@@ -21,8 +22,10 @@ const HomePage = ({ isLoading }) => {
 
       {/* Section 2: Bannière des sponsors, centrée */}
       <div className="container mx-auto px-4 py-16">
+           
         <SponsorsBanner />
-        <Separator />
+            <Separator />
+    
       </div>
 
       {/* Section 3: "Ambition", centrée avec deux colonnes */}
@@ -44,7 +47,7 @@ const HomePage = ({ isLoading }) => {
 
           {/* Colonne de droite (Image) */}
           <div className="md:w-1/2">
-            <img src="src/assets/test.jpg" alt="L'équipe Nevernamed" className="w-full h-auto rounded-xl shadow-lg" />
+            <img src={testImage} alt="L'équipe Nevernamed" className="w-full h-auto rounded-xl shadow-lg" />
           </div>
           
         </div>
