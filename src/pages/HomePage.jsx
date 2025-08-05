@@ -1,20 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// 1. Importer les nouveaux composants et la vidéo
 import HeroSection from '../components/HeroSection';
 import Button from '../components/Button';
 import Separator from '../components/Separator';
 import SponsorsBanner from '../components/SponsorsBanner';
 import heroVideo from '../assets/valreal.mp4';
 
-// On reçoit la prop "isLoading"
 const HomePage = ({ isLoading }) => {
   return (
+    // La div principale n'a plus besoin de classes spécifiques
     <div>
-      {/* On passe la prop au HeroSection */}
       <HeroSection videoSrc={heroVideo} isLoading={isLoading}>
-        {/* Contenu à afficher par-dessus la vidéo */}
         <h1 className="font-unbounded text-4xl md:text-7xl font-bold mb-4">
           NEVERNAMED ESPORT
         </h1>
@@ -26,12 +23,13 @@ const HomePage = ({ isLoading }) => {
         </Link>
       </HeroSection>
 
-      {/* Le reste de votre page */}
-      <div className="container mx-auto px-4">
-        <Separator />
-        <SponsorsBanner />
-        <Separator />
-        {/* Vous pouvez ajouter d'autres sections ici */}
+      {/* NOUVEAU: La section de transition */}
+  <div className="py-16">
+        <div className="container mx-auto px-4">
+          <Separator />
+          <SponsorsBanner />
+          <Separator />
+        </div>
       </div>
     </div>
   );
