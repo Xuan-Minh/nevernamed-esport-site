@@ -39,12 +39,12 @@ function HeroSection({ videoSrc, imageSrc, isLoading, children }) {
     };
   }, [isLoading, videoSrc]); // L'effet dépend du chargement et de la source vidéo
 
-return (
-    // 1. La classe "overflow-hidden" a été retirée ici pour permettre au dégradé de déborder.
-    <div className="relative h-screen w-full flex items-center justify-center">
+ return (
+    // On peut remettre overflow-hidden, car on ne fait plus déborder d'élément
+    <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
 
-      {/* Conteneur pour la vidéo ou l'image */}
-      <div className="absolute top-0 left-0 w-full h-full">
+      {/* MODIFIÉ: Le masque est appliqué ici */}
+      <div className="absolute top-0 left-0 w-full h-full [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]">
         {videoSrc && (
           <video
             ref={videoRef}
@@ -66,13 +66,9 @@ return (
       </div>
 
       {/* Superposition sombre pour la lisibilité du texte */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/40 -z-10"></div>
 
-      {/* LE DÉGRADÉ AJOUTÉ ICI */}
-      <div 
-        className="absolute -bottom-1 left-0 w-full h-2/5 bg-gradient-to-t from-[#000719] to-transparent"
-        aria-hidden="true"
-      />
+      {/* LE DIV DU DÉGRADÉ A ÉTÉ SUPPRIMÉ */}
 
       {/* Contenu textuel par-dessus tout */}
       <div className="relative z-10 text-center text-white px-4">
