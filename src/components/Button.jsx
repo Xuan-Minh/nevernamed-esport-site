@@ -18,7 +18,7 @@ function Button({ children, onClick }) {
  return (
     <motion.button
       onClick={onClick}
-      className="font-unbounded text-xl bg-transparent border-2 border-white rounded-full px-8 py-4 flex items-center gap-2 hover:bg-white/10 transition-colors duration-300"
+      className="font-unbounded text-xl bg-transparent border-2 border-white rounded-full my-4 px-8 py-4 flex items-center gap-2 hover:bg-white/10 transition-colors duration-300"
       initial="initial"
       whileHover="hover"
     >
