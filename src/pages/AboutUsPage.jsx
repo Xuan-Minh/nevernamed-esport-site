@@ -3,12 +3,7 @@ import mainLogo from '../assets/mainlogo.png';
 import avatarPlaceholder from '../assets/avatar-placeholder.png'; // Assurez-vous que ce fichier existe dans src/assets
 import Separator from '../components/Separator';
 import AnimatedElement from '../components/AnimatedElement';
-
-
-// --- Icônes pour les réseaux sociaux ---
-const TwitterIcon = () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>;
-const TwitchIcon = () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143h-1.715V4.714zm4.714 0h1.715v5.143h-1.715V4.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L24 15.428V0H6zm16.286 14.571-3.428 3.429h-3.429l-3 3v-3H6.857V1.714h15.429v12.857z"></path></svg>;
-const LinkedinIcon = () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>;
+import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/Icons';
 
 // --- Données pour la section Staff (facile à modifier) ---
 const staffData = [
@@ -119,8 +114,7 @@ const AboutUsPage = () => {
                   <div className={`flex-grow text-center md:text-left ${index % 2 === 1 ? 'md:text-right' : ''}`}>
                     <h3 className="font-unbounded text-2xl font-bold text-orange-400 mb-4">{member.name}</h3>
                     <p className="text-white/80 mb-6">{member.description}</p>
-                    <div className={`flex gap-4 justify-center ${index % 2 === 1 ? 'md:justify-end' : 'md:justify-start'}`}>
-                      {/* MODIFIÉ: Affichage conditionnel pour chaque icône */}
+                      <div className={`flex gap-4 justify-center ${index % 2 === 1 ? 'md:justify-end' : 'md:justify-start'}`}>
                       {member.socials.twitter && (
                         <a href={member.socials.twitter} className="hover:text-white/70 transition-colors" aria-label="Twitter"><TwitterIcon /></a>
                       )}

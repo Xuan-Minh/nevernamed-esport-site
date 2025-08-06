@@ -3,10 +3,7 @@ import postImage from '../assets/test.jpg';
 // Importez votre fichier SVG
 import arrowIcon from '../assets/arrow.svg';
 
-// --- Les icônes SVG en ligne sont maintenant supprimées (sauf pour les réseaux sociaux) ---
-const InstagramIcon = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">...</svg>;
-const TwitterIcon = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">...</svg>;
-const YoutubeIcon = () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">...</svg>;
+import { InstagramIcon, TwitterIcon, YoutubeIcon } from './Icons';
 
 function LatestPost() {
   const scrollContainerRef = useRef(null);
@@ -53,21 +50,34 @@ function LatestPost() {
           className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform"
           aria-label="Post suivant"
         >
-          <img src={arrowIcon} alt="Suivant" className="h-10 w-10" />
+          <img src={arrowIcon} alt="Suivant" className="h-6 w-6" />
         </button>
       </div>
 
       {/* Section "Suivez-nous" */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mt-12">
-        <h3 className="text-2xl font-bold font-unbounded">SUIVEZ NOUS</h3>
-        <div className="flex items-center gap-6">
-          <p className="text-lg font-bold text-white/70">@thenevernamed</p>
-          <div className="flex items-center gap-4 text-white">
-            <a href="#" className="hover:text-white/70 transition-colors"><InstagramIcon /></a>
-            <a href="#" className="hover:text-white/70 transition-colors"><TwitterIcon /></a>
-            <a href="#" className="hover:text-white/70 transition-colors"><YoutubeIcon /></a>
-          </div>
+         <div className="flex flex-col md:flex-row justify-center items-center gap-x-6 gap-y-4 mt-12 text-white">
+        
+        <h3 className="text-2xl font-bold font-unbounded">
+          SUIVEZ-NOUS
+        </h3>
+        
+        <p className="text-lg font-bold text-white/70">
+          @thenevernamed
+        </p>
+        
+        {/* Conteneur pour les icônes */}
+        <div className="flex items-center gap-4">
+          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Instagram">
+            <InstagramIcon />
+          </a>
+          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitter">
+            <TwitterIcon className="w-6 h-6" />
+          </a>
+          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Youtube">
+            <YoutubeIcon />
+          </a>
         </div>
+
       </div>
     </div>
   );
