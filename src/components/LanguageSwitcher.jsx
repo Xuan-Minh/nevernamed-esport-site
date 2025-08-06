@@ -33,7 +33,7 @@ function LanguageSwitcher() {
     
         <div className="relative" ref={dropdownRef}>
             <button
-                className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 focus:outline-none"
+                className="flex items-center gap-2 bg-brand-dark text-white px-4 py-2 rounded hover:bg-gray-700 focus:outline-none"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="text-xl">{currentLanguage.flag}</span>
@@ -42,7 +42,7 @@ function LanguageSwitcher() {
 
             
             {isOpen && (
-        <div className="absolute top-full right-0 mt-2 w-40 bg-gray-800 rounded-md shadow-lg z-10">
+        <div className="absolute top-full right-0 mt-2 w-40 bg-brand-dark rounded-md shadow-lg z-10">
           <ul>
             {languages.map((lang) => (
               <li key={lang.code}>
