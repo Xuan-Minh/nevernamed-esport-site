@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import postImage from '../assets/test.jpg';
-// Importez votre fichier SVG
 import arrowIcon from '../assets/arrow.svg';
 
 import { InstagramIcon, TwitterIcon, YoutubeIcon } from './Icons';
@@ -50,7 +49,7 @@ function LatestPost() {
           className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform"
           aria-label="Post suivant"
         >
-          <img src={arrowIcon} alt="Suivant" className="h-6 w-6" />
+          <img src={arrowIcon} alt="Suivant" className="h-10 w-10" />
         </button>
       </div>
 

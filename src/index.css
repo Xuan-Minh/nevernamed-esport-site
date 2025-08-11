@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
 body {
   margin: 0;
 }
