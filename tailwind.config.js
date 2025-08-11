@@ -30,6 +30,13 @@ export default {
     },
   },
   plugins: [
- require('tailwind-scrollbar-hide')
-],
+     function ({ addUtilities }) {
+          const newUtilities = {
+            '.perspective-1000': {
+              perspective: '1000px',
+            },
+          };
+          addUtilities(newUtilities, ['responsive', 'hover']);
+        },
+      ],
 }

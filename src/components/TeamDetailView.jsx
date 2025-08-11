@@ -10,7 +10,7 @@ import jerseyImage from '../assets/jersey.png';
 
 function TeamDetailView({ team, onBack }) {
   return (
-    <div className="absolute inset-0 flex flex-col animate-fade-in">
+    <div className="absolute inset-0 bg-brand-dark flex flex-col animate-fade-in">
       {/* Fond d'écran et titre du jeu */}
       <div className="relative w-full h-1/2">
         <img src={team.image} alt={team.name} className="absolute inset-0 w-full h-full object-cover opacity-30" />
