@@ -10,11 +10,11 @@ export const LolLogoText = ({ className }) => (
 );
 
 export const ValorantLogoText = ({ className }) => (
-  <svg className={className} viewBox="0 0 200 50" fill="currentColor">
+  
+<svg className={className} viewBox="0 0 200 50" fill="currentColor">
      <text x="0" y="40" fontFamily="Arial, sans-serif" fontSize="45" fontWeight="bold">VALORANT</text>
   </svg>
 );
-
 export const R6LogoText = ({ className }) => (
     <svg className={className} viewBox="0 0 200 50" fill="currentColor">
         <text x="0" y="40" fontFamily="Arial, sans-serif" fontSize="40" fontWeight="bold">RAINBOW SIX</text>
