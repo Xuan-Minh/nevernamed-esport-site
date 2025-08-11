@@ -17,14 +17,12 @@ body {
 @layer utilities {
   @keyframes marquee {
     from { transform: translateX(0%); }
-    /* On déplace le conteneur de -50% de sa largeur. Comme il contient 2x les logos,
-       cela correspond exactement à la largeur d'une seule liste de logos. */
     to { transform: translateX(-50%); }
   }
 
   .animate-marquee {
-    /* Durée de 40s. Augmentez pour un défilement plus lent, diminuez pour plus rapide. */
-    animation: marquee 30s linear infinite;
+    /* Ajustez la durée (40s) pour changer la vitesse de défilement */
+    animation: marquee 40s linear infinite;
   }
 }
 

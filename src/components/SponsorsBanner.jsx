@@ -6,12 +6,12 @@ const sponsorLogos = Object.values(sponsorModules).map((module) => module.defaul
 function SponsorsBanner() {
   const totalSponsors = sponsorLogos.length;
 
-  // Si on a 5 sponsors ou moins, on affiche une grille statique simple.
+  // Si le nombre de sponsors est faible, on ne fait pas défiler.
   if (totalSponsors <= 5) {
     return (
       <div className="sponsors-banner py-8">
         <div className="container mx-auto">
-          <div className="flex justify-evenly items-center gap-x-12 md:gap-x-16 flex-wrap">
+          <div className="flex justify-center items-center gap-x-12 md:gap-x-16 flex-wrap">
             {sponsorLogos.map((logoUrl) => {
               const fileName = logoUrl.split('/').pop().replace('.svg', '');
               return (
@@ -19,7 +19,7 @@ function SponsorsBanner() {
                   key={fileName}
                   src={logoUrl} 
                   alt={`Logo ${fileName}`}
-                  className="h-20 md:h-24 object-contain"
+                  className="h-12 md:h-16 object-contain"
                 />
               );
             })}
@@ -29,9 +29,9 @@ function SponsorsBanner() {
     );
   }
 
-  // Si on a plus de 5 sponsors, on affiche le carrousel défilant.
+  // Si on a assez de sponsors, on affiche le carrousel défilant.
   return (
-    <div className="sponsors-banner py-8 overflow-hidden">
+    <div className="sponsors-banner py-8 overflow-hidden relative w-full">
       {/* Le conteneur qui va défiler */}
       <div className="flex animate-marquee whitespace-nowrap">
         {/* On affiche la liste des logos une première fois */}
@@ -42,7 +42,7 @@ function SponsorsBanner() {
               <img 
                 src={logoUrl} 
                 alt={`Logo ${fileName}`}
-                className="h-20 md:h-24 object-contain"
+                className="h-12 md:h-16 object-contain"
               />
             </div>
           );
@@ -55,7 +55,7 @@ function SponsorsBanner() {
               <img 
                 src={logoUrl} 
                 alt={`Logo ${fileName}`}
-                className="h-20 md:h-24 object-contain"
+                className="h-12 md:h-16 object-contain"
               />
             </div>
           );
