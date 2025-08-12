@@ -6,11 +6,15 @@ import { LolLogoText, ValorantLogoText, R6LogoText } from './GameLogos';
 import lolImage from '../assets/teams/lol-bg.jpg';
 import valorantImage from '../assets/teams/valorant-bg.jpg';
 
+
 const teamsData = [
   { id: 'lol', name: 'LEAGUE OF LEGENDS', image: lolImage, LogoComponent: LolLogoText, fontClass: 'font-beaufort' },
   { id: 'valorant', name: 'VALORANT', image: valorantImage, LogoComponent: ValorantLogoText, fontClass: 'font-unbounded' },
+  { id: 'valorant', name: 'VALORANT', image: valorantImage, LogoComponent: ValorantLogoText, fontClass: 'font-unbounded' },
 
-]
+
+];
+
 function GameSelectionCarousel({ onTeamSelect }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -36,36 +40,36 @@ function GameSelectionCarousel({ onTeamSelect }) {
       <ArrowIcon className="w-8 h-8 mt-4 text-white/50 rotate-90" />
 
       <div className="relative w-full h-[400px] flex items-center justify-center mt-8">
-        {/* MODIFIÉ: Suppression de la classe 'perspective-1000' qui n'est plus nécessaire */}
         <div className="w-full h-full">
-          {/* Le conteneur pour les cartes */}
           <div className="w-full h-full relative">
             {teamsData.map((team, index) => {
-              const isActive = index === currentIndex;
-              const distance = index - currentIndex;
+              // --- NOUVELLE LOGIQUE POUR LA BOUCLE INFINIE ---
+              let position = index - currentIndex;
+              const totalItems = teamsData.length;
 
-              // --- LOGIQUE DE TRANSFORMATION 2D ---
-              let transform = '';
-              let zIndex = teamsData.length - Math.abs(distance);
-              let opacity = 0;
-
-              if (Math.abs(distance) <= 1) { // Affiche l'élément central et ses voisins directs
-                // MODIFIÉ: Suppression de rotateY pour un effet 2D. Augmentation de translateX pour plus d'espace.
-                transform = `translateX(${distance * 65}%) scale(${isActive ? 1 : 0.7})`;
-                opacity = 1;
-              } else { // Cache les autres éléments plus lointains
-                transform = `translateX(${distance * 65}%) scale(0.7)`;
-                opacity = 0;
+              // Corrige la position pour la boucle (ex: si on est à l'index 0, le dernier item est à -1)
+              if (position > totalItems / 2) {
+                position -= totalItems;
               }
+              if (position < -totalItems / 2) {
+                position += totalItems;
+              }
+
+              const isActive = position === 0;
+              const isVisible = Math.abs(position) <= 1;
+
+              const transform = `translateX(${position * 65}%) scale(${isActive ? 1 : 0.7})`;
+              const zIndex = totalItems - Math.abs(position);
 
               return (
                 <div
-                  key={team.id}
-                  className="absolute w-64 h-80 md:w-72 md:h-96 top-1/2 left-1/2 -mt-48 -ml-36 transition-all duration-500 ease-in-out cursor-pointer"
+                  key={team.id + '-' + index} // Clé plus robuste pour éviter les conflits
+                  className="absolute w-80 h-80 md:w-96 md:h-96 top-1/2 left-1/2 -mt-48 -ml-48 transition-all duration-500 ease-in-out cursor-pointer"
                   style={{
                     transform: transform,
                     zIndex: zIndex,
-                    opacity: opacity,
+                    opacity: isVisible ? 1 : 0, // On affiche seulement les 3 cartes concernées
+                    pointerEvents: isVisible ? 'auto' : 'none', // On désactive le clic sur les cartes cachées
                   }}
                   onClick={() => handlePanelClick(index)}
                 >
@@ -73,13 +77,9 @@ function GameSelectionCarousel({ onTeamSelect }) {
                     <img
                       src={team.image}
                       alt={team.name}
-                      // MODIFIÉ: Suppression de 'grayscale'
                       className="w-full h-full object-cover transition-all duration-500"
                     />
-                    {/* MODIFIÉ: Ajout d'un calque noir pour assombrir les cartes */}
-                    <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${isActive ? 'opacity-40' : 'opacity-75'}`}></div>
-                    
-                    {/* MODIFIÉ: Le logo est maintenant toujours visible, mais son opacité change */}
+                    <div className={`absolute inset-0transition-opacity duration-500 ${isActive ? 'opacity-40' : 'opacity-75'}`}></div>
                     <div className={`absolute inset-0 flex items-center justify-center p-8 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
                       <team.LogoComponent className="w-full h-auto text-white" />
                     </div>

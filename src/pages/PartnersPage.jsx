@@ -54,7 +54,7 @@ function PartnersPage() {
             const isVisible = Math.abs(position) <= 2; // Affiche 5 sponsors au total
 
             const styles = {
-              transform: `translateX(${position * 40}%) scale(${isActive ? 1 : 0.7})`,
+              transform: `translateX(${position * 60}%) scale(${isActive ? 1 : 0.6})`,
               opacity: isVisible ? 1 : 0,
               zIndex: totalItems - Math.abs(position),
               transition: 'transform 0.5s ease, opacity 0.5s ease',
@@ -72,8 +72,6 @@ function PartnersPage() {
                   {sponsor.logo && <img src={sponsor.logo} alt={sponsor.name} className={`transition-all duration-500 ${isActive ? 'h-20' : 'h-24'}`} />}
                   {isActive && (
                     <div className="text-center mt-4 animate-fade-in">
-                      <h3 className="font-bold text-lg">{sponsor.name}</h3>
-                      <p className="text-xs text-white/70">{sponsor.subtitle}</p>
                       <p className="text-xs text-white/80 my-3 line-clamp-3">{sponsor.description}</p>
                       <div className="flex justify-center gap-4 text-lg">
                         {sponsor.socials.instagram && <a href={sponsor.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent"><FaInstagram /></a>}
