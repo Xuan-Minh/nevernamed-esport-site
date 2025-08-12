@@ -35,7 +35,7 @@ function PartnersPage() {
   };
 
   return (
-    <div className="min-h-screen  text-white py-20 px-4">
+    <div className="min-h-screen flex flex-col justify-center text-white pt-32 pb-20 px-4">
       <div className="container mx-auto text-center">
         {/* --- Titre --- */}
         <h1 className="font-unbounded text-4xl md:text-5xl font-bold mb-4">
@@ -67,7 +67,7 @@ function PartnersPage() {
                 style={styles}
                 onClick={() => setCurrentIndex(index)}
               >
-                <div className={`w-full h-full rounded-2xl bg-gray-800/30 backdrop-blur-sm flex flex-col items-center justify-center p-6 transition-all duration-500 ${isActive ? 'bg-gray-700/50 shadow-lg shadow-cyan-500/20' : 'opacity-50'}`}>
+                <div className={`w-full h-full rounded-2xl bg-gray-800 backdrop-blur-sm flex flex-col items-center justify-center p-6 transition-all duration-500 ${isActive ? 'bg-gray-700/50 shadow-lg shadow-cyan-500/20' : 'opacity-50'}`}>
                   {/* On vérifie que le logo existe avant de l'afficher */}
                   {sponsor.logo && <img src={sponsor.logo} alt={sponsor.name} className={`transition-all duration-500 ${isActive ? 'h-20' : 'h-24'}`} />}
                   {isActive && (
