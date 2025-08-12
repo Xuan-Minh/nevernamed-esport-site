@@ -81,7 +81,7 @@ return (
         <div id="contact-form" className="max-w-4xl mx-auto mt-16 text-left">
           <h2 className="font-unbounded text-3xl font-bold text-center mb-8">CONTACTEZ NOUS</h2>
           <form>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid font-poppins md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label htmlFor="prenom" className="block text-sm font-medium text-white/70 mb-2">Prénom</label>
                 <input type="text" id="prenom" className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
@@ -99,7 +99,7 @@ return (
                 <input type="tel" id="tel" className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500" />
               </div>
             </div>
-            <div className="mb-6">
+            <div className="mb-6 font-poppins">
               <label className="block text-sm font-medium text-white/70 mb-3">Sujet du message</label>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -113,15 +113,14 @@ return (
                 </label>
               </div>
             </div>
-            <div className="mb-8">
+             <div className="mb-8 font-poppinss">
               <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-2">Message</label>
               <textarea id="message" rows="5" className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
             </div>
             <div className="text-center">
-               <button type="submit" className="group inline-flex items-center justify-center px-8 py-3 font-bold text-white transition-all duration-300 ease-in-out border-2 border-white rounded-full hover:bg-white hover:text-black">
-                    <span className="mr-3">Envoyez votre message</span>
-                    <ArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+              <Button type="submit">
+                Envoyez votre message
+              </Button>
             </div>
           </form>
         </div>
