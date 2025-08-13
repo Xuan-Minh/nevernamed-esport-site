@@ -44,7 +44,7 @@ function PartnersPage() {
         {/* --- Titre --- */}
         <AnimatedElement>
         <h1 className="font-unbounded text-4xl md:text-5xl font-bold mb-4">
-          NOS SPONSORS <span className="to-orange-400">&</span> PARTENAIRES
+          NOS SPONSORS <span className="text-[#F89C2C]">&</span> PARTENAIRES
         </h1>
         </AnimatedElement>
         {/* --- Carrousel des Sponsors --- */}
@@ -77,11 +77,11 @@ function PartnersPage() {
                   {sponsor.logo && <img src={sponsor.logo} alt={sponsor.name} className={`transition-all duration-500 ${isActive ? 'h-24' : 'h-20'}`} />}
                   {isActive && (
                     <div className="text-center mt-4 animate-fade-in">
-                      <p className="text-xs text-white/80 my-3 line-clamp-3">{sponsor.description}</p>
-                      <div className="flex justify-center gap-4 text-lg">
-                        {sponsor.socials.instagram && <a href={sponsor.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent"><FaInstagram /></a>}
-                        {sponsor.socials.twitter && <a href={sponsor.socials.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent"><FaXTwitter /></a>}
-                        {sponsor.socials.website && <a href={sponsor.socials.website} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent"><FaGlobe /></a>}
+                      <p className="text-xs text-white/80 my-3 line-clamp-4">{sponsor.description}</p>
+                      <div className="flex justify-center gap-4 text-xl">
+                        {sponsor.socials.instagram && <a href={sponsor.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-transform hover:scale-110"><FaInstagram /></a>}
+                        {sponsor.socials.twitter && <a href={sponsor.socials.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-transform hover:scale-110"><FaXTwitter /></a>}
+                        {sponsor.socials.website && <a href={sponsor.socials.website} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-transform hover:scale-110"><FaGlobe /></a>}
                       </div>
                     </div>
                   )}
