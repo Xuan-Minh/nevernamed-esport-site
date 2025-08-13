@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import ArrowIcon from '../components/ArrowIcon';
 import { FaTwitter, FaInstagram, FaGlobe } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { sponsors } from '../assets/sponsors/sponsors'; // Importer les données centralisées
+import { sponsors } from '../components/sponsors'; // Importer les données centralisées
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
 import Separator from '../components/Separator';
+import AnimatedElement from '../components/AnimatedElement';
+import {motion, AnimatePresence} from 'framer-motion';
+
 
 // --- Importation dynamique des logos SVG ---
 const sponsorLogoModules = import.meta.glob('../assets/sponsors/*.svg', { eager: true });
@@ -39,10 +42,11 @@ function PartnersPage() {
     <div className="min-h-screen flex flex-col justify-center text-white pt-32 pb-20 px-4">
       <div className="container mx-auto text-center">
         {/* --- Titre --- */}
+        <AnimatedElement>
         <h1 className="font-unbounded text-4xl md:text-5xl font-bold mb-4">
           NOS SPONSORS <span className="to-orange-400">&</span> PARTENAIRES
         </h1>
-
+        </AnimatedElement>
         {/* --- Carrousel des Sponsors --- */}
         <div className="relative w-full max-w-5xl mx-auto h-72 flex items-center justify-center my-16">
           {sponsorsData.map((sponsor, index) => {
@@ -55,7 +59,7 @@ function PartnersPage() {
             const isVisible = Math.abs(position) <= 2; // Affiche 5 sponsors au total
 
             const styles = {
-              transform: `translateX(${position * 60}%) scale(${isActive ? 1 : 0.6})`,
+              transform: `translateX(${position * 70}%) scale(${isActive ? 1 : 0.6})`,
               opacity: isVisible ? 1 : 0,
               zIndex: totalItems - Math.abs(position),
               transition: 'transform 0.5s ease, opacity 0.5s ease',
@@ -64,13 +68,13 @@ function PartnersPage() {
             return (
               <div
                 key={sponsor.id}
-                className="absolute w-64 h-64 cursor-pointer"
+                className="absolute w-72 h-72 md:w-80 md:h-80 cursor-pointer"
                 style={styles}
                 onClick={() => setCurrentIndex(index)}
               >
-                <div className={`w-full h-full rounded-2xl bg-gray-800 backdrop-blur-sm flex flex-col items-center justify-center p-6 transition-all duration-500 ${isActive ? 'bg-gray-500/50 shadow-lg shadow-cyan-500/20' : 'opacity-70'}`}>
+                <div className={`w-full h-full rounded-2xl bg-gray-800 backdrop-blur-sm flex flex-col items-center justify-center p-6 transition-all duration-500 ${isActive ? 'bg-gray-300/50 shadow-lg shadow-cyan-500/20' : 'opacity-70'}`}>
                   {/* On vérifie que le logo existe avant de l'afficher */}
-                  {sponsor.logo && <img src={sponsor.logo} alt={sponsor.name} className={`transition-all duration-500 ${isActive ? 'h-20' : 'h-24'}`} />}
+                  {sponsor.logo && <img src={sponsor.logo} alt={sponsor.name} className={`transition-all duration-500 ${isActive ? 'h-24' : 'h-20'}`} />}
                   {isActive && (
                     <div className="text-center mt-4 animate-fade-in">
                       <p className="text-xs text-white/80 my-3 line-clamp-3">{sponsor.description}</p>
@@ -97,9 +101,11 @@ function PartnersPage() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center text-left">
           <div>
             <h2 className="font-unbounded text-3xl font-bold">DEVENIR PARTENAIRE</h2>
-            <p className="text-white/70 mt-4 max-w-md font-">
-              With decades of experience in business and esports, our multinational staff ensures our partners enjoy the highest levels of performance in every aspect. Contact us and find out for yourself!
+            <AnimatedElement>
+            <p className="text-white/70 mt-4 max-w-md font-unbounded">
+              Nevernamed est plus qu'une équipe, c'est un projet ambitieux avec une vision claire. En devenant notre partenaire, vous vous connectez à la ferveur de la communauté esport et bénéficiez d'une plateforme dynamique pour valoriser votre marque. Discutons des opportunités et des succès que nous pouvons bâtir ensemble.
             </p>
+            </AnimatedElement>
           </div>
           <Link to="/socialhub#contact-form" className="flex justify-center items-center">
          <Button>

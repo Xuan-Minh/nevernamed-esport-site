@@ -39,4 +39,14 @@ export const sponsors = [
       website: '#',
     }
   },
+    {
+    id: 'sponso-E', // Correspond à Weriseup
+    name: 'WeRiseUp',
+    subtitle: 'PERFORMANCE & COACHING',
+    description: 'Plateforme dédiée à l\'amélioration des performances des joueurs e-sport, alliant coaching, analyse de données et bien-être mental.',
+    socials: {
+      twitter: '#',
+      website: '#',
+    }
+  },
 ];
