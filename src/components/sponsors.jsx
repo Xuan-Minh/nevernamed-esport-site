@@ -3,7 +3,7 @@ export const sponsors = [
     id: 'sponso-A', // Correspond à Factory Club
     name: 'Factory & Co',
     subtitle: 'RESTAURANT',
-    description: 'Le meilleur de la street-food américaine avec une touche française. Des burgers gourmets aux cheesecakes signatures.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Factory & Co est un restaurant parisien qui propose une cuisine française moderne et raffinée.',
     socials: {
       instagram: '#',
       website: '#',
@@ -32,8 +32,8 @@ export const sponsors = [
   {
     id: 'sponso-D', // Correspond à Weriseup
     name: 'WeRiseUp',
-    subtitle: 'PERFORMANCE & COACHING',
-    description: 'Plateforme dédiée à l\'amélioration des performances des joueurs e-sport, alliant coaching, analyse de données et bien-être mental.',
+    subtitle: '*',
+    description: 'Lorem ipsum.',
     socials: {
       twitter: '#',
       website: '#',
@@ -42,8 +42,8 @@ export const sponsors = [
     {
     id: 'sponso-E', // Correspond à Weriseup
     name: 'WeRiseUp',
-    subtitle: 'PERFORMANCE & COACHING',
-    description: 'Plateforme dédiée à l\'amélioration des performances des joueurs e-sport, alliant coaching, analyse de données et bien-être mental.',
+    subtitle: '*',
+    description: 'Lorem ipsum.',
     socials: {
       twitter: '#',
       website: '#',
