@@ -98,7 +98,7 @@ function PartnersPage() {
         <Separator/>
 
         {/* --- Section "Devenir Partenaire" --- */}
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center text-left">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-left">
           <div>
             <h2 className="font-unbounded text-3xl font-bold">DEVENIR PARTENAIRE</h2>
             <AnimatedElement>
