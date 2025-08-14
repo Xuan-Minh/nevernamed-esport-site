@@ -21,7 +21,7 @@ const HomePage = ({ isLoading }) => {
       </HeroSection>
 
       {/* Section 2: Bannière des sponsors, centrée */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16  text-white">
            
         <SponsorsBanner />
             <Separator />
