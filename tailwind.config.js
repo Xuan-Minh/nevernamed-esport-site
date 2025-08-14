@@ -30,6 +30,7 @@ export default {
     },
   },
   plugins: [
+     require('tailwind-scrollbar-hide'),
      function ({ addUtilities }) {
           const newUtilities = {
             '.perspective-1000': {
