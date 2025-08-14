@@ -4,6 +4,7 @@ import { FaInstagram, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import Separator from '../components/Separator';
 import Button from '../components/Button';
+import AnimatedElement from '../components/AnimatedElement';
 
 // Données fictives pour les publications sur les réseaux sociaux
 const socialPosts = [
@@ -60,7 +61,7 @@ function SocialsPage() {
         </section>
 
         {/* POSTS */}
-        <section className="max-w-6xl mx-auto mt-10 mb-20">
+        <section className="max-w-6xl mx-auto mt-2 mb-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {socialPosts.map(post => (
               <div
@@ -82,11 +83,12 @@ function SocialsPage() {
           </div>
         </section>
 
-        <Separator />
+        <Separator className="my-4"/>
 
         {/* FORMULAIRE CONTACT */}
-        <section id="contact-form" className="max-w-4xl mx-auto mt-20 mb-28 text-left">
-          <h2 className="font-unbounded text-3xl font-bold text-center mb-12">CONTACTEZ NOUS</h2>
+        <AnimatedElement>
+        <section id="contact-form" className="max-w-4xl mx-auto mt-8 mb-0 text-left">
+          <h2 className="font-unbounded text-3xl font-bold text-center mb-6">CONTACTEZ NOUS</h2>
           <form>
             <div className="grid font-poppins md:grid-cols-2 gap-6 mb-6">
               <div>
@@ -127,28 +129,18 @@ function SocialsPage() {
               <label className="block text-sm font-medium text-white/70 mb-3">Sujet du message</label>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500"
-                    defaultChecked
-                  /> Partenariat
+                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" defaultChecked /> Partenariat
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500"
-                  /> Rejoindre la team
+                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" /> Rejoindre la team
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox bg-gray-700 border-gray-600 text-cyan-500 focus:ring-cyan-500"
-                  /> Autres
+                  <input type="checkbox" className="form-checkbox bg-gray-700 border-gray-600 text-cyan-500 focus:ring-cyan-500" /> Autres
                 </label>
               </div>
             </div>
 
-            <div className="mb-10">
+            <div className="mb-6">
               <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-2">Message</label>
               <textarea
                 id="message"
@@ -157,11 +149,12 @@ function SocialsPage() {
               ></textarea>
             </div>
 
-            <div className="text-center">
+            <div className="text-center pb-10">
               <Button type="submit">Envoyez votre message</Button>
             </div>
           </form>
         </section>
+        </AnimatedElement>
       </div>
     </div>
   );
