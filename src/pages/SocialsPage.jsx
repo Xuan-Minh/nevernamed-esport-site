@@ -48,6 +48,7 @@ function SocialsPage() {
     <div className="text-white">
       <div className="container mx-auto px-4">
         {/* HERO */}
+        <AnimatedElement>
         <section className="relative min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
           <div className="w-full text-center translate-y-10 md:translate-y-14">
             <h1 className="font-unbounded text-5xl font-bold mb-12">SOCIAL HUB</h1>
@@ -59,8 +60,10 @@ function SocialsPage() {
             </div>
           </div>
         </section>
+        </AnimatedElement>
 
         {/* POSTS */}
+        <AnimatedElement>
         <section className="max-w-6xl mx-auto mt-2 mb-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {socialPosts.map(post => (
@@ -82,6 +85,7 @@ function SocialsPage() {
             ))}
           </div>
         </section>
+        </AnimatedElement>
 
         <Separator className="my-4"/>
 
