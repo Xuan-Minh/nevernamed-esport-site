@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logoSvg from '../assets/logo.svg'; // 1. Importer le logo
+import logoSvg from '../assets/favicon.svg'; // 1. Importer le logo
+import { useEffect } from 'react'; // AJOUT
 
 // Icône pour le bouton de fermeture
 const CloseIcon = () => (
@@ -9,12 +10,25 @@ const CloseIcon = () => (
   </svg>
 );
 
+
 function Footer({ handleClose }) {
   const footerVariants = {
     hidden: { y: "100%" },
     visible: { y: 0, transition: { type: "spring", stiffness: 120, damping: 20 } },
     exit: { y: "100%", transition: { ease: "easeInOut" } }
   };
+
+  // AJOUT: fermer avec la touche Échap
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        handleClose?.();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [handleClose]);
+
 
   return (
  <motion.footer
@@ -58,8 +72,9 @@ function Footer({ handleClose }) {
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.863 1.727-3.863 3.863s1.727 3.863 3.863 3.863 3.863-1.727 3.863-3.863S14.136 8.118 12 8.118zM12 14.172c-1.186 0-2.156-.97-2.156-2.156s.97-2.156 2.156-2.156 2.156.97 2.156 2.156-.97 2.156-2.156 2.156zm4.803-6.402c-.783 0-1.418-.635-1.418-1.418s.635-1.418 1.418-1.418 1.418.635 1.418 1.418-.635 1.418-1.418 1.418z" clipRule="evenodd"></path></svg>
-            </a>
+            </a>   
           </div>
+          <p className="text-sm text-gray-400 mt-2">Website by  <a href="http://xuan-minh.github.io/">Xuan-Minh TRAN</a></p>  
         </div>
       </nav>
     </motion.footer>
