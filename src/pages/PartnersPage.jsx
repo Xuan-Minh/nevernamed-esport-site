@@ -48,6 +48,7 @@ function PartnersPage() {
         </h1>
         </AnimatedElement>
         {/* --- Carrousel des Sponsors --- */}
+        <AnimatedElement>
         <div className="relative w-full max-w-5xl mx-auto h-72 flex items-center justify-center my-16">
           {sponsorsData.map((sponsor, index) => {
             let position = index - currentIndex;
@@ -93,7 +94,7 @@ function PartnersPage() {
           <button onClick={handlePrev} className="absolute left-0 z-20 p-3 text-white/50 hover:text-white transition-colors"><ArrowIcon className="w-6 h-6 rotate-180" /></button>
           <button onClick={handleNext} className="absolute right-0 z-20 p-3 text-white/50 hover:text-white transition-colors"><ArrowIcon className="w-6 h-6" /></button>
         </div>
-
+        </AnimatedElement>
         {/* --- Séparateur --- */}
         <Separator/>
 
@@ -101,11 +102,9 @@ function PartnersPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-left">
           <div>
             <h2 className="font-unbounded text-3xl font-bold">DEVENIR PARTENAIRE</h2>
-            <AnimatedElement>
             <p className="text-white/70 mt-4 max-w-md font-unbounded">
               Nevernamed est plus qu'une équipe, c'est un projet ambitieux avec une vision claire. En devenant notre partenaire, vous vous connectez à la ferveur de la communauté esport et bénéficiez d'une plateforme dynamique pour valoriser votre marque. Discutons des opportunités et des succès que nous pouvons bâtir ensemble.
             </p>
-            </AnimatedElement>
           </div>
           <Link to="/socialhub#contact-form" className="flex justify-center items-center">
          <Button>
