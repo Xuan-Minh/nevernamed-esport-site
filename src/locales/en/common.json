@@ -96,6 +96,10 @@
   "footer": {
     "privacy": "Privacy policy",
     "contact": "Contact",
-    "copyright": "© 2025 Nevernamed Esport. All rights reserved"
+    "copyright": "© 2025 Nevernamed Esport. All rights reserved",
+    "closeLabel": "Close footer",
+    "ariaLabel": "Footer",
+    "logoAlt": "Nevernamed Esport logo",
+    "websiteBy": "Website by"
   }
 }

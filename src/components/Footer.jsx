@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logoSvg from '../assets/favicon.svg'; // 1. Importer le logo
-import { useEffect } from 'react'; // AJOUT
+import logoSvg from '../assets/favicon.svg';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next'; // AJOUT
 
 // Icône pour le bouton de fermeture
 const CloseIcon = () => (
@@ -10,7 +11,6 @@ const CloseIcon = () => (
   </svg>
 );
 
-
 function Footer({ handleClose }) {
   const footerVariants = {
     hidden: { y: "100%" },
@@ -18,7 +18,8 @@ function Footer({ handleClose }) {
     exit: { y: "100%", transition: { ease: "easeInOut" } }
   };
 
-  // AJOUT: fermer avec la touche Échap
+  const { t } = useTranslation(); // AJOUT
+
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === 'Escape' || e.key === 'Esc') {
@@ -29,20 +30,22 @@ function Footer({ handleClose }) {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [handleClose]);
 
-
   return (
- <motion.footer
+    <motion.footer
       className="font-unbounded fixed bottom-0 left-0 w-full p-4 border-t border-gray-600 bg-brand-dark z-50"
       variants={footerVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
+      role="dialog"
+      aria-label={t('footer.ariaLabel', { defaultValue: 'Footer' })}
+      aria-modal="true"
     >
       {/* Bouton de fermeture */}
-       <button
+      <button
         onClick={handleClose}
         className="absolute top-0 right-8 -translate-y-1/2 bg-gray-800 border border-gray-600 text-white p-2 rounded-full hover:bg-gray-700 transition-colors"
-        aria-label="Fermer le pied de page"
+        aria-label={t('footer.closeLabel')}
       >
         <CloseIcon />
       </button>
@@ -51,19 +54,24 @@ function Footer({ handleClose }) {
         {/* Colonne de gauche */}
         <div>
           <Link to="/" className="text-xl font-bold text-white">
-            <img src={logoSvg} alt="Logo Nevernamed Esport" className="h-20 w-auto" />
+            <img src={logoSvg} alt={t('footer.logoAlt')} className="h-20 w-auto" />
           </Link>
           <div className="text-sm text-gray-400 mt-2">
-            © 2025 Nevernamed Esport. All rights reserved
+            {t('footer.copyright')}
           </div>
-          <Link to="/politiques" className="text-sm text-gray-400 mt-2 block">Politique de confidentialité</Link>
-          <Link to="/socialhub#contact-form" className="text-sm text-gray-400 mt-2 block">Contact</Link>
+          <Link to="/politiques" className="text-sm text-gray-400 mt-2 block">
+            {t('footer.privacy')}
+          </Link>
+          <Link to="/socialhub#contact-form" className="text-sm text-gray-400 mt-2 block">
+            {t('footer.contact')}
+          </Link>
         </div>
 
         {/* Colonne de droite */}
         <div className="flex flex-col items-end">
           <p className="text-lg font-bold mb-2">@thenevernamed</p>
           <div className="flex items-center gap-6 text-white">
+            {/* ...existing code... */}
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
             </a>
@@ -72,9 +80,11 @@ function Footer({ handleClose }) {
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 8.118c-2.136 0-3.863 1.727-3.863 3.863s1.727 3.863 3.863 3.863 3.863-1.727 3.863-3.863S14.136 8.118 12 8.118zM12 14.172c-1.186 0-2.156-.97-2.156-2.156s.97-2.156 2.156-2.156 2.156.97 2.156 2.156-.97 2.156-2.156 2.156zm4.803-6.402c-.783 0-1.418-.635-1.418-1.418s.635-1.418 1.418-1.418 1.418.635 1.418 1.418-.635 1.418-1.418 1.418z" clipRule="evenodd"></path></svg>
-            </a>   
+            </a>
           </div>
-          <p className="text-sm text-gray-400 mt-2">Website by  <a href="http://xuan-minh.github.io/">Xuan-Minh TRAN</a></p>  
+          <p className="text-sm text-gray-400 mt-2">
+            {t('footer.websiteBy')} <a href="http://xuan-minh.github.io/">Xuan-Minh TRAN</a>
+          </p>
         </div>
       </nav>
     </motion.footer>

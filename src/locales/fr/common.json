@@ -96,6 +96,10 @@
   "footer": {
     "privacy": "Politique de confidentialité",
     "contact": "Contact",
-    "copyright": "© 2025 Nevernamed Esport. Tous droits réservés"
+    "copyright": "© 2025 Nevernamed Esport. Tous droits réservés",
+    "closeLabel": "Fermer le pied de page",
+    "ariaLabel": "Pied de page",
+    "logoAlt": "Logo Nevernamed Esport",
+    "websiteBy": "Site réalisé par"
   }
 }
