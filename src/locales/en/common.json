@@ -10,6 +10,14 @@
     }
   },
   "hero": { "whatsOurName": "WHAT'S OUR NAME ?" },
+  "partners": {
+    "title": { "left": "OUR SPONSORS", "right": "PARTNERS" },
+    "become": {
+      "title": "BECOME A PARTNER",
+      "text": "Nevernamed is more than a team — it’s an ambitious project with a clear vision. By becoming our partner, you connect with the passion of the esports community and benefit from a dynamic platform to elevate your brand. Let’s discuss the opportunities and success we can build together.",
+      "button": "Contact us"
+    }
+  },
   "about": {
     "values": "OUR VALUES",
     "missions": "OUR MISSIONS",

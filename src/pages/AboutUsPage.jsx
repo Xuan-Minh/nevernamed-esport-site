@@ -47,8 +47,8 @@ const AboutUsPage = () => {
   const { t } = useTranslation();
 
   const i18nStaff = t('about.staffMembers', { returnObjects: true });
-  const staffData = Array.isArray(i18nStaff) && i18nStaff.length ? i18nStaff : defaultStaffData;
-
+  const staffData = (Array.isArray(i18nStaff) && i18nStaff.length ? i18nStaff : defaultStaffData)
+  .map(m => ({ ...m, socials: m.socials || {} }));
 
   return (
     <div className="text-white">
@@ -159,33 +159,21 @@ const AboutUsPage = () => {
                     </div>
 
                     <div className="mt-6 flex items-center gap-4 text-sm">
-                      {member.socials.twitter && (
-                        <a
-                          href={member.socials.twitter}
-                          aria-label="Twitter"
-                          className="hover:text-white/70 transition-colors"
-                        >
-                          <TwitterIcon />
-                        </a>
-                      )}
-                      {member.socials.twitch && (
-                        <a
-                          href={member.socials.twitch}
-                          aria-label="Twitch"
-                          className="hover:text-white/70 transition-colors"
-                        >
-                          <TwitchIcon />
-                        </a>
-                      )}
-                      {member.socials.linkedin && (
-                        <a
-                          href={member.socials.linkedin}
-                          aria-label="LinkedIn"
-                          className="hover:text-white/70 transition-colors"
-                        >
-                          <LinkedinIcon />
-                        </a>
-                      )}
+                      {member.socials?.twitter && (
+                         <a href={member.socials.twitter} aria-label="Twitter" className="hover:text-white/70 transition-colors">
+                           <TwitterIcon />
+                         </a>
+                       )}
+                      {member.socials?.twitch && (
+                         <a href={member.socials.twitch} aria-label="Twitch" className="hover:text-white/70 transition-colors">
+                           <TwitchIcon />
+                         </a>
+                       )}
+                      {member.socials?.linkedin && (
+                         <a href={member.socials.linkedin} aria-label="LinkedIn" className="hover:text-white/70 transition-colors">
+                           <LinkedinIcon />
+                         </a>
+                       )}
                     </div>
                   </div>
                 </AnimatedElement>

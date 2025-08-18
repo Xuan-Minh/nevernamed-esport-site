@@ -15,5 +15,9 @@ i18n
     interpolation: { escapeValue: false },
     detection: { order: ['querystring', 'localStorage', 'navigator', 'htmlTag'], caches: ['localStorage'] }
   });
-
+ // Met à jour <html lang="...">
+ document.documentElement.setAttribute('lang', i18n.resolvedLanguage || 'fr');
+ i18n.on('languageChanged', (lng) => {
+   document.documentElement.setAttribute('lang', lng);
+ });
 export default i18n;
