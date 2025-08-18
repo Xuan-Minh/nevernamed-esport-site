@@ -10,6 +10,7 @@ import TeamsPage from "./pages/TeamsPage";
 import PartnersPage from "./pages/PartnersPage";
 import SocialsPage from "./pages/SocialsPage";
 import PolitiquesPage from "./pages/PolitiquesPage";
+import 'flag-icons/css/flag-icons.min.css';
 
 const InfoIcon = () => (
   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
