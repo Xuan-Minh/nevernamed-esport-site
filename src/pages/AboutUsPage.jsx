@@ -4,6 +4,7 @@ import avatarPlaceholder from '../assets/avatar-placeholder.png';
 import Separator from '../components/Separator';
 import AnimatedElement from '../components/AnimatedElement';
 import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/Icons';
+import { useTranslation } from 'react-i18next'; // AJOUT
 
 const staffModules = import.meta.glob('../assets/staff/*.{png,jpg,jpeg,webp,svg}', { eager: true });
 const staffImages = Object.entries(staffModules).reduce((acc, [path, mod]) => {
@@ -14,7 +15,7 @@ const staffImages = Object.entries(staffModules).reduce((acc, [path, mod]) => {
 }, {});
 
 // Données Staff
-const staffData = [
+const defaultStaffData = [
   {
     name: 'Maestroke',
     avatar: avatarPlaceholder,
@@ -43,6 +44,12 @@ const staffData = [
 ];
 
 const AboutUsPage = () => {
+  const { t } = useTranslation();
+
+  const i18nStaff = t('about.staffMembers', { returnObjects: true });
+  const staffData = Array.isArray(i18nStaff) && i18nStaff.length ? i18nStaff : defaultStaffData;
+
+
   return (
     <div className="text-white">
       {/* Section 1: Hero plein écran */}
@@ -55,7 +62,7 @@ const AboutUsPage = () => {
               className="absolute inset-0 w-full h-full object-contain z-0 opacity-10"
             />
             <h1 className="relative font-unbounded text-4xl md:text-5xl font-bold z-10">
-              WHAT'S OUR NAME ?
+              {t('hero.whatsOurName')}
             </h1>
           </div>
         </AnimatedElement>
@@ -71,19 +78,14 @@ const AboutUsPage = () => {
                 <div className="flex-shrink-0 md:w-1/2">
                   <img
                     src={avatarPlaceholder}
-                    alt="Nos Valeurs"
+                    alt={t('about.values')}
                     className="rounded-lg w-full h-auto object-cover"
                   />
                 </div>
                 <div className="md:w-1/2 text-center md:text-left">
-                  <h2 className="font-unbounded text-3xl font-bold mb-6">NOS VALEURS</h2>
+                  <h2 className="font-unbounded text-3xl font-bold mb-6">{t('about.values')}</h2>
                   <p className="text-white/80 leading-relaxed">
-                    Nevernamed prône l'inclusivité, l'égalité, la mixité et l'apprentissage
-                    ainsi que la sensibilisation au secteur esportif et aux métiers du numérique
-                    à travers ses actions. Constituée de passionnés et professionnels, notre
-                    structure est prête à accueillir, accompagner et faire briller vos talents.
-                    Avec une équipe féminine en plein essor, Nevernamed s'engage à promouvoir
-                    et à aider à rendre l'esport féminin plus visible.
+                    {t('about.valuesText')}
                   </p>
                 </div>
               </div>
@@ -97,21 +99,14 @@ const AboutUsPage = () => {
                 <div className="flex-shrink-0 md:w-1/2">
                   <img
                     src={avatarPlaceholder}
-                    alt="Nos Missions"
+                    alt={t('about.missions')}
                     className="rounded-lg w-full h-auto object-cover"
                   />
                 </div>
                 <div className="md:w-1/2 text-center md:text-left">
-                  <h2 className="font-unbounded text-3xl font-bold mb-6">NOS MISSIONS</h2>
+                  <h2 className="font-unbounded text-3xl font-bold mb-6">{t('about.missions')}</h2>
                   <p className="text-white/80 leading-relaxed mb-12">
-                    Former, éduquer, accompagner et performer sont les missions de notre
-                    structure. En intervenant auprès de l'Éducation Nationale dans les collèges
-                    et lycées à travers différents ateliers sur l'univers de l'esport, nous
-                    participons à la sensibilisation concernant la mixité et l'inclusivité des
-                    métiers de l'univers de l'esport et du jeu vidéo. Aussi, nous accompagnons
-                    des joueuses dans leur carrière esportive afin de leur permettre de performer
-                    au plus haut de leur potentiel. NeverNamed est la structure de tous les
-                    possibles, mélangeant professionnalisme et bienveillance.
+                    {t('about.missionsText')}
                   </p>
                 </div>
               </div>
@@ -121,23 +116,23 @@ const AboutUsPage = () => {
           <Separator />
 
           <blockquote className="pl-6 italic text-white/70 font-poppins text-xl text-left">
-            <p>"Lorem ipsum dolor sit amet, consectetur."</p>
-            <cite className="block text-right not-italic mt-2">- Author</cite>
+            <p>{t('about.quote.text')}</p>
+            <cite className="block text-right not-italic mt-2">- {t('about.quote.author')}</cite>
           </blockquote>
 
           {/* Section 4: Notre Staff (cartes en grille 2 colonnes) */}
           <section className="w-full max-w-6xl font-poppins">
-            <h2 className="font-unbounded text-3xl font-bold text-center mb-14">NOTRE STAFF</h2>
+            <h2 className="font-unbounded text-3xl font-bold text-center mb-14">{t('about.staff')}</h2>
             <div className="grid gap-12 md:gap-14 md:grid-cols-2">
               {staffData.map((member) => (
                 <AnimatedElement key={member.name}>
                   <div className="relative h-full bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 flex flex-col border border-white/5 hover:border-white/15 transition-colors">
                     <div className="flex items-center gap-5 mb-5">
                       <img
-  src={staffImages[(member.avatar || member.name).toLowerCase()] || avatarPlaceholder}
-  alt={`Avatar de ${member.name}`}
-  className="w-24 h-24 rounded-full object-cover"
-/>
+                        src={staffImages[(member.avatar || member.name).toLowerCase()] || avatarPlaceholder}
+                        alt={`Avatar de ${member.name}`}
+                        className="w-24 h-24 rounded-full object-cover"
+                      />
                       <h3 className="font-unbounded text-xl md:text-2xl font-bold text-orange-400">
                         {member.name}
                       </h3>

@@ -1,0 +1,69 @@
+{
+  "header": {
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "teams": "Équipes",
+      "partners": "Partenaires",
+      "socialHub": "Social Hub",
+      "policies": "Politiques"
+    }
+  },
+  "hero": { "whatsOurName": "WHAT'S OUR NAME ?" },
+  "about": {
+    "values": "NOS VALEURS",
+    "missions": "NOS MISSIONS",
+    "staff": "NOTRE STAFF",
+    "staffMembers": [
+      {
+        "name": "Maestroke",
+        "avatar": "maestroke",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.",
+        "socials": { "twitter": "#", "twitch": "", "linkedin": "" }
+      },
+      {
+        "name": "Solenne",
+        "avatar": "solenne",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.",
+        "socials": { "twitter": "#", "twitch": "#", "linkedin": "" }
+      },
+      {
+        "name": "syNip",
+        "avatar": "synip",
+        "description": [
+          "Ancien joueur professionnel esport des années 2000. Tony a joué pour les plus grandes équipes françaises.",
+          "Depuis 2007, il travaille pour de nombreuses équipes professionnelles et a découvert plus de 50 joueurs sur la scène française et internationale.",
+          "Depuis 2018, il met son expertise au service du développement de l’esport en concevant des événements et des projets pour des entreprises et des institutions, notamment pour l’Éducation nationale et l’armée. Il intervient également en tant que conférencier et partage son expérience à travers des cours dans le secondaire sur l’esport et ses enjeux.",
+          "En 2024, il décide de reprendre le projet NeverNamed."
+        ],
+        "socials": { "twitter": "#", "twitch": "#", "linkedin": "#" }
+      }
+    ],
+    "valuesText": "Nevernamed prône l'inclusivité, l'égalité, la mixité et l'apprentissage ainsi que la sensibilisation au secteur esportif et aux métiers du numérique à travers ses actions. Constituée de passionnés et professionnels, notre structure est prête à accueillir, accompagner et faire briller vos talents. Avec une équipe féminine en plein essor, Nevernamed s'engage à promouvoir et à aider à rendre l'esport féminin plus visible.",
+    "missionsText": "Former, éduquer, accompagner et performer sont les missions de notre structure. En intervenant auprès de l'Éducation Nationale dans les collèges et lycées à travers différents ateliers sur l'univers de l'esport, nous participons à la sensibilisation concernant la mixité et l'inclusivité des métiers de l'univers de l'esport et du jeu vidéo. Aussi, nous accompagnons des joueuses dans leur carrière esportive afin de leur permettre de performer au plus haut de leur potentiel. NeverNamed est la structure de tous les possibles, mélangeant professionnalisme et bienveillance.",
+    "quote": { "text": "\"Lorem ipsum dolor sit amet, consectetur.\"", "author": "Auteur" }
+  },
+  "socialHub": {
+    "title": "SOCIAL HUB",
+    "channels": "NOS CHAINES"
+  },
+  "contact": {
+    "title": "CONTACTEZ NOUS",
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "email": "Email",
+    "phone": "Tél.",
+    "subject": "Sujet du message",
+    "topics": {
+      "partnership": "Partenariat",
+      "join": "Rejoindre la team",
+      "other": "Autres"
+    },
+    "send": "Envoyez votre message"
+  },
+  "footer": {
+    "privacy": "Politique de confidentialité",
+    "contact": "Contact",
+    "copyright": "© 2025 Nevernamed Esport. Tous droits réservés"
+  }
+}

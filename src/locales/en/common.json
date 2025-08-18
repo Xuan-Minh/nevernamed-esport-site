@@ -1,0 +1,69 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "teams": "Teams",
+      "partners": "Partners",
+      "socialHub": "Social Hub",
+      "policies": "Policies"
+    }
+  },
+  "hero": { "whatsOurName": "WHAT'S OUR NAME ?" },
+  "about": {
+    "values": "OUR VALUES",
+    "missions": "OUR MISSIONS",
+    "staff": "OUR STAFF",
+    "staffMembers": [
+      {
+        "name": "Maestroke",
+        "avatar": "maestroke",
+        "description": "Lorem ipsum dolor sit amet...",
+        "socials": { "twitter": "#", "twitch": "", "linkedin": "" }
+      },
+      {
+        "name": "Solenne",
+        "avatar": "solenne",
+        "description": "Lorem ipsum dolor sit amet...",
+        "socials": { "twitter": "#", "twitch": "#", "linkedin": "" }
+      },
+      {
+        "name": "syNip",
+        "avatar": "synip",
+        "description": [
+          "Former professional esports player from the 2000s. Tony played for top French teams.",
+          "Since 2007, he has worked with many professional teams and has brought to light over 50 players on the French and international scene.",
+          "Since 2018, he has contributed to esports development by designing events and projects for companies and institutions, including the Ministry of Education and the army. He also gives talks and shares his experience through classes in secondary schools on esports and its challenges.",
+          "In 2024, he decided to take over the NeverNamed project."
+        ],
+        "socials": { "twitter": "#", "twitch": "#", "linkedin": "#" }
+      }
+    ],
+    "valuesText": "Nevernamed promotes inclusivity, equality, diversity and learning, as well as raising awareness of esports and digital careers. Made up of passionate professionals, our structure is ready to welcome, support and make talents shine. With a growing women’s team, Nevernamed is committed to promoting and making women’s esports more visible.",
+    "missionsText": "Train, educate, support and perform are our missions. By working with the National Education system in middle and high schools through various workshops on esports, we raise awareness of diversity and inclusion in esports and video game-related careers. We also support players so they can perform at their full potential. NeverNamed blends professionalism and kindness.",
+    "quote": { "text": "\"Lorem ipsum dolor sit amet, consectetur.\"", "author": "Author" }
+  },
+  "socialHub": {
+    "title": "SOCIAL HUB",
+    "channels": "OUR CHANNELS"
+  },
+  "contact": {
+    "title": "CONTACT US",
+    "firstname": "First name",
+    "lastname": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Message subject",
+    "topics": {
+      "partnership": "Partnership",
+      "join": "Join the team",
+      "other": "Other"
+    },
+    "send": "Send your message"
+  },
+  "footer": {
+    "privacy": "Privacy policy",
+    "contact": "Contact",
+    "copyright": "© 2025 Nevernamed Esport. All rights reserved"
+  }
+}
