@@ -9,6 +9,15 @@
       "policies": "Politiques"
     }
   },
+  "home": {
+    "hero": { "title": "NEVERNAMED ESPORT" },
+    "ambition": {
+      "title": "PLUS QU’UNE ÉQUIPE, UNE AMBITION",
+      "text": "Nous sommes une structure émergente et passionnée, dédiée à la promotion et à la visibilité des ligues féminines dans l'e‑sport. Notre mission est de renforcer la représentation des femmes dans l’univers du jeu vidéo et de contribuer à une culture plus inclusive.",
+      "cta": "Découvrir nos rosters",
+      "imageAlt": "L'équipe Nevernamed"
+    }
+  },
   "hero": { "whatsOurName": "WHAT'S OUR NAME ?" },
   "partners": {
     "title": { "left": "NOS SPONSORS", "right": "PARTENAIRES" },
@@ -53,7 +62,21 @@
   },
   "socialHub": {
     "title": "SOCIAL HUB",
-    "channels": "NOS CHAINES"
+    "channels": "NOS CHAINES",
+    "posts": {
+      "1": {
+        "date": "28/07/2025",
+        "caption": "Notre victoire hier soir sur scène ! Fier-ère d'elles!"
+      },
+      "2": {
+        "date": "28/07/2025",
+        "caption": "Un match incroyable, une performance à couper le souffle."
+      },
+      "3": {
+        "date": "28/07/2025",
+        "caption": "Revivez les meilleurs moments de la finale dans notre dernière vidéo !"
+      }
+    }
   },
   "contact": {
     "title": "CONTACTEZ NOUS",
@@ -62,6 +85,7 @@
     "email": "Email",
     "phone": "Tél.",
     "subject": "Sujet du message",
+    "message": "Message",
     "topics": {
       "partnership": "Partenariat",
       "join": "Rejoindre la team",

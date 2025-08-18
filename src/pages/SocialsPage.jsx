@@ -5,6 +5,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import Separator from '../components/Separator';
 import Button from '../components/Button';
 import AnimatedElement from '../components/AnimatedElement';
+import { useTranslation } from 'react-i18next';
 
 // Données fictives pour les publications sur les réseaux sociaux
 const socialPosts = [
@@ -36,6 +37,7 @@ const socialPosts = [
 
 function SocialsPage() {
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (location.hash) {
@@ -51,8 +53,8 @@ function SocialsPage() {
         <AnimatedElement>
         <section className="relative min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
           <div className="w-full text-center translate-y-10 md:translate-y-14">
-            <h1 className="font-unbounded text-5xl font-bold mb-12">SOCIAL HUB</h1>
-            <h2 className="font-unbounded text-3xl font-bold mb-6">NOS CHAINES</h2>
+            <h1 className="font-unbounded text-5xl font-bold mb-12">{t('socialHub.title')}</h1>
+            <h2 className="font-unbounded text-3xl font-bold mb-6">{t('socialHub.channels')}</h2>
             <div className="flex justify-center items-center gap-10 text-4xl">
               <a href="#" className="text-white/70 hover:text-white transition-colors"><FaInstagram /></a>
               <a href="#" className="text-white/70 hover:text-white transition-colors"><FaXTwitter /></a>
@@ -72,15 +74,15 @@ function SocialsPage() {
                 className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 text-left flex flex-col shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300"
               >
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-xs text-white/60">{post.date}</span>
+                  <span className="text-xs text-white/60">{t(`socialHub.posts.${post.id}.date`, { defaultValue: post.date })}</span>
                   <span className="text-xl text-white/80">{post.icon}</span>
                 </div>
                 <img
                   src={post.image}
-                  alt={post.caption}
+                  alt={t(`socialHub.posts.${post.id}.caption`, { defaultValue: post.caption })}
                   className="rounded-lg w-full h-48 object-cover mb-4"
                 />
-                <p className="text-white/90 flex-grow">{post.caption}</p>
+                <p className="text-white/90 flex-grow">{t(`socialHub.posts.${post.id}.caption`, { defaultValue: post.caption })}</p>
               </div>
             ))}
           </div>
@@ -92,11 +94,11 @@ function SocialsPage() {
         {/* FORMULAIRE CONTACT */}
         <AnimatedElement>
         <section id="contact-form" className="max-w-4xl mx-auto mt-8 mb-0 text-left">
-          <h2 className="font-unbounded text-3xl font-bold text-center mb-6">CONTACTEZ NOUS</h2>
+          <h2 className="font-unbounded text-3xl font-bold text-center mb-6">{t('contact.title')}</h2>
           <form>
             <div className="grid font-poppins md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label htmlFor="prenom" className="block text-sm font-medium text-white/70 mb-2">Prénom</label>
+                <label htmlFor="prenom" className="block text-sm font-medium text-white/70 mb-2">{t('contact.firstname')}</label>
                 <input
                   type="text"
                   id="prenom"
@@ -104,7 +106,7 @@ function SocialsPage() {
                 />
               </div>
               <div>
-                <label htmlFor="nom" className="block text-sm font-medium text-white/70 mb-2">Nom</label>
+                <label htmlFor="nom" className="block text-sm font-medium text-white/70 mb-2">{t('contact.lastname')}</label>
                 <input
                   type="text"
                   id="nom"
@@ -112,7 +114,7 @@ function SocialsPage() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-2">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-2">{t('contact.email')}</label>
                 <input
                   type="email"
                   id="email"
@@ -120,7 +122,7 @@ function SocialsPage() {
                 />
               </div>
               <div>
-                <label htmlFor="tel" className="block text-sm font-medium text-white/70 mb-2">Tél.</label>
+                <label htmlFor="tel" className="block text-sm font-medium text-white/70 mb-2">{t('contact.phone')}</label>
                 <input
                   type="tel"
                   id="tel"
@@ -130,22 +132,22 @@ function SocialsPage() {
             </div>
 
             <div className="mb-6 font-poppins">
-              <label className="block text-sm font-medium text-white/70 mb-3">Sujet du message</label>
+              <label className="block text-sm font-medium text-white/70 mb-3">{t('contact.subject')}</label>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" defaultChecked /> Partenariat
+                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" defaultChecked /> {t('contact.topics.partnership')}
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" /> Rejoindre la team
+                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" /> {t('contact.topics.join')}
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="form-checkbox bg-gray-700 border-gray-600 text-cyan-500 focus:ring-cyan-500" /> Autres
+                  <input type="checkbox" className="form-checkbox bg-gray-700 border-gray-600 text-cyan-500 focus:ring-cyan-500" /> {t('contact.topics.other')}
                 </label>
-              </div>
+            </div>
             </div>
 
             <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-2">Message</label>
+              <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-2">{t('contact.message')}</label>
               <textarea
                 id="message"
                 rows="5"
@@ -154,7 +156,7 @@ function SocialsPage() {
             </div>
 
             <div className="text-center pb-10">
-              <Button type="submit">Envoyez votre message</Button>
+              <Button type="submit">{t('contact.send')}</Button>
             </div>
           </form>
         </section>

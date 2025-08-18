@@ -9,6 +9,15 @@
       "policies": "Policies"
     }
   },
+  "home": {
+    "hero": { "title": "NEVERNAMED ESPORT" },
+    "ambition": {
+      "title": "MORE THAN A TEAM, A VISION",
+      "text": "We are an emerging, passionate organization dedicated to promoting and increasing the visibility of women’s leagues in esports. Our mission is to strengthen women’s representation in gaming and contribute to a more inclusive culture.",
+      "cta": "Discover our rosters",
+      "imageAlt": "The Nevernamed team"
+    }
+  },
   "hero": { "whatsOurName": "WHAT'S OUR NAME ?" },
   "partners": {
     "title": { "left": "OUR SPONSORS", "right": "PARTNERS" },
@@ -51,9 +60,23 @@
     "missionsText": "Train, educate, support and perform are our missions. By working with the National Education system in middle and high schools through various workshops on esports, we raise awareness of diversity and inclusion in esports and video game-related careers. We also support players so they can perform at their full potential. NeverNamed blends professionalism and kindness.",
     "quote": { "text": "\"Lorem ipsum dolor sit amet, consectetur.\"", "author": "Author" }
   },
-  "socialHub": {
+   "socialHub": {
     "title": "SOCIAL HUB",
-    "channels": "OUR CHANNELS"
+    "channels": "OUR CHANNELS",
+    "posts": {
+      "1": {
+        "date": "07/28/2025",
+        "caption": "Our victory on stage last night! So proud!"
+      },
+      "2": {
+        "date": "07/28/2025",
+        "caption": "An incredible match and a breathtaking performance."
+      },
+      "3": {
+        "date": "07/28/2025",
+        "caption": "Relive the best moments of the final in our latest video!"
+      }
+    }
   },
   "contact": {
     "title": "CONTACT US",
@@ -62,6 +85,7 @@
     "email": "Email",
     "phone": "Phone",
     "subject": "Message subject",
+    "message": "Message",
     "topics": {
       "partnership": "Partnership",
       "join": "Join the team",
