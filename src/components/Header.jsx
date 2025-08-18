@@ -68,8 +68,12 @@ function Header() {
     },
   };
 
-  return (
-    <header className="font-unbounded w-full p-4 fixed top-0 left-0 z-50 transition-colors duration-300 bg-brand-dark/90 backdrop-blur-lg">
+ return (
+    <header
+      className={`font-unbounded w-full p-4 fixed top-0 left-0 z-50 transition-colors duration-300 ${
+        isScrolled || isOpen ? 'bg-brand-dark/90 backdrop-blur-lg' : 'bg-gradient-to-b from-black/70 to-transparent'
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <img src={logoSvg} alt="Logo Nevernamed Esport" className="h-16 md:h-20 w-auto" />
