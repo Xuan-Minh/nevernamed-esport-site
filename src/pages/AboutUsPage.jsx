@@ -53,7 +53,7 @@ const AboutUsPage = () => {
   return (
     <div className="text-white">
       {/* Section 1: Hero plein écran */}
-      <section className="h-screen w-full flex flex-col justify-center items-center text-center p-3">
+      <section className="h-[80vh] w-full flex flex-col justify-center items-center text-center p-3">
         <AnimatedElement>
           <div className="relative flex justify-center items-center w-full max-w-2xl h-96">
             <img
