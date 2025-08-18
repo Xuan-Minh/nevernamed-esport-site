@@ -15,9 +15,7 @@ export default {
         'unbounded': ['Unbounded', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
         'amanojaku': ['Amanojaku', 'sans-serif'],
-          'teko': ['"Teko"', 'sans-serif'],
       },
-      // NOUVEAU: Définition de l'animation et des keyframes
         animation: {
         marquee: 'marquee 40s linear infinite',
       },
