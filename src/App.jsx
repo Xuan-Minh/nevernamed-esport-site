@@ -29,7 +29,6 @@ const showSignature = () => {
   ].join(';');
 
   const textStyles = 'font-family: sans-serif;';
-
   console.log('%cSite développé par Xuan-Minh TRAN - https://xuan-minh.github.io/', textStyles);
 };
 

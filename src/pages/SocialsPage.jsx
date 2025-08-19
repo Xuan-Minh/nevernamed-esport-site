@@ -135,15 +135,31 @@ function SocialsPage() {
               <label className="block text-sm font-medium text-white/70 mb-3">{t('contact.subject')}</label>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" defaultChecked /> {t('contact.topics.partnership')}
+                  <input
+                    type="radio"
+                    name="topic"
+                    value="partnership"
+                    className="form-radio bg-gray-700 text-cyan-500 focus:ring-cyan-500"
+                    defaultChecked
+                  /> {t('contact.topics.partnership')}
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="form-checkbox bg-gray-700 text-cyan-500 focus:ring-cyan-500" /> {t('contact.topics.join')}
+                  <input
+                    type="radio"
+                    name="topic"
+                    value="join"
+                    className="form-radio bg-gray-700 text-cyan-500 focus:ring-cyan-500"
+                  /> {t('contact.topics.join')}
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="form-checkbox bg-gray-700 border-gray-600 text-cyan-500 focus:ring-cyan-500" /> {t('contact.topics.other')}
+                  <input
+                    type="radio"
+                    name="topic"
+                    value="other"
+                    className="form-radio bg-gray-700 border-gray-600 text-cyan-500 focus:ring-cyan-500"
+                  /> {t('contact.topics.other')}
                 </label>
-            </div>
+              </div>
             </div>
 
             <div className="mb-6">
