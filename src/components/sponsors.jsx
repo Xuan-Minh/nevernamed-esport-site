@@ -49,4 +49,14 @@ export const sponsors = [
       website: '#',
     }
   },
+  {
+    id: 'sponso-F', // Correspond à Weriseup
+    name: 'WeRiseUp',
+    subtitle: '*',
+    description: '6',
+    socials: {
+      twitter: '#',
+      website: '#',
+    }
+  },
 ];

@@ -19,10 +19,31 @@ const InfoIcon = () => (
   </svg>
 );
 
+// Signature à afficher dans la console du navigateur
+const showSignature = () => {
+  const signatureStyles = [
+    'color: #F89C2C', // Orange
+    'font-size: 1.2em',
+    'font-weight: bold',
+    'font-family: monospace',
+  ].join(';');
+
+  const textStyles = 'font-family: sans-serif;';
+
+  console.log('%cSite développé par Xuan-Minh TRAN - https://xuan-minh.github.io/', textStyles);
+};
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [isFooterOpen, setIsFooterOpen] = useState(false);
+
+
+    // Affiche la signature une seule fois au montage du composant
+  useEffect(() => {
+    showSignature();
+  }, []);
+
 
   // Effet pour simuler le chargement
   useEffect(() => {
