@@ -58,6 +58,8 @@ const HomePage = ({ isLoading }) => {
 
       {/* Section 4: Bandeau défilant en pleine largeur */}
       <Nowornever />
+
+      {/* Section 5: Derniers posts Insta*/}
       <LatestPost />
     </div>
   );
