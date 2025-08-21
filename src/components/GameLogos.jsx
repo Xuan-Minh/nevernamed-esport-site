@@ -1,22 +1,18 @@
-// filepath: c:\MAMP\htdocs\nevernamed-esport-site\src\components\GameLogos.jsx
 import React from 'react';
 
-// REMPLACEZ CES SVG par les vôtres. Ce sont des exemples.
-// Assurez-vous que le SVG a une viewBox et que vous pouvez contrôler sa couleur avec `fill="currentColor"`.
+// Importez vos fichiers SVG comme des composants React.
+// Le `?react` à la fin est la syntaxe moderne de Vite pour cela.
+import LolLogo from '../assets/teams/logotype-lol.svg?react';
+import ValorantLogo from '../assets/teams/logotype-valo.svg?react';
+
+
+// Chaque composant exporté rend simplement le SVG importé,
+// en lui passant la className pour le style.
 export const LolLogoText = ({ className }) => (
-  <svg className={className} viewBox="0 0 200 50" fill="currentColor">
-    <text x="0" y="40" fontFamily="Arial, sans-serif" fontSize="40" fontWeight="bold">LEAGUE <tspan fill="#5383E8">of</tspan> LEGENDS</text>
-  </svg>
+  <LolLogo className={className} />
 );
 
 export const ValorantLogoText = ({ className }) => (
-  
-<svg className={className} viewBox="0 0 200 50" fill="currentColor">
-     <text x="0" y="40" fontFamily="Arial, sans-serif" fontSize="45" fontWeight="bold">VALORANT</text>
-  </svg>
+  <ValorantLogo className={className} />
 );
-export const R6LogoText = ({ className }) => (
-    <svg className={className} viewBox="0 0 200 50" fill="currentColor">
-        <text x="0" y="40" fontFamily="Arial, sans-serif" fontSize="40" fontWeight="bold">RAINBOW SIX</text>
-    </svg>
-);
+

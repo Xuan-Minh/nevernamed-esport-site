@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ArrowIcon from './ArrowIcon';
 
 // --- Données et Composants ---
-import { LolLogoText, ValorantLogoText, R6LogoText } from './GameLogos';
+import { LolLogoText, ValorantLogoText } from './GameLogos';
 import lolImage from '../assets/teams/lol-bg.jpg';
 import valorantImage from '../assets/teams/valorant-bg.jpg';
 
