@@ -1,12 +1,17 @@
 import { motion } from 'framer-motion';
 import logoSvg from '../assets/logo.svg';
 
-// Le composant reçoit la progression en prop
 function LoadingScreen({ progress }) {
-  // 2. Augmentation de la taille du cercle
-  const radius = 120; // Agrandit le rayon de 80 à 120
+  const radius = 120;
   const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+  // Valeur sûre et bornée 0–100
+  const safeProgress =
+    typeof progress === 'number' && isFinite(progress)
+      ? Math.max(0, Math.min(100, progress))
+      : 0;
+
+  const strokeDashoffset = circumference - (safeProgress / 100) * circumference;
 
   return (
     <motion.div
@@ -25,32 +30,29 @@ function LoadingScreen({ progress }) {
         />
 
         {/* Cercle de progression SVG */}
-        <svg className="absolute top-0 left-0 w-full h-full -rotate-90">
-          {/* Cercle de fond (la piste) */}
+         <svg className="absolute top-0 left-0 w-full h-full -rotate-90">
           <circle
-            cx="160" cy="160" r={radius} // Centre ajusté pour le conteneur de 320px (w-80)
-            stroke="#374151" // gray-700
+            cx="160" cy="160" r={radius}
+            stroke="#374151"
             strokeWidth="4"
             fill="transparent"
           />
-          {/* Cercle de progression animé */}
           <motion.circle
-            cx="160" cy="160" r={radius} // Centre ajusté
+            cx="160" cy="160" r={radius}
             stroke="white"
             strokeWidth="4"
             fill="transparent"
             strokeLinecap="round"
-            strokeDasharray={circumference}
-            // 1. Déplacer strokeDashoffset dans la prop "animate"
-            animate={{ strokeDashoffset }}
-            transition={{ duration: 0.1, ease: "linear" }}
+            style={{ strokeDasharray: circumference }}
+            initial={{ strokeDashoffset: circumference }}   // valeur d’origine
+            animate={{ strokeDashoffset }}                  // valeur cible
+            transition={{ duration: 0.15, ease: 'linear' }}
           />
         </svg>
       </div>
 
-      {/* Pourcentage de chargement */}
       <p className="mt-8 text-sm tracking-widest">
-        {Math.round(progress)}%
+        {Math.round(safeProgress)}%
       </p>
     </motion.div>
   );
