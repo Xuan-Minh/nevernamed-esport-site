@@ -74,16 +74,17 @@ Pour lancer le projet en local, suivez ces étapes :
 ## 📂 Structure du Projet
 
 ​/
-├── public/
-│   └── locales/      # Fichiers de traduction
-├── src/
-│   ├── assets/       # Polices, images, etc.
-│   ├── components/   # Composants réutilisables (Header, Button...)
-│   ├── pages/        # Composants de page (HomePage, AboutUsPage...)
-│   ├── App.jsx       # Composant principal avec le routeur
-│   ├── main.jsx      # Point d'entrée de l'application
-│   └── index.css     # Fichier CSS global
-└── ...
+-- public/
+   -- locales/      # Fichiers de traduction
+-- src/
+   -- assets/       # Polices, images, etc.
+   -- components/   # Composants réutilisables (Header, Button...)
+   -- pages/        # Composants de page (HomePage, AboutUsPage...)
+   -- App.jsx       # Composant principal avec le routeur
+   -- main.jsx      # Point d'entrée de l'application
+   -- index.css     # Fichier CSS global
+-- ...
+
 
 
 ---
