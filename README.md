@@ -1,96 +1,105 @@
-# NeverNamed E-sport - Site Vitrine
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+<p align="center">
+  <img src="public/logo.png" alt="NeverNamed Logo" width="120"/>
+</p>
 
-Ce projet est le site vitrine officiel de l'équipe e-sport **NeverNamed**, développé dans le cadre de mon stage de fin d'études. L'objectif est de fournir une plateforme professionnelle pour présenter l'équipe, ses joueurs, ses partenaires et son actualité.
+<h1 align="center">🎮 NeverNamed Esport Site</h1>
 
-*(Pensez à remplacer ce lien par une capture d'écran de votre page d'accueil !)*
-![Image de la page d'accueil du site NeverNamed](https://placehold.co/800x400/000719/FFF?text=Screenshot+du+Site)
+<p align="center">
+  <a href="https://nevernamed-esport-site.vercel.app/"><img src="https://img.shields.io/badge/Site%20en%20ligne-Vercel-000?logo=vercel&logoColor=white" alt="Vercel"></a>
+  <img src="https://img.shields.io/github/package-json/v/Xuan-Minh/nevernamed-esport-site?color=blue&label=version" alt="Version">
+  <img src="https://img.shields.io/github/license/Xuan-Minh/nevernamed-esport-site?color=green" alt="License">
+  <img src="https://img.shields.io/github/last-commit/Xuan-Minh/nevernamed-esport-site?color=orange" alt="Last commit">
+</p>
 
----
-
-## ✨ Fonctionnalités
-
-* **Accueil :** Présentation de la structure et des derniers posts sociaux.
-* **Équipes (Rosters) :** Pages dédiées à chaque équipe (League of Legends, Valorant) avec une présentation détaillée de chaque joueur.
-* **À Propos :** Présentation des valeurs et des missions de l'organisation.
-* **Partenaires :** Mise en avant des sponsors et partenaires de l'équipe.
-* **Social Hub :** Page de contact et agrégation des réseaux sociaux.
-* **Multilinguisme :** Site disponible en Français et en Anglais.
+<p align="center">
+  Plateforme web dédiée à l'équipe <b>NeverNamed</b> pour la gestion et la présentation de ses activités esport.
+  <br>
+  <a href="https://nevernamed-esport-site.vercel.app/">🌐 Voir le site en ligne</a>
+</p>
 
 ---
 
-## 🛠️ Stack Technique
+## 🛠️ Stack technique
 
-Ce projet est construit avec une stack moderne et performante :
+| Frontend  | Routing        | State Management | Styles          | Déploiement |
+|-----------|---------------|------------------|-----------------|-------------|
+| React.js  | React Router  | Context/Redux\*  | CSS3/SASS       | Vercel      |
 
-* **Framework :** [React.js](https://reactjs.org/)
-* **Outil de build :** [Vite](https://vitejs.dev/)
-* **Style :** [Tailwind CSS](https://tailwindcss.com/)
-* **Routing :** [React Router DOM](https://reactrouter.com/)
-* **Animations :** [Framer Motion](https://www.framer.com/motion/)
-* **Internationalisation (i18n) :** [i18next](https://www.i18next.com/)
+\* À ajuster selon ton projet
 
 ---
 
 ## 🚀 Installation & Lancement
 
-Pour lancer le projet en local, suivez ces étapes :
+### Prérequis
 
-1.  **Clonez le repository :**
-    ```bash
-    git clone [https://github.com/](https://github.com/)[votre-username]/[votre-repo].git
-    ```
+- Node.js & npm
+- Git
 
-2.  **Naviguez dans le dossier du projet :**
-    ```bash
-    cd nevernamed-esport-site
-    ```
+### Étapes
 
-3.  **Installez les dépendances :**
-    ```bash
-    npm install
-    ```
-
-4.  **Lancez le serveur de développement :**
-    ```bash
-    npm run dev
-    ```
-    Le site sera alors accessible à l'adresse `http://localhost:5173/`.
-
----
-
-## 📜 Scripts Disponibles
-
-* `npm run dev`: Lance l'application en mode développement.
-* `npm run build`: Compile et optimise l'application pour la production dans le dossier `dist`.
-* `npm run lint`: Analyse le code pour trouver des erreurs de style et de syntaxe.
-* `npm run preview`: Lance un serveur local pour prévisualiser la version de production.
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/Xuan-Minh/nevernamed-esport-site.git
+   ```
+2. **Installer les dépendances**
+   ```bash
+   cd nevernamed-esport-site
+   npm install
+   ```
+3. **Lancer le projet en local**
+   ```bash
+   npm run dev
+   ```
+   Rendez-vous sur [http://localhost:5173](http://localhost:5173) (ou le port affiché dans le terminal).
 
 ---
 
-## 📂 Structure du Projet
+## 🗂️ Structure du projet
 
-📦 public/
- └── 🌍 locales/           # Fichiers de traduction (i18n)
-
-📦 src/
- ├── 🎨 assets/            # Polices, images, icônes, etc.
- ├── 🧩 components/        # Composants réutilisables (Header, Button, ...)
- ├── 📄 pages/             # Composants de page (HomePage, AboutUsPage, ...)
- ├── 🏠 App.jsx            # Composant principal avec le routeur
- ├── 🚀 main.jsx           # Point d'entrée de l'application
- └── 🎛️ index.css         # Fichier CSS global
-
-...
-
+```
+nevernamed-esport-site/
+│
+├── public/
+│   ├── logo.png         # Logo de l'équipe
+│   └── ...              # Autres fichiers statiques (images, favicon, etc.)
+│
+├── src/
+│   ├── assets/          # Images, polices, icônes, etc.
+│   ├── components/      # Composants réutilisables (Navbar, Footer, etc.)
+│   ├── pages/           # Pages principales (Home, Team, Events, Contact, ...)
+│   ├── App.jsx          # Composant principal, gestion du router
+│   ├── main.jsx         # Point d'entrée de l'application
+│   └── index.css        # Styles globaux
+│
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.js
+```
 
 ---
 
-## 👨‍💻 Auteur
+## 👤 Auteur
 
-* **Xuan-Minh TRAN** - xuan-minh.github.io
+- **Xuan-Minh TRAN** — Développement & intégration du site
 
-Ce projet a été réalisé dans le cadre de mon stage chez **NeverNamed**.
+---
+
+## ⚖️ Licence
+
+Ce projet est soumis à la licence choisie dans ce dépôt. Consulte [LICENSE](LICENSE) pour plus d’informations.
+
+---
+
+<p align="center">
+  <img src="public/preview.png" alt="Aperçu du site" width="60%"/>
+</p>
+
+---
+
+N’hésite pas à contribuer, signaler un bug ou proposer des idées d’amélioration !  
+Pour toute question, contacte-moi sur GitHub.
+
+---
