@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="public/assets/logo.png" alt="NeverNamed Logo" width="120"/>
+  <img src="public/assets/mainlogo.png" alt="NeverNamed Logo" width="120"/>
 </p>
 
 <h1 align="center">🎮 NeverNamed Esport Site</h1>
