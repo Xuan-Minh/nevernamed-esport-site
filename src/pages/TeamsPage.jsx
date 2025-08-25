@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GameSelectionCarousel from '../components/GameSelectionCarousel';
 import TeamDetailView from '../components/TeamDetailView';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 
 // Vous pouvez centraliser vos données ici ou les importer
 const teamsData = [
@@ -35,6 +36,12 @@ function TeamsPage() {
   };
 
   return (
+    <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.4 }}
+>
     <main className="">
       <Helmet>
         <title>NeverNamed Esport - Nos équipes</title>
@@ -46,6 +53,7 @@ function TeamsPage() {
         <GameSelectionCarousel onTeamSelect={handleTeamSelect} />
       )}
     </main>
+    </motion.div>
   );
 }
 

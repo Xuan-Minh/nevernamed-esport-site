@@ -89,7 +89,8 @@ function App() {
             <Header />
             {/* Ajout du padding pour ne pas que le contenu soit caché par le header absolu */}
             <main className="overflow-x-hidden">
-              <Routes>
+              <AnimatePresence mode="wait">
+              <Routes location={location} key={location.pathname}>
                 <Route index element={<HomePage isLoading={loading} />} />
                 <Route path="/a-propos" element={<AboutUsPage />} />
                 <Route path="/equipes" element={<TeamsPage />} />
@@ -97,6 +98,7 @@ function App() {
                 <Route path="/socialhub" element={<SocialsPage />} />
                 <Route path="/politiques" element={<PolitiquesPage />} />
               </Routes>
+              </AnimatePresence>
             </main>
           </div>
 

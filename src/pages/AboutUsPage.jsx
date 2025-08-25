@@ -6,6 +6,7 @@ import AnimatedElement from '../components/AnimatedElement';
 import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/Icons';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 
 
 const staffModules = import.meta.glob('../assets/staff/*.{png,jpg,jpeg,webp,svg}', { eager: true });
@@ -53,6 +54,12 @@ const AboutUsPage = () => {
     .map(m => ({ ...m, socials: m.socials || {} }));
 
   return (
+    <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.4 }}
+>
     <div className="text-white py-16 md:py-24">
       <Helmet>
         <title>NeverNamed Esport - À propos</title>
@@ -198,6 +205,7 @@ const AboutUsPage = () => {
         </main>
       </div>
     </div>
+    </motion.div>
   );
 };
 

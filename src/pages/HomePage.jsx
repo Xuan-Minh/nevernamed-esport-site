@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import AnimatedElement from '../components/AnimatedElement';
+import { motion } from 'framer-motion';
 
 // Import des composants
 import HeroSection from '../components/HeroSection';
@@ -20,8 +21,13 @@ const HomePage = ({ isLoading }) => {
   const { t } = useTranslation();
       
   return (
+    <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.4 }}
+>
    
-    // Le conteneur principal de la page n'a AUCUN padding.
     <div className="text-white">
       <Helmet>
         <title>NeverNamed Esport - Accueil</title>
@@ -70,6 +76,7 @@ const HomePage = ({ isLoading }) => {
 
       <LatestPost />
     </div>
+    </motion.div> 
   );
 };
 

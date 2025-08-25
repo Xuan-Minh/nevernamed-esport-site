@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import AnimatedElement from '../components/AnimatedElement';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 
 // Données fictives pour les publications sur les réseaux sociaux
 const socialPosts = [
@@ -48,6 +49,12 @@ function SocialsPage() {
   }, [location]);
 
   return (
+    <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 0.4 }}
+>
     <div className="text-white">
       <Helmet>
         <title>NeverNamed Esport - Social Hub</title>
@@ -183,6 +190,7 @@ function SocialsPage() {
         </AnimatedElement>
       </div>
     </div>
+    </motion.div>
   );
 }
 

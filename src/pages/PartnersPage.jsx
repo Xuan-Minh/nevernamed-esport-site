@@ -9,6 +9,7 @@ import Separator from '../components/Separator';
 import AnimatedElement from '../components/AnimatedElement';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 
 // --- Importation dynamique des logos SVG ---
 const sponsorLogoModules = import.meta.glob('../assets/sponsors/*.svg', { eager: true });
@@ -59,6 +60,13 @@ function PartnersPage() {
   };
 
   return (
+     <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+      className="min-h-screen flex flex-col justify-center text-white pt-32 pb-20 px-4"
+    >
     <div className="min-h-screen flex flex-col justify-center text-white pt-32 pb-20 px-4">
       <Helmet>
         <title>NeverNamed Esport - Partenaires & Sponsors</title>
@@ -187,6 +195,7 @@ function PartnersPage() {
           </div>
       </div>
     </div>
+    </motion.div>
   );
 }
 
