@@ -33,13 +33,16 @@ body {
 
 @layer utilities {
   @keyframes marquee {
-    from { transform: translateX(0%); }
-    to { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
-
   .animate-marquee {
-    /* Ajustez la durée (40s) pour changer la vitesse de défilement */
-    animation: marquee 40s linear infinite;
+    animation: marquee 30s linear infinite;
+  }
+  @media (max-width: 640px) {
+    .animate-marquee {
+      animation-duration: 8s !important;
+    }
   }
 }
 
