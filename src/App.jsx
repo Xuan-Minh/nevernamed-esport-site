@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
@@ -74,6 +75,7 @@ function App() {
   }, [loading]);
 
   return (
+    
     <div className="relative min-h-screen">
       <AnimatePresence>
         {loading && <LoadingScreen progress={progress} />}
@@ -82,6 +84,7 @@ function App() {
       {/* Le contenu de l'application n'est rendu qu'après le chargement */}
       {!loading && (
         <>
+        <ScrollToTop />
           <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
             <Header />
             {/* Ajout du padding pour ne pas que le contenu soit caché par le header absolu */}
