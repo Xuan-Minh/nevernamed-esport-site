@@ -1,7 +1,7 @@
 function Nowornever() {
   return (
     // Le conteneur qui cache le débordement
-    <div className="w-full overflow-x-hidden overflow-y-hidden py-16">
+   <div className="w-full overflow-x-hidden overflow-y-hidden py-20 sm:py-28">
       {/* Le conteneur qui empêche le retour à la ligne */}
       <div className="flex whitespace-nowrap">
         {/* Premier bloc de texte, animé */}

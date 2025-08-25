@@ -101,7 +101,7 @@ function Header() {
             animate="visible"
             exit="exit"
             variants={menuVariants}
-            className="md:hidden container mx-auto overflow-hidden" // overflow-hidden est crucial
+            className="md:hidden container mx-auto overflow-hidden bg-brand-dark/95 backdrop-blur-lg rounded-xl mt-2"
           >
             <nav className="flex flex-col items-center gap-6 py-8 border-t border-white/10 mt-4">
               {navItems.map(item => (

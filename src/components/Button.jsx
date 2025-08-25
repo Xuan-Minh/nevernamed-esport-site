@@ -4,16 +4,17 @@ import arrowSvg from "../assets/arrow.svg";
 
 function Button({ children, onClick, className = "" }) {
   return (
-    <motion.button
-      onClick={onClick}
-      className={`
-        group font-unbounded bg-transparent border-2 border-white rounded-full flex items-center gap-2
-        px-4 py-2 text-base
-        sm:px-6 sm:py-3 sm:text-lg
-        md:px-8 md:py-4 md:text-xl
-        hover:bg-white/10 transition-colors duration-300
-        ${className}
-      `}
+      <motion.button
+    onClick={onClick}
+    className={`
+      group font-unbounded bg-transparent border-2 border-white rounded-full flex items-center gap-2
+      px-4 py-2 text-base
+      sm:px-6 sm:py-3 sm:text-lg
+      md:px-8 md:py-4 md:text-xl
+      hover:bg-white/10 transition-colors duration-300
+      focus:outline-none focus:ring-2 focus:ring-cyan-500
+      ${className}
+    `}
     >
       {children}
       <img

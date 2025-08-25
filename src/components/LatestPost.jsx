@@ -5,10 +5,11 @@ import arrowIcon from '../assets/arrow.svg';
 import { InstagramIcon, TwitterIcon, YoutubeIcon } from './Icons';
 
 function LatestPost() {
+
   const scrollContainerRef = useRef(null);
   const posts = Array(8).fill({ image: postImage });
   const isMobile = window.innerWidth < 640;
-const visiblePosts = isMobile ? posts.slice(0, 3) : posts;
+  const visiblePosts = isMobile ? posts.slice(0, 2) : posts;
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -21,39 +22,43 @@ const visiblePosts = isMobile ? posts.slice(0, 3) : posts;
   };
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold mb-8 font-unbounded text-left">
-        DERNIERS POSTS
-      </h2>
-      <div className="relative">
-        <div
-          ref={scrollContainerRef}
-          className="flex items-center gap-6 overflow-x-auto pb-4 scrollbar-hide"
-        >
-          {visiblePosts.map((post, index) => (
-            <div key={index} className="flex-shrink-0 w-4/5 sm:w-1/3 md:w-1/4">
-              <img src={post.image} alt={`Post ${index + 1}`} className="w-full h-auto object-cover rounded-2xl" />
-            </div>
-          ))}
+    <div className="container mx-auto px-4 py-20 sm:py-24">
+  <h2 className="text-2xl sm:text-3xl font-bold mb-8 font-unbounded text-center sm:text-left">
+    DERNIERS POSTS
+  </h2>
+  <div className="relative">
+    <div
+      ref={scrollContainerRef}
+      className="flex items-center gap-6 overflow-x-auto pb-4 scrollbar-hide px-4"
+    >
+      {visiblePosts.map((post, index) => (
+        <div key={index} className="flex-shrink-0 w-4/5 sm:w-1/3 md:w-1/4">
+          <img
+            src={post.image}
+            alt={`Post ${index + 1}`}
+            className="w-full h-56 sm:h-40 md:h-56 object-cover rounded-2xl"
+            loading="lazy"
+          />
         </div>
-        <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none"></div>
-        
-        {/* Boutons de navigation mis à jour */}
-        <button
-          onClick={() => scroll('left')}
-          className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
-          aria-label="Post précédent"
-        >
-          <img src={arrowIcon} alt="Précédent" className="h-10 w-10 rotate-180" />
-        </button>
-        <button
-          onClick={() => scroll('right')}
-          className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
-          aria-label="Post suivant"
-        >
-          <img src={arrowIcon} alt="Suivant" className="h-10 w-10" />
-        </button>
-        </div>
+      ))}
+    </div>
+    <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none"></div>
+    {/* Flèches masquées sur mobile */}
+    <button
+      onClick={() => scroll('left')}
+      className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
+      aria-label="Post précédent"
+    >
+      <img src={arrowIcon} alt="Précédent" className="h-10 w-10 rotate-180" />
+    </button>
+    <button
+      onClick={() => scroll('right')}
+      className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
+      aria-label="Post suivant"
+    >
+      <img src={arrowIcon} alt="Suivant" className="h-10 w-10" />
+    </button>
+  </div>
 
       {/* Section "Suivez-nous" */}
          <div className="flex flex-col md:flex-row justify-center items-center gap-x-6 gap-y-4 mt-12 text-white">
