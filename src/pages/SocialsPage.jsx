@@ -51,52 +51,52 @@ function SocialsPage() {
       <div className="container mx-auto px-4">
         {/* HERO */}
         <AnimatedElement>
-        <section className="relative min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
-          <div className="w-full text-center translate-y-10 md:translate-y-14">
-            <h1 className="font-unbounded text-5xl font-bold mb-12">{t('socialHub.title')}</h1>
-            <h2 className="font-unbounded text-3xl font-bold mb-6">{t('socialHub.channels')}</h2>
-            <div className="flex justify-center items-center gap-10 text-4xl">
-              <a href="#" className="text-white/70 hover:text-white transition-colors"><FaInstagram /></a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors"><FaXTwitter /></a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors"><FaYoutube /></a>
+          <section className="relative min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
+            <div className="w-full text-center translate-y-6 sm:translate-y-10 md:translate-y-14">
+            <h1 className="font-unbounded text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">{t('socialHub.title')}</h1>
+            <h2 className="font-unbounded text-lg sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">{t('socialHub.channels')}</h2>
+              <div className="flex justify-center items-center gap-4 sm:gap-10 text-xl sm:text-4xl">
+                <a href="#" className="text-white/70 hover:text-white transition-colors"><FaInstagram /></a>
+                <a href="#" className="text-white/70 hover:text-white transition-colors"><FaXTwitter /></a>
+                <a href="#" className="text-white/70 hover:text-white transition-colors"><FaYoutube /></a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>  
         </AnimatedElement>
 
         {/* POSTS */}
         <AnimatedElement>
-        <section className="max-w-6xl mx-auto mt-2 mb-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {socialPosts.map(post => (
-              <div
-                key={post.id}
-                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 text-left flex flex-col shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300"
-              >
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-xs text-white/60">{t(`socialHub.posts.${post.id}.date`, { defaultValue: post.date })}</span>
-                  <span className="text-xl text-white/80">{post.icon}</span>
+          <section className="max-w-6xl mx-auto mt-2 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {socialPosts.map(post => (
+                <div
+                  key={post.id}
+                  className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 text-left flex flex-col shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300"
+                >
+                  <div className="flex justify-between items-center mb-2 sm:mb-3">
+                    <span className="text-xs text-white/60">{t(`socialHub.posts.${post.id}.date`, { defaultValue: post.date })}</span>
+                    <span className="text-lg sm:text-xl text-white/80">{post.icon}</span>
+                  </div>
+                  <img
+                    src={post.image}
+                    alt={t(`socialHub.posts.${post.id}.caption`, { defaultValue: post.caption })}
+                    className="rounded-lg w-full h-36 sm:h-48 object-cover mb-3 sm:mb-4"
+                  />
+                  <p className="text-white/90 flex-grow text-sm sm:text-base">{t(`socialHub.posts.${post.id}.caption`, { defaultValue: post.caption })}</p>
                 </div>
-                <img
-                  src={post.image}
-                  alt={t(`socialHub.posts.${post.id}.caption`, { defaultValue: post.caption })}
-                  className="rounded-lg w-full h-48 object-cover mb-4"
-                />
-                <p className="text-white/90 flex-grow">{t(`socialHub.posts.${post.id}.caption`, { defaultValue: post.caption })}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
         </AnimatedElement>
 
         <Separator className="my-4"/>
 
         {/* FORMULAIRE CONTACT */}
         <AnimatedElement>
-        <section id="contact-form" className="max-w-4xl mx-auto mt-8 mb-0 text-left">
-          <h2 className="font-unbounded text-3xl font-bold text-center mb-6">{t('contact.title')}</h2>
+          <section id="contact-form" className="max-w-4xl mx-auto mt-8 mb-0 text-left px-2 sm:px-0">
+          <h2 className="font-unbounded text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">{t('contact.title')}</h2>
           <form>
-            <div className="grid font-poppins md:grid-cols-2 gap-6 mb-6">
+            <div className="grid font-poppins grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
               <div>
                 <label htmlFor="prenom" className="block text-sm font-medium text-white/70 mb-2">{t('contact.firstname')}</label>
                 <input
@@ -162,20 +162,19 @@ function SocialsPage() {
               </div>
             </div>
 
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-2">{t('contact.message')}</label>
-              <textarea
-                id="message"
-                rows="5"
-                className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              ></textarea>
-            </div>
-
-            <div className="text-center pb-10">
-              <Button type="submit">{t('contact.send')}</Button>
-            </div>
-          </form>
-        </section>
+              <div className="mb-6">
+                    <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-2">{t('contact.message')}</label>
+                    <textarea
+                      id="message"
+                      rows="5"
+                      className="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
+                    ></textarea>
+                  </div>
+                  <div className="text-center pb-10">
+                    <Button className="mx-auto min-w-[140px]">{t('contact.send')}</Button>
+                  </div>
+                </form>
+              </section>
         </AnimatedElement>
       </div>
     </div>

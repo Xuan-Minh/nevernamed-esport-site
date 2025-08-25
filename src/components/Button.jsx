@@ -1,17 +1,21 @@
-import { motion } from 'framer-motion';
-import arrowSvg from '../assets/arrow.svg';
+import React from "react";
+import { motion } from "framer-motion";
+import arrowSvg from "../assets/arrow.svg"; 
 
-function Button({ children, onClick }) {
-  // SUPPRIMÉ: La logique d'animation "arrowVariants" n'est plus nécessaire.
-
+function Button({ children, onClick, className = "" }) {
   return (
-    // MODIFIÉ: On retire les props `initial` et `whileHover` et on ajoute la classe `group`.
     <motion.button
       onClick={onClick}
-      className="group font-unbounded text-xl bg-transparent border-2 border-white rounded-full px-8 py-4 flex items-center gap-2 hover:bg-white/10 transition-colors duration-300"
+      className={`
+        group font-unbounded bg-transparent border-2 border-white rounded-full flex items-center gap-2
+        px-4 py-2 text-base
+        sm:px-6 sm:py-3 sm:text-lg
+        md:px-8 md:py-4 md:text-xl
+        hover:bg-white/10 transition-colors duration-300
+        ${className}
+      `}
     >
       {children}
-      {/* MODIFIÉ: On utilise une balise `img` standard avec les classes de transition demandées. */}
       <img
         src={arrowSvg}
         alt="Arrow Icon"
@@ -20,5 +24,4 @@ function Button({ children, onClick }) {
     </motion.button>
   );
 }
-
 export default Button;

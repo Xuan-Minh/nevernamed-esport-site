@@ -6,36 +6,64 @@ import { LolLogoText, ValorantLogoText } from './GameLogos';
 import lolImage from '../assets/teams/lol-bg.jpg';
 import valorantImage from '../assets/teams/valorant-bg.jpg';
 
-
 const teamsData = [
   { id: 'lol', name: 'LEAGUE OF LEGENDS', image: lolImage, LogoComponent: LolLogoText, fontClass: 'font-beaufort' },
   { id: 'valorant', name: 'VALORANT', image: valorantImage, LogoComponent: ValorantLogoText, fontClass: 'font-unbounded' },
   { id: 'valorant', name: 'VALORANT', image: valorantImage, LogoComponent: ValorantLogoText, fontClass: 'font-unbounded' },
-
-
+  // Ajoute d'autres jeux ici...
 ];
 
 function GameSelectionCarousel({ onTeamSelect }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // 1: next, -1: prev, 0: initial
+
+  const total = teamsData.length;
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + teamsData.length) % teamsData.length);
+    setDirection(-1);
+    setPrevIndex(currentIndex);
+    setCurrentIndex((prev) => (prev - 1 + total) % total);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % teamsData.length);
+    setDirection(1);
+    setPrevIndex(currentIndex);
+    setCurrentIndex((prev) => (prev + 1) % total);
   };
 
   const handlePanelClick = (index) => {
     if (index === currentIndex) {
-      onTeamSelect(teamsData[index]);
-    } else {
-      setCurrentIndex(index);
+      onTeamSelect?.(teamsData[index]);
+      return;
     }
+    // Choisit la direction la plus courte
+    const forward = (index - currentIndex + total) % total;
+    if (forward <= total / 2) handleNext();
+    else handlePrev();
   };
 
+  // Détermine quelles cartes afficher à gauche/centre/droite
+  const centerIndex = currentIndex;
+  let leftIndex, rightIndex;
+
+  if (direction === 1 && total >= 3) {
+    // Next: centre = ancien right, gauche = ancien centre, droite = ancien left (n-1 repart vers le centre)
+    leftIndex = prevIndex;
+    rightIndex = (prevIndex - 1 + total) % total;
+  } else if (direction === -1 && total >= 3) {
+    // Prev: centre = ancien left, droite = ancien centre, gauche = ancien right
+    rightIndex = prevIndex;
+    leftIndex = (prevIndex + 1) % total;
+  } else {
+    // État initial ou 2 items seulement
+    leftIndex = (centerIndex - 1 + total) % total;
+    rightIndex = (centerIndex + 1) % total;
+  }
+
+  // Rendu
   return (
-    <section className="h-screen w-full text-white flex flex-col justify-center items-center p-4 overflow-hidden animate-fade-in">
+    <section className="h-screen w-full text-white flex flex-col justify-center items-center overflow-hidden animate-fade-in">
       <h2 className="font-unbounded text-3xl md:text-4xl font-bold tracking-wider">SELECT OUR TEAM</h2>
       <ArrowIcon className="w-8 h-8 mt-4 text-white/50 rotate-90" />
 
@@ -43,33 +71,29 @@ function GameSelectionCarousel({ onTeamSelect }) {
         <div className="w-full h-full">
           <div className="w-full h-full relative">
             {teamsData.map((team, index) => {
-              // --- NOUVELLE LOGIQUE POUR LA BOUCLE INFINIE ---
-              let position = index - currentIndex;
-              const totalItems = teamsData.length;
+              let pos = null; // -1, 0, +1
+              if (index === centerIndex) pos = 0;
+              else if (index === leftIndex) pos = -1;
+              else if (index === rightIndex) pos = +1;
 
-              // Corrige la position pour la boucle (ex: si on est à l'index 0, le dernier item est à -1)
-              if (position > totalItems / 2) {
-                position -= totalItems;
-              }
-              if (position < -totalItems / 2) {
-                position += totalItems;
-              }
+              const isVisible = pos !== null;
+              const isActive = pos === 0;
 
-              const isActive = position === 0;
-              const isVisible = Math.abs(position) <= 1;
+              const transform = isVisible
+                ? `translateX(${pos * 65}%) scale(${isActive ? 1 : 0.7})`
+                : `translateX(0%) scale(0.7)`;
 
-              const transform = `translateX(${position * 65}%) scale(${isActive ? 1 : 0.7})`;
-              const zIndex = totalItems - Math.abs(position);
+              const zIndex = isActive ? 3 : isVisible ? 2 : 0;
 
               return (
                 <div
-                  key={team.id + '-' + index} // Clé plus robuste pour éviter les conflits
+                  key={`${team.id}-${index}`}
                   className="absolute w-80 h-80 md:w-96 md:h-96 top-1/2 left-1/2 -mt-48 -ml-48 transition-all duration-500 ease-in-out cursor-pointer"
                   style={{
-                    transform: transform,
-                    zIndex: zIndex,
-                    opacity: isVisible ? 1 : 0, // On affiche seulement les 3 cartes concernées
-                    pointerEvents: isVisible ? 'auto' : 'none', // On désactive le clic sur les cartes cachées
+                    transform,
+                    zIndex,
+                    opacity: isVisible ? 1 : 0,
+                    pointerEvents: isVisible ? 'auto' : 'none',
                   }}
                   onClick={() => handlePanelClick(index)}
                 >
@@ -79,8 +103,9 @@ function GameSelectionCarousel({ onTeamSelect }) {
                       alt={team.name}
                       className="w-full h-full object-cover transition-all duration-500"
                     />
-                    <div className={`absolute inset-0transition-opacity duration-500 ${isActive ? 'opacity-40' : 'opacity-75'}`}></div>
-                    <div className={`absolute inset-0 flex items-center justify-center p-8 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-20'}`}>
+                    {/* Overlay: côtés plus transparents (plus sombre) */}
+                    <div className={`absolute inset-0 transition-opacity duration-500 ${isActive ? 'opacity-40' : 'opacity-85'}`}></div>
+                    <div className={`absolute inset-0 flex items-center justify-center p-8 transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-30'}`}>
                       <team.LogoComponent className="w-full h-auto text-white" />
                     </div>
                   </div>

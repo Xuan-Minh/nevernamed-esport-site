@@ -85,7 +85,7 @@ function App() {
           <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
             <Header />
             {/* Ajout du padding pour ne pas que le contenu soit caché par le header absolu */}
-            <main>
+            <main className="overflow-x-hidden">
               <Routes>
                 <Route index element={<HomePage isLoading={loading} />} />
                 <Route path="/a-propos" element={<AboutUsPage />} />
