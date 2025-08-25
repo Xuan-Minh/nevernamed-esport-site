@@ -64,7 +64,7 @@ function PartnersPage() {
         <title>NeverNamed Esport - Partenaires & Sponsors</title>
         <meta name="description" content="Nos sponsors, partenaires et comment rejoindre l’aventure NeverNamed Esport." />
       </Helmet>
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center py-20 sm:py-24">
         {/* --- Titre --- */}
         <AnimatedElement>
           <h1 className="font-unbounded text-3xl sm:text-5xl md:text-6xl font-bold mb-4">

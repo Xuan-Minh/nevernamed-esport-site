@@ -53,7 +53,7 @@ function SocialsPage() {
         <title>NeverNamed Esport - Social Hub</title>
         <meta name="description" content="Retrouvez tous les réseaux sociaux et dernières actualités de NeverNamed Esport." />
       </Helmet>
-      <div className="container mx-auto px-4 overflow-y-hidden">
+      <div className="container mx-auto px-4 overflow-y-hidden py-16 sm:py-24">
         {/* HERO */}
         <AnimatedElement>
           <section className="relative min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
@@ -75,9 +75,9 @@ function SocialsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {socialPosts.map(post => (
                 <div
-                  key={post.id}
-                  className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 text-left flex flex-col shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300"
-                >
+                    key={post.id}
+                    className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-3 sm:p-4 text-left flex flex-col shadow-lg hover:shadow-cyan-500/20 transition-shadow duration-300"
+                  >
                   <div className="flex justify-between items-center mb-2 sm:mb-3">
                     <span className="text-xs text-white/60">{t(`socialHub.posts.${post.id}.date`, { defaultValue: post.date })}</span>
                     <span className="text-lg sm:text-xl text-white/80">{post.icon}</span>

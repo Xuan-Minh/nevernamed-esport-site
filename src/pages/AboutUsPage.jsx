@@ -53,7 +53,7 @@ const AboutUsPage = () => {
     .map(m => ({ ...m, socials: m.socials || {} }));
 
   return (
-    <div className="text-white">
+    <div className="text-white py-16 md:py-24">
       <Helmet>
         <title>NeverNamed Esport - À propos</title>
         <meta name="description" content="Découvrez l’histoire, les valeurs et l’équipe NeverNamed Esport." />
@@ -137,7 +137,7 @@ const AboutUsPage = () => {
                   <AnimatedElement key={member.name}>
                     <div
                       className={
-                        "relative h-full bg-gray-800/40 backdrop-blur-sm rounded-2xl p-4 sm:p-8 flex flex-col border border-white/5 hover:border-white/15 transition-colors md:mx-0" +
+                        "relative h-full bg-gray-800/40 backdrop-blur-sm rounded-xl p-4 sm:p-8 flex flex-col border border-white/5 hover:border-white/15 transition-colors md:mx-0" +
                         (isLastOrphan ? " md:col-span-2 md:max-w-xl md:mx-auto" : "")
                       }
                     >

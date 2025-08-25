@@ -16,6 +16,7 @@
 }
 html {
   color-scheme: light;
+  scroll-padding-top: 5rem; /* ajuste selon la hauteur de ton header */ 
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');

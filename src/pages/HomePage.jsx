@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import AnimatedElement from '../components/AnimatedElement';
 
 // Import des composants
 import HeroSection from '../components/HeroSection';
@@ -13,7 +14,7 @@ import LatestPost from '../components/LatestPost';
 
 // Import des ressources
 import heroVideo from '../assets/valreal.mp4';
-import testImage from '../assets/test.jpg';
+import testImage from '../assets/test.jpg'; 
 
 const HomePage = ({ isLoading }) => {
   const { t } = useTranslation();
@@ -28,9 +29,10 @@ const HomePage = ({ isLoading }) => {
       </Helmet>
       {/* Section 1: Hero Vidéo. Elle est maintenant à la racine et peut prendre 100% de la largeur. */}
             <HeroSection videoSrc={heroVideo} isLoading={isLoading}>
-        <h1 className="font-unbounded text-3xl sm:text-4xl md:text-7xl font-bold mb-4">
+        <AnimatedElement><h1 className="font-unbounded text-3xl sm:text-4xl md:text-7xl font-bold mb-4">
           {t('home.hero.title')}
         </h1>
+        </AnimatedElement>
       </HeroSection>
 
       <div className="container mx-auto px-4 py-20 sm:py-24 text-white">
@@ -41,12 +43,14 @@ const HomePage = ({ isLoading }) => {
       <div className="container mx-auto px-4 py-20 sm:py-24">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div className="md:w-1/2 text-center md:text-left">
+            <AnimatedElement>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 font-unbounded">
               {t('home.ambition.title')}
             </h2>
             <p className="text-base sm:text-lg font-poppins my-8">
               {t('home.ambition.text')}
             </p>
+            </AnimatedElement>
             <Link to="/equipes">
               <Button>{t('home.ambition.cta')}</Button>
             </Link>
