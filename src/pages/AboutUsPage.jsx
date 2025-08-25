@@ -4,7 +4,7 @@ import avatarPlaceholder from '../assets/avatar-placeholder.png';
 import Separator from '../components/Separator';
 import AnimatedElement from '../components/AnimatedElement';
 import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/Icons';
-import { useTranslation } from 'react-i18next'; // AJOUT
+import { useTranslation } from 'react-i18next';
 
 const staffModules = import.meta.glob('../assets/staff/*.{png,jpg,jpeg,webp,svg}', { eager: true });
 const staffImages = Object.entries(staffModules).reduce((acc, [path, mod]) => {
@@ -48,7 +48,7 @@ const AboutUsPage = () => {
 
   const i18nStaff = t('about.staffMembers', { returnObjects: true });
   const staffData = (Array.isArray(i18nStaff) && i18nStaff.length ? i18nStaff : defaultStaffData)
-  .map(m => ({ ...m, socials: m.socials || {} }));
+    .map(m => ({ ...m, socials: m.socials || {} }));
 
   return (
     <div className="text-white">
@@ -61,7 +61,7 @@ const AboutUsPage = () => {
               alt=""
               className="absolute inset-0 w-full h-full object-contain z-0 opacity-10"
             />
-            <h1 className="relative font-unbounded text-4xl md:text-5xl font-bold z-10">
+            <h1 className="relative font-unbounded text-3xl sm:text-4xl md:text-5xl font-bold z-10">
               {t('hero.whatsOurName')}
             </h1>
           </div>
@@ -83,8 +83,8 @@ const AboutUsPage = () => {
                   />
                 </div>
                 <div className="md:w-1/2 text-center md:text-left">
-                  <h2 className="font-unbounded text-3xl font-bold mb-6">{t('about.values')}</h2>
-                  <p className="text-white/80 leading-relaxed">
+                  <h2 className="font-unbounded text-2xl sm:text-3xl font-bold mb-6">{t('about.values')}</h2>
+                  <p className="text-white/80 leading-relaxed text-sm sm:text-base">
                     {t('about.valuesText')}
                   </p>
                 </div>
@@ -104,8 +104,8 @@ const AboutUsPage = () => {
                   />
                 </div>
                 <div className="md:w-1/2 text-center md:text-left">
-                  <h2 className="font-unbounded text-3xl font-bold mb-6">{t('about.missions')}</h2>
-                  <p className="text-white/80 leading-relaxed mb-12">
+                  <h2 className="font-unbounded text-2xl sm:text-3xl font-bold mb-6">{t('about.missions')}</h2>
+                  <p className="text-white/80 leading-relaxed mb-12 text-sm sm:text-base">
                     {t('about.missionsText')}
                   </p>
                 </div>
@@ -115,69 +115,78 @@ const AboutUsPage = () => {
 
           <Separator />
 
-          <blockquote className="pl-6 italic text-white/70 font-poppins text-xl text-left">
+          <blockquote className="pl-6 italic text-white/70 font-poppins text-base sm:text-xl text-left">
             <p>{t('about.quote.text')}</p>
             <cite className="block text-right not-italic mt-2">- {t('about.quote.author')}</cite>
           </blockquote>
 
-          {/* Section 4: Notre Staff (cartes en grille 2 colonnes) */}
+          {/* Section 4: Notre Staff (cartes en grille 2 colonnes, orphelin centré) */}
           <section className="w-full max-w-6xl font-poppins">
-            <h2 className="font-unbounded text-3xl font-bold text-center mb-14">{t('about.staff')}</h2>
+            <h2 className="font-unbounded text-2xl sm:text-3xl font-bold text-center mb-14">{t('about.staff')}</h2>
             <div className="grid gap-12 md:gap-14 md:grid-cols-2">
-              {staffData.map((member) => (
-                <AnimatedElement key={member.name}>
-                  <div className="relative h-full bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 flex flex-col border border-white/5 hover:border-white/15 transition-colors">
-                    <div className="flex items-center gap-5 mb-5">
-                      <img
-                        src={staffImages[(member.avatar || member.name).toLowerCase()] || avatarPlaceholder}
-                        alt={`Avatar de ${member.name}`}
-                        className="w-24 h-24 rounded-full object-cover"
-                      />
-                      <h3 className="font-unbounded text-xl md:text-2xl font-bold text-orange-400">
-                        {member.name}
-                      </h3>
-                    </div>
-
-                    {/* Description multi-paragraphes stylisée */}
-                    <div className="flex-grow">
-                      <div className="relative pl-4">
-                        <span
-                          aria-hidden
-                          className="absolute left-0 top-0 h-full w-1 bg-orange-400 rounded-full"
+              {staffData.map((member, idx) => {
+                // Système orphelin : si dernier ET nombre impair, centre la carte sur desktop
+                const isLastOrphan = staffData.length % 2 === 1 && idx === staffData.length - 1;
+                return (
+                  <AnimatedElement key={member.name}>
+                    <div
+                      className={
+                        "relative h-full bg-gray-800/40 backdrop-blur-sm rounded-2xl p-4 sm:p-8 flex flex-col border border-white/5 hover:border-white/15 transition-colors md:mx-0" +
+                        (isLastOrphan ? " md:col-span-2 md:max-w-xl md:mx-auto" : "")
+                      }
+                    >
+                      <div className="flex items-center gap-5 mb-5">
+                        <img
+                          src={staffImages[(member.avatar || member.name).toLowerCase()] || avatarPlaceholder}
+                          alt={`Avatar de ${member.name}`}
+                          className="w-16 h-16 sm:w-24 sm:h-24 rounded-full object-cover"
                         />
-                        <div className="space-y-3 text-white/80 text-sm leading-relaxed">
-                          {(Array.isArray(member.description)
-                            ? member.description
-                            : [member.description]
-                          ).map((para, i) => (
-                            <p key={i} className="text-justify">
-                              {para}
-                            </p>
-                          ))}
+                        <h3 className="font-unbounded text-lg sm:text-xl md:text-2xl font-bold text-orange-400">
+                          {member.name}
+                        </h3>
+                      </div>
+
+                      {/* Description multi-paragraphes stylisée */}
+                      <div className="flex-grow">
+                        <div className="relative pl-4">
+                          <span
+                            aria-hidden
+                            className="absolute left-0 top-0 h-full w-1 bg-orange-400 rounded-full"
+                          />
+                          <div className="space-y-3 text-white/80 text-sm sm:text-base leading-relaxed">
+                            {(Array.isArray(member.description)
+                              ? member.description
+                              : [member.description]
+                            ).map((para, i) => (
+                              <p key={i} className="text-justify">
+                                {para}
+                              </p>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div className="mt-6 flex items-center gap-4 text-sm">
-                      {member.socials?.twitter && (
-                         <a href={member.socials.twitter} aria-label="Twitter" className="hover:text-white/70 transition-colors">
-                           <TwitterIcon />
-                         </a>
-                       )}
-                      {member.socials?.twitch && (
-                         <a href={member.socials.twitch} aria-label="Twitch" className="hover:text-white/70 transition-colors">
-                           <TwitchIcon />
-                         </a>
-                       )}
-                      {member.socials?.linkedin && (
-                         <a href={member.socials.linkedin} aria-label="LinkedIn" className="hover:text-white/70 transition-colors">
-                           <LinkedinIcon />
-                         </a>
-                       )}
+                      <div className="mt-6 flex items-center gap-4 text-sm">
+                        {member.socials?.twitter && (
+                          <a href={member.socials.twitter} aria-label="Twitter" className="hover:text-white/70 transition-colors">
+                            <TwitterIcon />
+                          </a>
+                        )}
+                        {member.socials?.twitch && (
+                          <a href={member.socials.twitch} aria-label="Twitch" className="hover:text-white/70 transition-colors">
+                            <TwitchIcon />
+                          </a>
+                        )}
+                        {member.socials?.linkedin && (
+                          <a href={member.socials.linkedin} aria-label="LinkedIn" className="hover:text-white/70 transition-colors">
+                            <LinkedinIcon />
+                          </a>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </AnimatedElement>
-              ))}
+                  </AnimatedElement>
+                );
+              })}
             </div>
           </section>
         </main>
