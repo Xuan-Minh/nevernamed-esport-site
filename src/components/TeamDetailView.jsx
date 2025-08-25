@@ -1,57 +1,117 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-import ArrowIcon from './ArrowIcon';
-import jerseyImage from '../assets/jersey.png';
+function splitTitle(name) {
+  const words = name.trim().split(' ');
+  if (words.length >= 3) {
+    return {
+      back: words.slice(0, words.length - 1).join(' '),
+      front: words[words.length - 1],
+    };
+  }
+  return { back: '', front: name };
+}
 
 function TeamDetailView({ team, onBack }) {
-  return (
-    <div className="absolute inset-0 bg-brand-dark flex flex-col animate-fade-in">
-      {/* Fond d'écran et titre du jeu */}
-      <div className="relative w-full h-1/2">
-        <img src={team.image} alt={team.name} className="absolute inset-0 w-full h-full object-cover opacity-30" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className={`text-6xl md:text-8xl text-white/80 ${team.fontClass}`}>{team.name}</h1>
-        </div>
-        <button onClick={onBack} className="absolute top-5 left-5 text-white bg-black/50 rounded-full p-2 hover:bg-brand-accent transition-colors z-20">
-          <ArrowIcon className="w-6 h-6 rotate-180" />
-        </button>
-      </div>
+  const { back, front } = splitTitle(team.name);
+  const [showTitle, setShowTitle] = useState(false);
 
-      {/* Section des joueurs (Carrousel Swiper) */}
-      <div className="w-full h-1/2 relative">
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          navigation={{ nextEl: '.swiper-button-next-custom', prevEl: '.swiper-button-prev-custom' }}
-          pagination={{ el: '.swiper-pagination-custom', type: 'fraction' }}
-          className="h-full"
-        >
-          {team.roster.map((member, index) => (
-            <SwiperSlide key={index} className="flex items-center justify-center">
-              <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 px-8">
-                <div className="relative text-left">
-                  <span className="text-brand-accent font-bold">{member.role}</span>
-                  <h3 className="text-4xl font-bold my-2">{member.name}</h3>
-                  <p className="text-white/70">{member.description}</p>
-                </div>
-                <div className="flex justify-center">
-                  <img src={jerseyImage} alt="Maillot" className="w-64 h-auto drop-shadow-2xl" />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-6 text-white font-bold">
-          <button className="swiper-button-prev-custom"><ArrowIcon className="w-5 h-5 rotate-180" /></button>
-          <div className="swiper-pagination-custom w-12 text-center"></div>
-          <button className="swiper-button-next-custom"><ArrowIcon className="w-5 h-5" /></button>
-        </div>
+  return (
+    <div className="relative min-h-screen bg-brand-dark">
+      {/* Hero morphé fullscreen */}
+      <motion.div
+        className="fixed inset-0 z-30 w-full h-full"
+        layoutId={team.id ? `${team.id}-hero` : undefined}
+        style={{ overflow: 'hidden' }}
+        transition={{
+          layout: { duration: 0.7, type: "spring", bounce: 0.25 },
+        }}
+        initial={{ borderRadius: 39, scale: 0.95, filter: "blur(0px)" }}
+        animate={{ borderRadius: 0, scale: 1, filter: "blur(0px)" }}
+        exit={{ borderRadius: 39, scale: 0.95, filter: "blur(4px)", opacity: 0 }}
+        onAnimationComplete={() => setShowTitle(true)}
+      >
+        {/* Image de fond */}
+        <motion.img
+          src={team.image}
+          alt={team.name}
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          initial={{ scale: 1.1, opacity: 0.2 }}
+          animate={{ scale: 1, opacity: 0.4 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        />
+        {/* Overlay foncé */}
+        <motion.div
+          className="absolute inset-0 bg-black/60"
+          initial={{ opacity: 0.7 }}
+          animate={{ opacity: 0.6 }}
+          exit={{ opacity: 0.7 }}
+          transition={{ duration: 0.7 }}
+        />
+        {/* Titre stylisé fullscreen, affiché seulement après le morph */}
+        {showTitle && (
+  <div className="absolute inset-0 flex flex-col items-center justify-center select-none pointer-events-none">
+    {back && (
+      <motion.span
+        className="block text-white"
+        style={{
+          fontFamily: 'Amanojaku, sans-serif',
+          fontSize: 'clamp(2.5rem, 12vw, 160px)',
+          lineHeight: '0.8',
+          opacity: 0.18,
+          letterSpacing: '0.05em',
+          whiteSpace: 'nowrap',
+          filter: 'blur(0.5px)',
+          textAlign: 'center',
+          textShadow: '0 4px 32px #000, 0 1px 0 #222',
+          zIndex: 0,
+        }}
+        aria-hidden
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 0.18, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1, type: "spring" }}
+      >
+        {back}
+      </motion.span>
+    )}
+    <motion.span
+      className="block text-white"
+      style={{
+        fontFamily: 'Amanojaku, sans-serif',
+        fontSize: 'clamp(2.5rem, 12vw, 160px)',
+        lineHeight: '0.6',
+        letterSpacing: '0.05em',
+        whiteSpace: 'nowrap',
+        textAlign: 'center',
+        textShadow: '0 4px 32px #000, 0 1px 0 #222',
+        zIndex: 1,
+        opacity: 1,
+      }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.25, type: "spring" }}
+    >
+      {front}
+    </motion.span>
+  </div>
+)}
+      </motion.div>
+
+      {/* Bouton retour, toujours au-dessus */}
+      <button
+        onClick={onBack}
+        className="fixed top-8 right-8 z-50 bg-white/10 hover:bg-brand-accent/80 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition-colors border-2 border-white/30"
+        aria-label="Fermer"
+        type="button"
+      >
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+        </svg>
+      </button>
+
+      {/* Contenu sous le hero */}
+      <div className="relative z-40 pt-[60vh] px-4 max-w-5xl mx-auto">
+        {/* Ajoute ici le roster, staff, etc. */}
       </div>
     </div>
   );
