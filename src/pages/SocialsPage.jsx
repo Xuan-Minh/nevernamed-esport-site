@@ -48,13 +48,13 @@ function SocialsPage() {
 
   return (
     <div className="text-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 overflow-y-hidden">
         {/* HERO */}
         <AnimatedElement>
           <section className="relative min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center">
             <div className="w-full text-center translate-y-6 sm:translate-y-10 md:translate-y-14">
-            <h1 className="font-unbounded text-2xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">{t('socialHub.title')}</h1>
-            <h2 className="font-unbounded text-lg sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">{t('socialHub.channels')}</h2>
+            <h1 className="font-unbounded text-4xl sm:text-5xl md:text-6xl font-bold mb-8 sm:mb-12">{t('socialHub.title')}</h1>
+            <h2 className="font-unbounded text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">{t('socialHub.channels')}</h2>
               <div className="flex justify-center items-center gap-4 sm:gap-10 text-xl sm:text-4xl">
                 <a href="#" className="text-white/70 hover:text-white transition-colors"><FaInstagram /></a>
                 <a href="#" className="text-white/70 hover:text-white transition-colors"><FaXTwitter /></a>
