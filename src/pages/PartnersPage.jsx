@@ -65,9 +65,9 @@ function PartnersPage() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="min-h-screen flex flex-col justify-center text-white pt-32 pb-20 px-4"
+      className="min-h-screen flex flex-col justify-center text-white pt-24 pb-10 px-4"
     >
-    <div className="min-h-screen flex flex-col justify-center text-white pt-32 pb-20 px-4">
+    <div className="min-h-screen flex flex-col justify-center text-white pt-32 pb-10 px-4">
       <Helmet>
         <title>NeverNamed Esport - Partenaires & Sponsors</title>
         <meta name="description" content="Nos sponsors, partenaires et comment rejoindre l’aventure NeverNamed Esport." />
