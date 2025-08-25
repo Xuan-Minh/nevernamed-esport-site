@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 // Import des composants
 import HeroSection from '../components/HeroSection';
@@ -16,51 +17,53 @@ import testImage from '../assets/test.jpg';
 
 const HomePage = ({ isLoading }) => {
   const { t } = useTranslation();
-
+      
   return (
+   
     // Le conteneur principal de la page n'a AUCUN padding.
-    <div>
+    <div className="text-white">
+      <Helmet>
+        <title>NeverNamed Esport - Accueil</title>
+        <meta name="description" content="NeverNamed Esport : équipe, ambition, sponsors et actualités." />
+      </Helmet>
       {/* Section 1: Hero Vidéo. Elle est maintenant à la racine et peut prendre 100% de la largeur. */}
-      <HeroSection videoSrc={heroVideo} isLoading={isLoading}>
+            <HeroSection videoSrc={heroVideo} isLoading={isLoading}>
         <h1 className="font-unbounded text-3xl sm:text-4xl md:text-7xl font-bold mb-4">
           {t('home.hero.title')}
         </h1>
       </HeroSection>
 
-      {/* Section 2: Sponsors. C'est CE conteneur qui centre et applique le padding. */}
-      <div className="container mx-auto px-4 py-12 md:py-16 text-white">
+      <div className="container mx-auto px-4 py-20 sm:py-24 text-white">
         <SponsorsBanner />
         <Separator />
       </div>
 
-      {/* Section 3: "Ambition". Ce conteneur gère aussi son propre padding. */}
-      <div className="container mx-auto px-4 py-12 md:py-16">
-  <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-    <div className="md:w-1/2 text-center md:text-left">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 font-unbounded">
-        {t('home.ambition.title')}
-      </h2>
-      <p className="text-base sm:text-lg font-poppins my-8">
-        {t('home.ambition.text')}
-      </p>
-      <Link to="/equipes">
-        <Button>{t('home.ambition.cta')}</Button>
-      </Link>
-    </div>
-    <div className="md:w-1/2 flex justify-center">
-      <img
-        src={testImage}
-        alt={t('home.ambition.imageAlt')}
-        className="w-full max-w-md h-auto rounded-xl shadow-lg"
-      />
-    </div>
-  </div>
-</div>
+      <div className="container mx-auto px-4 py-20 sm:py-24">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="md:w-1/2 text-center md:text-left">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 font-unbounded">
+              {t('home.ambition.title')}
+            </h2>
+            <p className="text-base sm:text-lg font-poppins my-8">
+              {t('home.ambition.text')}
+            </p>
+            <Link to="/equipes">
+              <Button>{t('home.ambition.cta')}</Button>
+            </Link>
+          </div>
+          <div className="md:w-1/2 flex justify-center">
+            <img
+              src={testImage}
+              alt={t('home.ambition.imageAlt')}
+              className="w-full max-w-md h-auto rounded-xl shadow-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
 
-      {/* Section 4: Now or Never */}
       <Nowornever />
 
-      {/* Section 5: Derniers Posts */}
       <LatestPost />
     </div>
   );

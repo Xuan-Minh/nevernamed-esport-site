@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GameSelectionCarousel from '../components/GameSelectionCarousel';
 import TeamDetailView from '../components/TeamDetailView';
+import { Helmet } from 'react-helmet-async';
 
 // Vous pouvez centraliser vos données ici ou les importer
 const teamsData = [
@@ -35,6 +36,10 @@ function TeamsPage() {
 
   return (
     <main className="">
+      <Helmet>
+        <title>NeverNamed Esport - Nos équipes</title>
+        <meta name="description" content="Découvrez les équipes NeverNamed Esport, leurs joueurs et leurs performances." />
+      </Helmet>
       {selectedTeam ? (
         <TeamDetailView team={selectedTeam} onBack={handleBackToSelection} />
       ) : (

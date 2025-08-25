@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Separator from '../components/Separator';
 import AnimatedElement from '../components/AnimatedElement';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 // --- Importation dynamique des logos SVG ---
 const sponsorLogoModules = import.meta.glob('../assets/sponsors/*.svg', { eager: true });
@@ -59,6 +60,10 @@ function PartnersPage() {
 
   return (
     <div className="min-h-screen flex flex-col justify-center text-white pt-32 pb-20 px-4">
+      <Helmet>
+        <title>NeverNamed Esport - Partenaires & Sponsors</title>
+        <meta name="description" content="Nos sponsors, partenaires et comment rejoindre l’aventure NeverNamed Esport." />
+      </Helmet>
       <div className="container mx-auto text-center">
         {/* --- Titre --- */}
         <AnimatedElement>

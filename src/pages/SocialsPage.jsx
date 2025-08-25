@@ -6,6 +6,7 @@ import Separator from '../components/Separator';
 import Button from '../components/Button';
 import AnimatedElement from '../components/AnimatedElement';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 // Données fictives pour les publications sur les réseaux sociaux
 const socialPosts = [
@@ -48,6 +49,10 @@ function SocialsPage() {
 
   return (
     <div className="text-white">
+      <Helmet>
+        <title>NeverNamed Esport - Social Hub</title>
+        <meta name="description" content="Retrouvez tous les réseaux sociaux et dernières actualités de NeverNamed Esport." />
+      </Helmet>
       <div className="container mx-auto px-4 overflow-y-hidden">
         {/* HERO */}
         <AnimatedElement>

@@ -5,6 +5,8 @@ import Separator from '../components/Separator';
 import AnimatedElement from '../components/AnimatedElement';
 import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/Icons';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
+
 
 const staffModules = import.meta.glob('../assets/staff/*.{png,jpg,jpeg,webp,svg}', { eager: true });
 const staffImages = Object.entries(staffModules).reduce((acc, [path, mod]) => {
@@ -52,6 +54,10 @@ const AboutUsPage = () => {
 
   return (
     <div className="text-white">
+      <Helmet>
+        <title>NeverNamed Esport - À propos</title>
+        <meta name="description" content="Découvrez l’histoire, les valeurs et l’équipe NeverNamed Esport." />
+      </Helmet>
       {/* Section 1: Hero plein écran */}
       <section className="h-[80vh] w-full flex flex-col justify-center items-center text-center p-3">
         <AnimatedElement>
