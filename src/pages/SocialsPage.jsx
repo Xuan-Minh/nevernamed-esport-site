@@ -68,9 +68,9 @@ function SocialsPage() {
             <h1 className="font-unbounded text-4xl sm:text-5xl md:text-6xl font-bold mb-8 sm:mb-12">{t('socialHub.title')}</h1>
             <h2 className="font-unbounded text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">{t('socialHub.channels')}</h2>
               <div className="flex justify-center items-center gap-4 sm:gap-10 text-xl sm:text-4xl">
-                <a href="#" className="text-white/70 hover:text-white transition-colors"><FaInstagram /></a>
-                <a href="#" className="text-white/70 hover:text-white transition-colors"><FaXTwitter /></a>
-                <a href="#" className="text-white/70 hover:text-white transition-colors"><FaYoutube /></a>
+                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><FaInstagram /></a>
+                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><FaXTwitter /></a>
+                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><FaYoutube /></a>
               </div>
             </div>
           </section>  

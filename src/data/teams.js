@@ -41,7 +41,7 @@ export const teamsData = [
         championImage: solenneChampion,
       },
       {
-        name: 'Solenne',
+        name: 'Xuan',
         role: 'Mid',
         description: {
           fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
@@ -52,7 +52,7 @@ export const teamsData = [
         championImage: solenneChampion,
       },
       {
-        name: 'Solenne',
+        name: 'Kisa',
         role: 'Jungle',
         description: {
           fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
@@ -63,7 +63,7 @@ export const teamsData = [
         championImage: solenneChampion,
       },
       {
-        name: 'Solenne',
+        name: 'Naux',
         role: 'Adc',
         description: {
           fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
@@ -74,7 +74,7 @@ export const teamsData = [
         championImage: solenneChampion,
       },
       {
-        name: 'Solenne',
+        name: 'Nim',
         role: 'Support',
         description: {
           fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",

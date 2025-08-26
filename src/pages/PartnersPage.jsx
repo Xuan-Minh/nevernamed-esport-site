@@ -127,7 +127,7 @@ function PartnersPage() {
                               href={sponsor.socials.instagram}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="hover:text-brand-accent transition-transform hover:scale-110"
+                              className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Instagram"
                             >
                               <FaInstagram />
@@ -138,7 +138,7 @@ function PartnersPage() {
                               href={sponsor.socials.twitter}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="hover:text-brand-accent transition-transform hover:scale-110"
+                              className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Twitter"
                             >
                               <FaXTwitter />
@@ -149,7 +149,7 @@ function PartnersPage() {
                               href={sponsor.socials.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="hover:text-brand-accent transition-transform hover:scale-110"
+                              className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Site web"
                             >
                               <FaGlobe />

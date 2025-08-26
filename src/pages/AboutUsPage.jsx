@@ -181,17 +181,17 @@ const AboutUsPage = () => {
 
                       <div className="mt-6 flex items-center gap-4 text-sm">
                         {member.socials?.twitter && (
-                          <a href={member.socials.twitter} aria-label="Twitter" className="hover:text-white/70 transition-colors">
+                          <a href={member.socials.twitter} aria-label="Twitter" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
                             <TwitterIcon />
                           </a>
                         )}
                         {member.socials?.twitch && (
-                          <a href={member.socials.twitch} aria-label="Twitch" className="hover:text-white/70 transition-colors">
+                          <a href={member.socials.twitch} aria-label="Twitch" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
                             <TwitchIcon />
                           </a>
                         )}
                         {member.socials?.linkedin && (
-                          <a href={member.socials.linkedin} aria-label="LinkedIn" className="hover:text-white/70 transition-colors">
+                          <a href={member.socials.linkedin} aria-label="LinkedIn" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
                             <LinkedinIcon />
                           </a>
                         )}

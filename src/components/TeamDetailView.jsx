@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { TwitterIcon, TwitchIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from './Icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import AnimatedElement from './AnimatedElement';
+import avatarPlaceholder from '../assets/avatar-placeholder.png';
 
 import IconCoach from '../assets/icons/icon_coach.svg?react';
 import IconSupp from '../assets/icons/icon_supp.svg?react';
@@ -9,6 +11,7 @@ import IconTop from '../assets/icons/icon_top.svg?react';
 import IconMid from '../assets/icons/icon_mid.svg?react';
 import IconJungle from '../assets/icons/icon_jungle.svg?react';
 import IconAdc from '../assets/icons/icon_adc.svg?react';
+import ArrowIcon from './ArrowIcon';
 
 function splitTitle(name) {
   const words = name.trim().split(' ');
@@ -27,9 +30,25 @@ function TeamDetailView({ team, onBack }) {
 
   const { back, front } = splitTitle(team.name);
   const [showTitle, setShowTitle] = useState(false);
-  const [current, setCurrent] = useState(0);
+ const [current, setCurrent] = useState(0);
+  const directionRef = useRef(1); // <-- ref pour mémoriser la direction
+  const [displayed, setDisplayed] = useState({ index: 0, direction: 1 });
 
-  const member = team.roster[current];
+  const handlePrev = () => {
+    directionRef.current = -1;
+    setCurrent(c => (c - 1 + team.roster.length) % team.roster.length);
+  };
+  const handleNext = () => {
+    directionRef.current = 1;
+    setCurrent(c => (c + 1) % team.roster.length);
+  };
+
+  // Quand current change, on met à jour displayed pour déclencher l'animation avec la bonne direction
+    React.useEffect(() => {
+      setDisplayed({ index: current, direction: directionRef.current });
+    }, [current]);
+
+  const member = team.roster[displayed.index];
 
   const roleIcons = {
     'Head Coach': <IconCoach className="inline w-9 h-9 ml-2" />,
@@ -150,127 +169,180 @@ function TeamDetailView({ team, onBack }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
         </svg>
       </button>
-
+<div className="w-full flex justify-center items-end gap-6 py-8 z-40 relative">
+  {team.roster.map((m, idx) => (
+    <button
+      key={m.name}
+      onClick={() => {
+        directionRef.current = idx > current ? 1 : -1;
+        setCurrent(idx);
+      }}
+      className={`flex flex-col items-center group transition-all duration-200 ${
+        idx === current ? 'scale-110' : 'opacity-70 hover:opacity-100'
+      }`}
+      style={{ outline: idx === current ? '2px solid #ff6600' : 'none', borderRadius: 12 }}
+      aria-label={`Voir ${m.name}`}
+    >
+      {/* Placeholder photo détourée */}
+      <div className={`w-20 h-24 md:w-28 md:h-32 bg-gray-800 rounded-xl flex items-end justify-center overflow-hidden shadow-lg mb-2 border-2 ${idx === current ? 'border-brand-accent' : 'border-transparent'}`}>
+        {/* Remplace src par m.photo quand tu auras les vraies images */}
+        <img
+          src={avatarPlaceholder}
+          alt={m.name}
+          className="object-cover w-full h-full"
+          draggable={false}
+        />
+      </div>
+      <span className={`text-base md:text-lg font-unbounded font-bold px-3 py-1 rounded bg-white/90 text-gray-900 tracking-wide shadow ${idx === current ? 'text-brand-accent' : ''}`}>
+        {m.name}
+      </span>
+    </button>
+  ))}
+</div>
       {/* SECTION MEMBRE scrollable */}
             <section
-        className="relative z-40 w-full h-screen min-h-screen flex flex-col justify-center items-center px-2 sm:px-6"
-      >
-        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-8 items-center md:items-start h-full">
+  className="relative z-40 w-full h-[70vh] flex flex-col justify-center items-center px-2 sm:px-6 mt-0"
+>
+        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-2 items-center md:items-start h-full">
           {/* Partie gauche : infos joueur */}
-          <div className="flex-1 flex flex-col gap-4 justify-center h-full relative">
-            {/* Rôle dynamique */}
-            <div className="flex items-center gap-2 mb-2">
-              <span className="uppercase font-unbounded text-4xl font-bold text-white tracking-wider">
-                {member.role}
-              </span>
-              {roleIcons[member.role] && roleIcons[member.role]}
-            </div>
-            {/* Nom du joueur */}
-            <div className="relative mb-2">
-              <span
-                className="block text-3xl font-bold text-orange-400"
-                style={{
-                  fontFamily: 'Unbounded, sans-serif',
-                  textIndent: '1.5rem',
-                }}
-              >
-                {member.name}
-              </span>
-              <span
-                className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
-                style={{
-                  fontFamily: 'Amanojaku, sans-serif',
-                  zIndex: 0,
-                  lineHeight: 1,
-                  userSelect: 'none',
-                  filter: 'blur(0.5px)',
-                }}
-                aria-hidden
-              >
-                {member.name}
-              </span>
-              <p className="text-white font-poppins text-base leading-relaxed mb-4">
-                {typeof member.description === 'string'
-                  ? member.description
-                  : member.description?.[lang] || member.description?.en || ""}
-              </p>
-            </div>
-            {/* Description */}
-            
-            {/* Réseaux sociaux */}
-          <div className="flex gap-4 mb-4">
-            {member.socials?.twitter && (
-              <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <TwitterIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
-              </a>
-            )}
-            {member.socials?.twitch && (
-              <a href={member.socials.twitch} target="_blank" rel="noopener noreferrer" aria-label="Twitch">
-                <TwitchIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
-              </a>
-            )}
-            {member.socials?.instagram && (
-              <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <InstagramIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
-              </a>
-            )}
-            {member.socials?.youtube && (
-              <a href={member.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <YoutubeIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
-              </a>
-            )}
-            {member.socials?.linkedin && (
-              <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <LinkedinIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
-              </a>
-            )}
-          </div>
-            {/* Navigation membres */}
-            <div className="flex items-center gap-4 mt-4">
-              <button
-                onClick={() => setCurrent((current - 1 + team.roster.length) % team.roster.length)}
-                className="p-2 rounded-full bg-white/10 hover:bg-brand-accent/80 text-white transition"
-                aria-label="Membre précédent"
-              >
-                {/* Flèche gauche */}
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <span className="text-white/70 text-sm">{current + 1} / {team.roster.length}</span>
-              <button
-                onClick={() => setCurrent((current + 1) % team.roster.length)}
-                className="p-2 rounded-full bg-white/10 hover:bg-brand-accent/80 text-white transition"
-                aria-label="Membre suivant"
-              >
-                {/* Flèche droite */}
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
+          <div className="flex-1 flex flex-col gap-2 justify-center h-full relative">
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={member.name + member.role}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+      className="flex flex-col gap-4"
+    >
+      {/* Rôle dynamique animé */}
+      <AnimatedElement className="flex items-center gap-2 mb-2" as="div">
+        <span className="uppercase font-unbounded text-4xl font-bold text-white tracking-wider">
+          {member.role}
+        </span>
+        {roleIcons[member.role] && roleIcons[member.role]}
+      </AnimatedElement>
+      {/* Nom du joueur animé avec délai */}
+      <AnimatedElement className="relative mb-2" as="div">
+        <span
+          className="block text-3xl font-bold text-orange-400"
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            textIndent: '1.5rem',
+          }}
+        >
+          {member.name}
+        </span>
+        <span
+          className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
+          style={{
+            fontFamily: 'Amanojaku, sans-serif',
+            zIndex: 0,
+            lineHeight: 1,
+            userSelect: 'none',
+            filter: 'blur(0.5px)',
+          }}
+          aria-hidden
+        >
+          {member.name}
+        </span>
+      </AnimatedElement>
+      {/* Description fade in/out */}
+        <motion.p
+          key={member.name + '-desc'}
+          className="text-white font-poppins text-base leading-relaxed mb-4 overflow-hidden"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+        >
+          {typeof member.description === 'string'
+            ? member.description
+            : member.description?.[lang] || member.description?.en || ""}
+        </motion.p>
+      {/* Réseaux sociaux */}
+      <div className="flex gap-4 mb-4">
+        {member.socials?.twitter && (
+          <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <TwitterIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+          </a>
+        )}
+        {member.socials?.twitch && (
+          <a href={member.socials.twitch} target="_blank" rel="noopener noreferrer" aria-label="Twitch">
+            <TwitchIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+          </a>
+        )}
+        {member.socials?.instagram && (
+          <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <InstagramIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+          </a>
+        )}
+        {member.socials?.youtube && (
+          <a href={member.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <YoutubeIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+          </a>
+        )}
+        {member.socials?.linkedin && (
+          <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <LinkedinIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+          </a>
+        )}
+      </div>
+    </motion.div>
+  </AnimatePresence>
+  {/* Navigation membres */}
+    <div className="flex items-center gap-4 mt-4">
+          <button
+        onClick={handlePrev}
+        className="p-2 rounded-full bg-white/10 hover:bg-brand-accent/80 text-white transition"
+        aria-label="Membre précédent"
+      >
+        <ArrowIcon className="w-6 h-6 rotate-180" />
+      </button>
+      <span className="text-white/70 text-sm font-unbounded">{current + 1} / {team.roster.length}</span>
+      <button
+        onClick={handleNext}
+        className="p-2 rounded-full bg-white/10 hover:bg-brand-accent/80 text-white transition"
+        aria-label="Membre suivant"
+      >
+        <ArrowIcon className="w-6 h-6" />
+      </button>
+        </div>
+      </div>
           {/* Partie droite : maillot + personnage */}
-          <div className="flex-1 flex flex-col items-center justify-center relative h-full">
-            {/* Image du personnage phare en transparence */}
-            {member.championImage && (
-              <img
-                src={member.championImage}
-                alt="Champion"
-                className="absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none select-none"
-                style={{ zIndex: 0 }}
-                aria-hidden
-              />
-            )}
-            {/* Maillot */}
-            {member.jersey && (
-              <img
-                src={member.jersey}
-                alt="Maillot"
-                className="relative z-10 w-48 md:w-64 object-contain"
-                style={{ filter: 'drop-shadow(0 4px 32px #0008)' }}
-              />
-            )}
+      <div className="flex-1 flex flex-col items-center justify-center relative h-full">
+          <AnimatePresence mode="wait" custom={displayed.direction}>
+            <motion.div
+              key={member.name + '-images-' + displayed.direction}
+              custom={displayed.direction}
+              initial={{ opacity: 0, x: displayed.direction > 0 ? -120 : 120, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: displayed.direction > 0 ? 120 : -120, scale: 0.95 }}
+              transition={{ duration: 0.45, ease: [0.4, 0.2, 0.2, 1] }}
+              className="w-full h-full flex flex-col items-center justify-center relative"
+              style={{ position: "absolute", inset: 0 }}
+            >
+          {/* Image du personnage phare en transparence */}
+                {member.championImage && (
+                  <img
+                    src={member.championImage}
+                    alt="Champion"
+                    className="absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none select-none"
+                    style={{ zIndex: 0 }}
+                    aria-hidden
+                  />
+                )}
+                {/* Maillot */}
+                {member.jersey && (
+                  <img
+                    src={member.jersey}
+                    alt="Maillot"
+                    className="relative z-10 w-68 md:w-80 object-contain"
+                    style={{ filter: 'drop-shadow(0 4px 32px #0008)' }}
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </section>
