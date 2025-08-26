@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { TwitterIcon, TwitchIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from './Icons';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+
+import IconCoach from '../assets/icons/icon_coach.svg?react';
+import IconSupp from '../assets/icons/icon_supp.svg?react';
+import IconTop from '../assets/icons/icon_top.svg?react';
+import IconMid from '../assets/icons/icon_mid.svg?react';
+import IconJungle from '../assets/icons/icon_jungle.svg?react';
+import IconAdc from '../assets/icons/icon_adc.svg?react';
 
 function splitTitle(name) {
   const words = name.trim().split(' ');
@@ -14,6 +22,9 @@ function splitTitle(name) {
 }
 
 function TeamDetailView({ team, onBack }) {
+  const { i18n } = useTranslation();
+  const lang = i18n.language.startsWith('fr') ? 'fr' : 'en';
+
   const { back, front } = splitTitle(team.name);
   const [showTitle, setShowTitle] = useState(false);
   const [current, setCurrent] = useState(0);
@@ -21,12 +32,16 @@ function TeamDetailView({ team, onBack }) {
   const member = team.roster[current];
 
   const roleIcons = {
-    'Head Coach': <img src="/assets/icons/coach.svg" alt="Coach" className="inline w-7 h-7 ml-2" />,
-    // Ajoute d'autres rôles ici
+    'Head Coach': <IconCoach className="inline w-9 h-9 ml-2" />,
+    'Support': <IconSupp className="inline w-9 h-9 ml-2" />,
+    'Top': <IconTop className="inline w-9 h-9 ml-2" />,
+    'Mid': <IconMid className="inline w-9 h-9 ml-2" />,
+    'Jungle': <IconJungle className="inline w-9 h-9 ml-2"/>,
+    'Adc': <IconAdc className="inline w-9 h-9 ml-2" />,
   };
 
   return (
-    <div className="relative min-h-screen brand-background  ">
+    <div className="relative min-h-screen brand-background">
       {/* HERO morphé fullscreen */}
       <motion.div
   className="relative w-full h-screen z-30"
@@ -153,14 +168,14 @@ function TeamDetailView({ team, onBack }) {
             {/* Nom du joueur */}
             <div className="relative mb-2">
               <span
-                    className="block text-3xl font-bold text-orange-400"
-                    style={{
-                      fontFamily: 'Unbounded, sans-serif',
-                      textIndent: '1.5rem', // Ajoute l'indentation ici (ajuste la valeur selon ton besoin)
-                    }}
-                  >
-                    {member.name}
-                  </span>
+                className="block text-3xl font-bold text-orange-400"
+                style={{
+                  fontFamily: 'Unbounded, sans-serif',
+                  textIndent: '1.5rem',
+                }}
+              >
+                {member.name}
+              </span>
               <span
                 className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
                 style={{
@@ -174,7 +189,11 @@ function TeamDetailView({ team, onBack }) {
               >
                 {member.name}
               </span>
-              <p className="text-white font-poppins text-base leading-relaxed mb-4">{member.description}</p>
+              <p className="text-white font-poppins text-base leading-relaxed mb-4">
+                {typeof member.description === 'string'
+                  ? member.description
+                  : member.description?.[lang] || member.description?.en || ""}
+              </p>
             </div>
             {/* Description */}
             

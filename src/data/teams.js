@@ -11,7 +11,7 @@ import solenneChampion from '../assets/teams/champion-solenne.png';
 // Ajoute les imports nécessaires pour Valorant si besoin
 
 export const teamsData = [
-  {
+    {
     id: 'lol',
     name: 'LEAGUE OF LEGENDS',
     image: lolImage,
@@ -21,15 +21,65 @@ export const teamsData = [
       {
         name: 'Finn',
         role: 'Head Coach',
-        description: 'Lorem ipsum dolor sit amet...',
-        socials: { twitter: 'é', twitch: '#' },
+        description: {
+          fr: "Finn est le coach stratégique de l’équipe. Il analyse chaque partie et motive ses joueuses à donner le meilleur d’elles-mêmes. Toujours à l’écoute, il sait transformer la pression en énergie positive.",
+          en: "Finn is the team’s strategic coach. He analyzes every game and motivates his players to give their best. Always attentive, he knows how to turn pressure into positive energy.",
+        },
+        socials: { twitter: '#', twitch: '#' },
         jersey: finnJersey,
         championImage: finnChampion,
       },
       {
         name: 'Solenne',
-        role: 'Player',
-        description: 'Consectetur adipiscing elit...',
+        role: 'Top',
+        description: {
+          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
+          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+        },
+        socials: { twitter: '#', twitch: '#' },
+        jersey: solenneJersey,
+        championImage: solenneChampion,
+      },
+      {
+        name: 'Solenne',
+        role: 'Mid',
+        description: {
+          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
+          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+        },
+        socials: { twitter: '#', twitch: '#' },
+        jersey: solenneJersey,
+        championImage: solenneChampion,
+      },
+      {
+        name: 'Solenne',
+        role: 'Jungle',
+        description: {
+          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
+          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+        },
+        socials: { twitter: '#', twitch: '#' },
+        jersey: solenneJersey,
+        championImage: solenneChampion,
+      },
+      {
+        name: 'Solenne',
+        role: 'Adc',
+        description: {
+          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
+          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+        },
+        socials: { twitter: '#', twitch: '#' },
+        jersey: solenneJersey,
+        championImage: solenneChampion,
+      },
+      {
+        name: 'Solenne',
+        role: 'Support',
+        description: {
+          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
+          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+        },
         socials: { twitter: '#', twitch: '#' },
         jersey: solenneJersey,
         championImage: solenneChampion,
@@ -50,7 +100,7 @@ export const teamsData = [
         socials: { twitter: '#', twitch: '#' },
         jersey: null, // À remplacer par l'import du maillot si tu l'as
         championImage: null, // À remplacer par l'import du personnage si tu l'as
-      },
+      }
       // ...
     ]
   },
