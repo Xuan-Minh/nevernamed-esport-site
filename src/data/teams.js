@@ -3,6 +3,13 @@ import { LolLogoText } from '../components/GameLogos';
 import valoImage from '../assets/teams/valorant-bg.jpg';
 import { ValorantLogoText } from '../components/GameLogos';
 
+// Exemple d'import d'assets pour les maillots et champions
+import finnJersey from '../assets/teams/jersey.png';
+import finnChampion from '../assets/teams/champion-finn.png';
+import solenneJersey from '../assets/teams/jersey.png';
+import solenneChampion from '../assets/teams/champion-solenne.png';
+// Ajoute les imports nécessaires pour Valorant si besoin
+
 export const teamsData = [
   {
     id: 'lol',
@@ -11,8 +18,22 @@ export const teamsData = [
     LogoComponent: LolLogoText,
     fontClass: 'font-beaufort',
     roster: [
-      { name: 'Finn', role: 'Head Coach', description: 'Lorem ipsum dolor sit amet...', socials: { twitter: 'é', twitch: '#' } },
-      { name: 'Solenne', role: 'Player', description: 'Consectetur adipiscing elit...', socials: { twitter: '#', twitch: '#' } },
+      {
+        name: 'Finn',
+        role: 'Head Coach',
+        description: 'Lorem ipsum dolor sit amet...',
+        socials: { twitter: 'é', twitch: '#' },
+        jersey: finnJersey,
+        championImage: finnChampion,
+      },
+      {
+        name: 'Solenne',
+        role: 'Player',
+        description: 'Consectetur adipiscing elit...',
+        socials: { twitter: '#', twitch: '#' },
+        jersey: solenneJersey,
+        championImage: solenneChampion,
+      },
     ]
   },
   {
@@ -22,8 +43,14 @@ export const teamsData = [
     LogoComponent: ValorantLogoText,
     fontClass: 'font-beaufort',
     roster: [
-      // Ajoute ici les joueurs/staff Valorant
-      { name: 'Joueur 1', role: 'Captain', description: 'Description...', socials: { twitter: '#', twitch: '#' } },
+      {
+        name: 'Joueur 1',
+        role: 'Captain',
+        description: 'Description...',
+        socials: { twitter: '#', twitch: '#' },
+        jersey: null, // À remplacer par l'import du maillot si tu l'as
+        championImage: null, // À remplacer par l'import du personnage si tu l'as
+      },
       // ...
     ]
   },
