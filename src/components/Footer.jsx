@@ -91,7 +91,7 @@ function Footer({ handleClose }) {
                 </a>
               </div>
               <p className="text-sm text-gray-400 mt-2">
-                {t('footer.websiteBy')} <a href="http://xuan-minh.github.io/" className="underline hover:text-white">Xuan-Minh TRAN</a>
+                {t('footer.websiteBy')} <a href="https://github.com/Xuan-Minh/" className="underline hover:text-white">Xuan-Minh TRAN</a>
               </p>
             </div>
           </div>
