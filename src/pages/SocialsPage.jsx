@@ -8,6 +8,9 @@ import AnimatedElement from '../components/AnimatedElement';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import SocialFeed from '../components/SocialFeed';
+
+{/* POSTS */}
 
 // Données fictives pour les publications sur les réseaux sociaux
 const socialPosts = [
@@ -77,7 +80,7 @@ function SocialsPage() {
         </AnimatedElement>
 
         {/* POSTS */}
-        <AnimatedElement>
+        {/* <AnimatedElement>
           <section className="max-w-6xl mx-auto mt-2 mb-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {socialPosts.map(post => (
@@ -98,6 +101,11 @@ function SocialsPage() {
                 </div>
               ))}
             </div>
+          </section>
+        </AnimatedElement> */}
+        <AnimatedElement>
+          <section className="max-w-6xl mx-auto mt-2 mb-4">
+            <SocialFeed limit={6} />
           </section>
         </AnimatedElement>
 
