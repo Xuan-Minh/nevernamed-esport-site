@@ -9,8 +9,8 @@ function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleI
     <div className="flex flex-col gap-4">
       {/* Rôle dynamique animé */}
       <AnimatedElement className="flex items-center gap-2 mb-2" as="div">
-        <span className="uppercase font-unbounded text-4xl font-bold text-white tracking-wider">
-          {member.role}
+        <span className="uppercase font-unbounded text-2xl md:text-4xl font-bold text-white tracking-wider">
+        {member.role}
         </span>
         {roleIcons && roleIcons[member.role]}
       </AnimatedElement>
@@ -18,12 +18,12 @@ function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleI
                 <AnimatePresence mode="wait">
                 <motion.span
                     key={member.name + '-title'}
-                    className="block text-3xl font-bold text-orange-400"
+                    className="block text-xl md:text-3xl font-bold text-orange-400"
                     style={{
-                    fontFamily: 'Unbounded, sans-serif',
-                    textIndent: '1.5rem',
-                    position: 'relative',
-                    display: 'block',
+                        fontFamily: 'Unbounded, sans-serif',
+                        textIndent: '1.5rem',
+                        position: 'relative',
+                        display: 'block',
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -31,26 +31,13 @@ function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleI
                     transition={{ duration: 0.4 }}
                 >
                     {member.name}
-                    <span
-                    className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
-                    style={{
-                        fontFamily: 'Amanojaku, sans-serif',
-                        zIndex: 0,
-                        lineHeight: 1,
-                        userSelect: 'none',
-                        filter: 'blur(0.5px)',
-                    }}
-                    aria-hidden
-                    >
-                    {member.name}
-                    </span>
                 </motion.span>
                 </AnimatePresence>
       {/* Description animée */}
-      <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
         <motion.p
             key={member.name + '-desc'}
-            className="text-white font-poppins text-base leading-relaxed mb-4 overflow-hidden"
+            className="text-white font-poppins text-base md:text-lg leading-relaxed md:leading-loose my-4 overflow-hidden"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -61,6 +48,26 @@ function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleI
             : member.description?.[lang] || member.description?.en || ""}
         </motion.p>
         </AnimatePresence>
+
+{/* Pseudo en bas à gauche */}
+<div className="relative min-h-[40px]">
+  <AnimatePresence mode="wait">
+      {member.name}
+      <span
+        className="absolute right-1 bottom-7 text-7xl text-white/10 pointer-events-none select-none"
+        style={{
+          fontFamily: 'Amanojaku, sans-serif',
+          zIndex: 0,
+          lineHeight: 1,
+          userSelect: 'none',
+          filter: 'blur(0.5px)',
+        }}
+        aria-hidden
+      >
+        {member.name}
+      </span>
+  </AnimatePresence>
+</div>
       {/* Réseaux sociaux */}
       <div className="flex gap-4 mb-4">
         {member.socials?.twitter && (

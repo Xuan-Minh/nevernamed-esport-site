@@ -65,14 +65,14 @@ function PartnersPage() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="min-h-screen flex flex-col justify-center text-white pt-24 pb-10 px-4"
+      className="min-h-screen flex flex-col justify-center text-white pt-24 px-4"
     >
-    <div className="min-h-screen flex flex-col justify-center text-white pt-32 pb-10 px-4">
+    <div className="min-h-screen flex flex-col justify-center text-white sm:pt-18 sm:pb-8 pt:24 px-4">
       <Helmet>
         <title>NeverNamed Esport - Partenaires & Sponsors</title>
         <meta name="description" content="Nos sponsors, partenaires et comment rejoindre l’aventure NeverNamed Esport." />
       </Helmet>
-      <div className="container mx-auto text-center py-20 sm:py-24">
+      <div className="container mx-auto text-center pt-20 sm:pt-24">
         {/* --- Titre --- */}
         <AnimatedElement>
           <h1 className="font-unbounded text-3xl sm:text-5xl md:text-6xl font-bold mb-4">
@@ -184,7 +184,7 @@ function PartnersPage() {
         <Separator />
 
         {/* --- Section "Devenir Partenaire" --- */}
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-left px-4 sm:px-0">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-left px-4 pb-8 sm:px-0 sm:pb-4">
             <div>
               <h2 className="font-unbounded text-2xl sm:text-3xl font-bold">{t('partners.become.title')}</h2>
               <p className="text-white/70 mt-4 max-w-md font-unbounded text-sm sm:text-base">{t('partners.become.text')}</p>

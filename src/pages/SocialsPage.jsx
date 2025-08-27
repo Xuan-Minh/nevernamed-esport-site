@@ -60,10 +60,10 @@ function SocialsPage() {
         <title>NeverNamed Esport - Social Hub</title>
         <meta name="description" content="Retrouvez tous les réseaux sociaux et dernières actualités de NeverNamed Esport." />
       </Helmet>
-      <div className="container mx-auto px-4 overflow-y-hidden py-12 sm:py-24">
+      <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20">
         {/* HERO */}
         <AnimatedElement>
-          <section className="relative min-h-[calc(90vh-6rem)] flex flex-col items-center justify-center">
+          <section className="relative min-h-[calc(70vh-6rem)] flex flex-col items-center justify-center">
             <div className="w-full text-center translate-y-6 sm:translate-y-10 md:translate-y-14">
             <h1 className="font-unbounded text-4xl sm:text-5xl md:text-6xl font-bold mb-8 sm:mb-12">{t('socialHub.title')}</h1>
             <h2 className="font-unbounded text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">{t('socialHub.channels')}</h2>

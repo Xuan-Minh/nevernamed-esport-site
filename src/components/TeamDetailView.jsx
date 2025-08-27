@@ -30,7 +30,7 @@ function TeamDetailView({ team, onBack }) {
   const member = team.roster[displayed.index];
 
   return (
-    <div className="relative min-h-screen brand-background">
+    <div className="relative min-h-screen brand-background pb-24 sm:pb-0">  
       <TeamHero team={team} showTitle={showTitle} setShowTitle={setShowTitle} />
 
       {/* Galerie des membres */}
@@ -61,8 +61,8 @@ function TeamDetailView({ team, onBack }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
         </svg>
       </button>
-      <section className="relative z-40 w-full h-[70vh] flex flex-col justify-center items-center px-2 sm:px-6 mt-0">
-        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-2 items-center md:items-start h-full">
+      <section className="relative z-40 w-full h-[70vh] flex flex-col md:flex-row justify-center items-center px-2 sm:px-6 mt-0">
+        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 items-center md:items-start h-full">
           <div className="flex-1 flex flex-col gap-2 justify-center h-full relative">
             <MemberCard
               member={member}
