@@ -19,7 +19,7 @@ function TeamMembersGallery({ roster, current, setCurrent, directionRef }) {
           style={{ outline: idx === current ? '2px solid #ff6600' : 'none', borderRadius: 12 }}
           aria-label={`Voir ${m.name}`}
         >
-          <div className={`w-20 h-24 md:w-28 md:h-32 bg-gray-800 rounded-xl flex items-end justify-center overflow-hidden shadow-lg mb-2 border-2 ${idx === current ? 'border-brand-accent' : 'border-transparent'}`}>
+          <div className={`w-20 h-24 md:w-24 md:h-24 bg-gray-800 rounded-xl flex items-end justify-center overflow-hidden shadow-lg mb-2 border-2 ${idx === current ? 'border-brand-accent' : 'border-transparent'}`}>
             <img
               src={avatarPlaceholder}
               alt={m.name}
