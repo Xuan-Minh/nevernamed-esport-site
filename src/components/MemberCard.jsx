@@ -15,37 +15,37 @@ function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleI
         {roleIcons && roleIcons[member.role]}
       </AnimatedElement>
       {/* Nom du joueur animé */}
-        <AnimatePresence mode="wait">
-        <motion.span
-            key={member.name + '-title'}
-            className="block text-3xl font-bold text-orange-400"
-            style={{
-            fontFamily: 'Unbounded, sans-serif',
-            textIndent: '1.5rem',
-            position: 'relative',
-            display: 'block',
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-        >
-            {member.name}
-            <span
-            className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
-            style={{
-                fontFamily: 'Amanojaku, sans-serif',
-                zIndex: 0,
-                lineHeight: 1,
-                userSelect: 'none',
-                filter: 'blur(0.5px)',
-            }}
-            aria-hidden
-            >
-            {member.name}
-            </span>
-        </motion.span>
-        </AnimatePresence>
+                <AnimatePresence mode="wait">
+                <motion.span
+                    key={member.name + '-title'}
+                    className="block text-3xl font-bold text-orange-400"
+                    style={{
+                    fontFamily: 'Unbounded, sans-serif',
+                    textIndent: '1.5rem',
+                    position: 'relative',
+                    display: 'block',
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                >
+                    {member.name}
+                    <span
+                    className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
+                    style={{
+                        fontFamily: 'Amanojaku, sans-serif',
+                        zIndex: 0,
+                        lineHeight: 1,
+                        userSelect: 'none',
+                        filter: 'blur(0.5px)',
+                    }}
+                    aria-hidden
+                    >
+                    {member.name}
+                    </span>
+                </motion.span>
+                </AnimatePresence>
       {/* Description animée */}
       <AnimatePresence mode="wait">
         <motion.p
