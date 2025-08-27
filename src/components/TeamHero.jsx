@@ -1,23 +1,18 @@
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
+
+function splitTitle(name) {
+  const words = name.trim().split(' ');
+  if (words.length >= 3) {
+    return {
+      back: words.slice(0, words.length - 1).join(' '),
+      front: words[words.length - 1],
+    };
+  }
+  return { back: '', front: name };
+}
 
 function TeamHero({ team, showTitle, setShowTitle }) {
-  // Découpe le nom si besoin
-  function splitTitle(name) {
-    const words = name.trim().split(' ');
-    if (words.length >= 3) {
-      return {
-        back: words.slice(0, -2).join(' '),
-        front: words.slice(-2).join(' '),
-      };
-    }
-    if (words.length === 2) {
-      return {
-        back: words[0],
-        front: words[1],
-      };
-    }
-    return { back: '', front: name };
-  }
   const { back, front } = splitTitle(team.name);
 
   return (

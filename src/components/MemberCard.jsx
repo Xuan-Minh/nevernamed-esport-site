@@ -1,84 +1,95 @@
-import React from "react";
-import { TwitterIcon, TwitchIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from "./Icons"; // adapte selon ton projet
-import ArrowIcon from "./ArrowIcon"; // Ajoute cet import
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import AnimatedElement from './AnimatedElement';
+import { TwitterIcon, TwitchIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from './Icons';
+import ArrowIcon from './ArrowIcon';
 
-
-function MemberCard({
-  member,
-  lang,
-  roleIcons,
-  handlePrev,
-  handleNext,
-  current,
-  team,
-}) {
+function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleIcons }) {
   return (
     <div className="flex flex-col gap-4">
-      {/* Rôle et icône */}
-      <div className="flex items-center gap-2 mb-2">
+      {/* Rôle dynamique animé */}
+      <AnimatedElement className="flex items-center gap-2 mb-2" as="div">
         <span className="uppercase font-unbounded text-4xl font-bold text-white tracking-wider">
           {member.role}
         </span>
-        {roleIcons[member.role] && roleIcons[member.role]}
-      </div>
-
-      {/* Nom stylisé */}
-      <div className="relative mb-2">
-        <span className="block text-3xl font-bold text-orange-400" style={{ fontFamily: 'Unbounded, sans-serif', textIndent: '1.5rem' }}>
-          {member.name}
-        </span>
-        <span
-          className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
-          style={{
-            fontFamily: 'Amanojaku, sans-serif',
-            zIndex: 0,
-            lineHeight: 1,
-            userSelect: 'none',
-            filter: 'blur(0.5px)',
-          }}
-          aria-hidden
+        {roleIcons && roleIcons[member.role]}
+      </AnimatedElement>
+      {/* Nom du joueur animé */}
+        <AnimatePresence mode="wait">
+        <motion.span
+            key={member.name + '-title'}
+            className="block text-3xl font-bold text-orange-400"
+            style={{
+            fontFamily: 'Unbounded, sans-serif',
+            textIndent: '1.5rem',
+            position: 'relative',
+            display: 'block',
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
         >
-          {member.name}
-        </span>
-      </div>
-
-      {/* Description */}
-      <p className="text-white font-poppins text-base leading-relaxed mb-4 min-h-[80px]">
-        {typeof member.description === 'string'
-          ? member.description
-          : member.description?.[lang] || member.description?.en || ""}
-      </p>
-
+            {member.name}
+            <span
+            className="absolute left-0 top-7 text-6xl text-white/10 pointer-events-none select-none"
+            style={{
+                fontFamily: 'Amanojaku, sans-serif',
+                zIndex: 0,
+                lineHeight: 1,
+                userSelect: 'none',
+                filter: 'blur(0.5px)',
+            }}
+            aria-hidden
+            >
+            {member.name}
+            </span>
+        </motion.span>
+        </AnimatePresence>
+      {/* Description animée */}
+      <AnimatePresence mode="wait">
+        <motion.p
+            key={member.name + '-desc'}
+            className="text-white font-poppins text-base leading-relaxed mb-4 overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, delay: 0.15 }}
+        >
+            {typeof member.description === 'string'
+            ? member.description
+            : member.description?.[lang] || member.description?.en || ""}
+        </motion.p>
+        </AnimatePresence>
       {/* Réseaux sociaux */}
       <div className="flex gap-4 mb-4">
         {member.socials?.twitter && (
           <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <TwitterIcon className="w-6 h-6 text-white hover:text-brand-accent transition-colors" />
+            <TwitterIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.twitch && (
           <a href={member.socials.twitch} target="_blank" rel="noopener noreferrer" aria-label="Twitch">
-            <TwitchIcon className="w-6 h-6 text-white hover:text-brand-accent transition-colors" />
+            <TwitchIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.instagram && (
           <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <InstagramIcon className="w-6 h-6 text-white hover:text-brand-accent transition-colors" />
+            <InstagramIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.youtube && (
           <a href={member.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <YoutubeIcon className="w-6 h-6 text-white hover:text-brand-accent transition-colors" />
+            <YoutubeIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.linkedin && (
           <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <LinkedinIcon className="w-6 h-6 text-white hover:text-brand-accent transition-colors" />
+            <LinkedinIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
       </div>
-
-       {/* Navigation membres */}
+      {/* Navigation membres */}
       <div className="flex items-center gap-4 mt-4">
         <button
           onClick={handlePrev}

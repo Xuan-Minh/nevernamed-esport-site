@@ -4,6 +4,7 @@ import TeamSelector from '../components/TeamSelector';
 import TeamDetailView from '../components/TeamDetailView';
 import { motion } from 'framer-motion';
 
+  
 function TeamsPage() {
   const [selectedTeam, setSelectedTeam] = useState(null);
 

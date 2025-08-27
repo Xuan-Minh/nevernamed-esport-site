@@ -1,6 +1,7 @@
-import { AnimatePresence, motion } from "framer-motion";
+import React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-function MemberVisuel({ member, displayed }) {
+function MemberVisual({ member, displayed }) {
   return (
     <div className="flex-1 flex flex-col items-center justify-center relative h-full">
       <AnimatePresence mode="wait" custom={displayed.direction}>
@@ -14,7 +15,7 @@ function MemberVisuel({ member, displayed }) {
           className="w-full h-full flex flex-col items-center justify-center relative"
           style={{ position: "absolute", inset: 0 }}
         >
-          {/* Image du personnage en fond */}
+          {/* Image du personnage phare en transparence */}
           {member.championImage && (
             <img
               src={member.championImage}
@@ -39,4 +40,4 @@ function MemberVisuel({ member, displayed }) {
   );
 }
 
-export default MemberVisuel;
+export default MemberVisual;
