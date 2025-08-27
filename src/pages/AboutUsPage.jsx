@@ -66,7 +66,7 @@ const AboutUsPage = () => {
         <meta name="description" content="Découvrez l’histoire, les valeurs et l’équipe NeverNamed Esport." />
       </Helmet>
       {/* Section 1: Hero plein écran */}
-      <section className="h-[80vh] w-full flex flex-col justify-center items-center text-center p-3">
+      <section className="h-[70vh] w-full flex flex-col justify-center items-center text-center p-3">
         <AnimatedElement>
           <div className="relative flex justify-center items-center w-full max-w-2xl h-96">
             <img
@@ -83,7 +83,7 @@ const AboutUsPage = () => {
 
       {/* Contenu */}
       <div className="container mx-auto px-4">
-        <main className="flex flex-col items-center gap-y-24 md:gap-y-32 py-16 md:py-24">
+        <main className="flex flex-col items-center gap-y-24 md:gap-y-32 pb-16 md:pb-24">
           {/* Section 2: Nos Valeurs */}
           <AnimatedElement>
             <section className="w-full max-w-5xl font-poppins">

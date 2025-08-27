@@ -3,8 +3,8 @@ import avatarPlaceholder from '../assets/avatar-placeholder.png';
 
 function TeamMembersGallery({ roster, current, setCurrent, directionRef }) {
   return (
-<div className="w-full max-w-5xl mx-auto flex justify-center items-end gap-8 py-4 z-40 relative overflow-x-auto scrollbar-thin px-2 md:px-0">
-  <div className="flex pl-4 pr-4 md:pl-0 md:pr-0">
+<div className="w-full max-w-6xl mx-auto flex justify-center items-end gap-8 md:gap-12 py-4 z-40 relative overflow-x-auto scrollbar-thin px-2 md:px-2">
+  <div className="flex pl-4 pr-4 md:pl-0 md:pr-0  md:gap-10">
     {roster.map((m, idx) => (
         <button
           key={m.name}

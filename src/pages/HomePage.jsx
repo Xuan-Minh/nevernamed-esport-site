@@ -41,8 +41,8 @@ const HomePage = ({ isLoading }) => {
         </AnimatedElement>
       </HeroSection>
 
-      <div className="container text-white">
-        <SponsorsBanner />
+      <div className="container center mx-auto text-white">
+      <SponsorsBanner />
        
       </div>
        <Separator />
