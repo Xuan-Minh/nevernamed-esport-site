@@ -75,9 +75,13 @@ function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Link to="/" className="flex-shrink-0">
-          <img src={logoSvg} alt="Logo Nevernamed Esport" className="h-16 md:h-20 w-auto" />
-        </Link>
+        <Link
+              to="/"
+              className="flex-shrink-0"
+              onClick={() => setIsOpen(false)} // Ajouté pour fermer le menu mobile
+            >
+              <img src={logoSvg} alt="Logo Nevernamed Esport" className="h-16 md:h-20 w-auto" />
+            </Link>
         <nav className="hidden md:flex items-center justify-center gap-10 text-white text-nowrap">
           {navItems.map(item => <NavLink key={item.to} to={item.to}>{item.text}</NavLink>)}
         </nav>

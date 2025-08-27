@@ -67,7 +67,7 @@ function PartnersPage() {
       transition={{ duration: 0.4 }}
       className="min-h-screen flex flex-col justify-center text-white pt-24 px-4"
     >
-    <div className="min-h-screen flex flex-col justify-center text-white sm:pt-18 sm:pb-8 pt:24 px-4">
+    <div className="min-h-screen flex flex-col justify-center text-white sm:pt-18 sm:pb-8 sm:pt-20 px-4">
       <Helmet>
         <title>NeverNamed Esport - Partenaires & Sponsors</title>
         <meta name="description" content="Nos sponsors, partenaires et comment rejoindre l’aventure NeverNamed Esport." />
@@ -179,9 +179,6 @@ function PartnersPage() {
             </button>
           </div>
         </AnimatedElement>
-
-        {/* --- Séparateur --- */}
-        <Separator />
 
         {/* --- Section "Devenir Partenaire" --- */}
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-left px-4 pb-8 sm:px-0 sm:pb-4">

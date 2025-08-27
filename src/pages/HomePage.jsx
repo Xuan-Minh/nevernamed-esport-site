@@ -47,7 +47,7 @@ const HomePage = ({ isLoading }) => {
       </div>
        <Separator />
 
-      <div className="container mx-auto px-4 py-20 sm:py-24">
+      <div className="container mx-auto px-4 md:  py-20 sm:py-24">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div className="md:w-1/2 text-center md:text-left">
             <AnimatedElement>

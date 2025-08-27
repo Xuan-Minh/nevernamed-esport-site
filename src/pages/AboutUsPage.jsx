@@ -66,7 +66,7 @@ const AboutUsPage = () => {
         <meta name="description" content="Découvrez l’histoire, les valeurs et l’équipe NeverNamed Esport." />
       </Helmet>
       {/* Section 1: Hero plein écran */}
-      <section className="h-[70vh] w-full flex flex-col justify-center items-center text-center p-3">
+      <section className="h-[60vh] w-full flex flex-col justify-center items-center text-center p-3">
         <AnimatedElement>
           <div className="relative flex justify-center items-center w-full max-w-2xl h-96">
             <img
