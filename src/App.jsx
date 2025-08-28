@@ -11,6 +11,9 @@ import TeamsPage from "./pages/TeamsPage";
 import PartnersPage from "./pages/PartnersPage";
 import SocialsPage from "./pages/SocialsPage";
 import PolitiquesPage from "./pages/PolitiquesPage";
+import MentionsLegalesPage from "./pages/MentionsLegalesPage";
+import TermsPage from "./pages/TermsPage";
+
 import 'flag-icons/css/flag-icons.min.css';
 import './i18n'; 
 
@@ -97,6 +100,7 @@ function App() {
                 <Route path="/partenaires" element={<PartnersPage />} />
                 <Route path="/socialhub" element={<SocialsPage />} />
                 <Route path="/politiques" element={<PolitiquesPage />} />
+                <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
               </Routes>
               </AnimatePresence>
             </main>

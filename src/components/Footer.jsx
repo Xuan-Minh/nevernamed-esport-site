@@ -71,6 +71,9 @@ function Footer({ handleClose }) {
                 <Link to="/politiques" className="text-sm text-gray-400 hover:text-white transition-colors" onClick={handleClose}>
                   {t('footer.privacy')}
                 </Link>
+                <Link to="/mentions-legales" className="text-sm text-gray-400 hover:text-white transition-colors" onClick={handleClose}>
+                  {t('footer.legal')}
+                </Link>
                 <Link to="/terms" className="text-sm text-gray-400 hover:text-white transition-colors" onClick={handleClose}>
                   {t('footer.terms')}
                 </Link>
