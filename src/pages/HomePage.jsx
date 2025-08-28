@@ -2,16 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import AnimatedElement from '../components/AnimatedElement';
+import AnimatedElement from '../components/common/AnimatedElement';
 import { motion } from 'framer-motion';
 
 // Import des composants
-import HeroSection from '../components/HeroSection';
-import SponsorsBanner from '../components/SponsorsBanner';
-import Separator from '../components/Separator';
-import Button from '../components/Button';
-import Nowornever from '../components/Nowornever';
-import LatestPost from '../components/LatestPost';
+import HeroSection from '../components/layout/HeroSection';
+import SponsorsBanner from '../components/home/SponsorsBanner';
+import Separator from '../components/common/Separator';
+import Button from '../components/common/Button';
+import Nowornever from '../components/home/Nowornever';
+import LatestPost from '../components/home/LatestPost';
 
 // Import des ressources
 import heroVideo from '../assets/valreal.mp4';
