@@ -3,6 +3,7 @@ import { teamsData } from '../data/teams';
 import TeamSelector from '../components/TeamSelector';
 import TeamDetailView from '../components/TeamDetailView';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
   
 function TeamsPage() {

@@ -97,13 +97,67 @@
     "send": "Send your message"
   },
   "footer": {
-    "privacy": "Privacy policy",
+    "privacy": "PRIVACY POLICY",
     "contact": "Contact",
     "copyright": "© 2025 Nevernamed Esport. All rights reserved",
     "closeLabel": "Close footer",
     "ariaLabel": "Footer",
     "logoAlt": "Nevernamed Esport logo",
     "websiteBy": "Website by",
-    "terms": "Terms of Use"
-  }
+    "terms": "Terms of Use",
+    "legal": "Legal notice"
+  },
+  "legal": {
+  "title": "LEGAL NOTICE",
+  "intro": "In accordance with the law, you will find below the legal information for the NeverNamed Esport website.",
+  "editor": "Site publisher",
+  "association": "Association name: NeverNamed Esport",
+  "address": "Address: [head office address]",
+  "responsible": "Publication manager: [Name, Surname or position]",
+  "email": "Email: contact@nevernamed-esport.com",
+  "siren": "RNA or SIREN number: [to be completed]",
+  "hosting": "Hosting",
+  "host": "Host: [Hosting provider name]",
+  "hostAddress": "Address: [hosting provider address]",
+  "hostPhone": "Phone: [hosting provider phone]",
+  "intellectual": "Intellectual property",
+  "intellectualText": "The content of the site (texts, images, graphics, logo, etc.) is protected by copyright. Any reproduction or use without authorization is prohibited.",
+  "contact": "For any questions, contact us at: contact@nevernamed-esport.com",
+  "lastUpdate": "Last update: August 2025"
+},
+"terms": {
+  "title": "TERMS OF USE",
+  "intro": "By using this website, you agree to the following terms of use.",
+  "access": "1. Site Access",
+  "accessText": "The NeverNamed Esport website is freely accessible to any user with Internet access.",
+  "usage": "2. Use of the Site",
+  "usageText": "You agree to use this site in compliance with applicable laws and not to compromise the security or integrity of the site.",
+  "property": "3. Intellectual Property",
+  "propertyText": "All content on the site (texts, images, logos, etc.) is protected by copyright. Any reproduction without authorization is prohibited.",
+  "liability": "4. Liability",
+  "liabilityText": "NeverNamed Esport cannot be held liable for any direct or indirect damages resulting from the use of the site.",
+  "modification": "5. Modification of Terms",
+  "modificationText": "NeverNamed Esport reserves the right to modify these terms at any time.",
+  "lastUpdate": "Last update: August 2025"
+},
+"privacy": {
+  "title": "PRIVACY POLICY",
+  "intro": "This page explains how NeverNamed Esport collects, uses and protects your personal data when you use our website.",
+  "dataTitle": "1. Data collected",
+  "dataForm": "Information you provide via forms (name, email, message, etc.).",
+  "dataNav": "Browsing data collected automatically (cookies, IP address, anonymous statistics).",
+  "useTitle": "2. Use of data",
+  "useContact": "Respond to your requests via the contact form.",
+  "useImprove": "Improve user experience and site security.",
+  "useStats": "Analyze site traffic (anonymous statistics).",
+  "cookiesTitle": "3. Cookies",
+  "cookiesText": "This site may use cookies to improve navigation and measure audience. You can configure your browser to refuse cookies.",
+  "shareTitle": "4. Data sharing",
+  "shareText": "Your data is never sold. It may only be shared with technical providers necessary for the operation of the site (hosting, statistics).",
+  "rightsTitle": "5. Your rights",
+  "rightsText": "In accordance with GDPR, you can request access, rectification or deletion of your personal data by contacting us at:",
+  "contactTitle": "6. Contact",
+  "contactText": "For any questions regarding privacy or your data, contact us at the address above.",
+  "lastUpdate": "Last update: August 2025"
+}
 }

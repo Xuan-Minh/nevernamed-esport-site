@@ -1,48 +1,46 @@
+import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
+
 function PolitiquesPage() {
+  const { t } = useTranslation();
+
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-white px-4 py-12">
-      <div className="max-w-3xl w-full">
-        <h1 className="font-unbounded text-5xl font-bold mb-6 text-center">Politique de confidentialité</h1>
-        <p className="mb-6 text-lg text-center">
-          Cette page explique comment NeverNamed Esport collecte, utilise et protège vos données personnelles lorsque vous utilisez notre site.
-        </p>
+    <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20 pb-12">
+      <Helmet>
+        <title>NeverNamed Esport - {t('privacy.title')}</title>
+        <meta name="description" content={t('privacy.intro')} />
+      </Helmet>
 
-        <h2 className="font-bold text-2xl mt-8 mb-2">1. Données collectées</h2>
-        <ul className="list-disc list-inside mb-4 text-base">
-          <li>Informations que vous nous transmettez via les formulaires (nom, email, message, etc.).</li>
-          <li>Données de navigation collectées automatiquement (cookies, adresse IP, statistiques anonymes).</li>
+      <section className="relative min-h-[calc(65vh-6rem)] flex flex-col items-center justify-center">
+        <div className="w-full text-center translate-y-6 sm:translate-y-10 md:translate-y-14">
+          <h1 className="font-unbounded text-4xl sm:text-5xl font-bold mb-8">{t('privacy.title')}</h1>
+          <p className="mb-8 text-lg">{t('privacy.intro')}</p>
+        </div>
+      </section>
+
+      <div className="max-w-3xl w-full mx-auto">
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('privacy.dataTitle')}</h2>
+        <ul className="list-disc list-inside mb-5 text-base">
+          <li>{t('privacy.dataForm')}</li>
+          <li>{t('privacy.dataNav')}</li>
         </ul>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">2. Utilisation des données</h2>
-        <ul className="list-disc list-inside mb-4 text-base">
-          <li>Répondre à vos demandes via le formulaire de contact.</li>
-          <li>Améliorer l’expérience utilisateur et la sécurité du site.</li>
-          <li>Analyser la fréquentation du site (statistiques anonymes).</li>
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('privacy.useTitle')}</h2>
+        <ul className="list-disc list-inside mb-5 text-base">
+          <li>{t('privacy.useContact')}</li>
+          <li>{t('privacy.useImprove')}</li>
+          <li>{t('privacy.useStats')}</li>
         </ul>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">3. Cookies</h2>
-        <p className="mb-4 text-base">
-          Ce site peut utiliser des cookies pour améliorer la navigation et mesurer l’audience. Vous pouvez configurer votre navigateur pour refuser les cookies.
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('privacy.cookiesTitle')}</h2>
+        <p className="mb-5 text-base">{t('privacy.cookiesText')}</p>
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('privacy.shareTitle')}</h2>
+        <p className="mb-5 text-base">{t('privacy.shareText')}</p>
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('privacy.rightsTitle')}</h2>
+        <p className="mb-5 text-base">
+          {t('privacy.rightsText')} <a href="mailto:contact@nevernamed-esport.com" className="underline text-brand-accent">contact@nevernamed-esport.com</a>
         </p>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">4. Partage des données</h2>
-        <p className="mb-4 text-base">
-          Vos données ne sont jamais revendues. Elles peuvent être partagées uniquement avec des prestataires techniques nécessaires au fonctionnement du site (hébergement, statistiques).
-        </p>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">5. Vos droits</h2>
-        <p className="mb-4 text-base">
-          Conformément au RGPD, vous pouvez demander l’accès, la rectification ou la suppression de vos données personnelles en nous contactant à l’adresse suivante : <a href="mailto:contact@nevernamed-esport.com" className="underline text-brand-accent">contact@nevernamed-esport.com</a>
-        </p>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">6. Contact</h2>
-        <p className="mb-4 text-base">
-          Pour toute question concernant la confidentialité ou vos données, contactez-nous à l’adresse ci-dessus.
-        </p>
-
-        <p className="text-xs text-gray-400 mt-8 text-center">
-          Dernière mise à jour : août 2025
-        </p>
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('privacy.contactTitle')}</h2>
+        <p className="mb-5 text-base">{t('privacy.contactText')}</p>
+        <p className="text-xs text-gray-400 mt-10 text-center">{t('privacy.lastUpdate')}</p>
       </div>
     </div>
   );

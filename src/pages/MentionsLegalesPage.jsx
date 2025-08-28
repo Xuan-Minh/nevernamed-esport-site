@@ -1,41 +1,43 @@
+import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
+
 function MentionsLegalesPage() {
+  const { t } = useTranslation();
+
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-white px-4 py-12">
-      <div className="max-w-3xl w-full">
-        <h1 className="font-unbounded text-5xl font-bold mb-6 text-center">Mentions légales</h1>
-        <p className="mb-6 text-lg text-center">
-          Conformément à la loi, vous trouverez ci-dessous les informations légales du site NeverNamed Esport.
-        </p>
+    <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20 pb-12">
+      <Helmet>
+        <title>NeverNamed Esport - {t('legal.title')}</title>
+        <meta name="description" content={t('legal.intro')} />
+      </Helmet>
 
-        <h2 className="font-bold text-2xl mt-8 mb-2">Éditeur du site</h2>
-        <ul className="list-disc list-inside mb-4 text-base">
-          <li>Nom de l’association : NeverNamed Esport</li>
-          <li>Adresse : [adresse du siège social]</li>
-          <li>Responsable de la publication : [Nom, Prénom ou fonction]</li>
-          <li>Email : <a href="mailto:contact@nevernamed-esport.com" className="underline text-brand-accent">contact@nevernamed-esport.com</a></li>
-          <li>Numéro RNA ou SIREN : [à compléter]</li>
+      <section className="relative min-h-[calc(65vh-6rem)] flex flex-col items-center justify-center">
+        <div className="w-full text-center translate-y-6 sm:translate-y-10 md:translate-y-14">
+          <h1 className="font-unbounded text-4xl sm:text-5xl font-bold mb-8">{t('legal.title')}</h1>
+          <p className="mb-8 text-lg">{t('legal.intro')}</p>
+        </div>
+      </section>
+
+      <div className="max-w-3xl w-full mx-auto">
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('legal.editor')}</h2>
+        <ul className="list-disc list-inside mb-5 text-base">
+          <li>{t('legal.association')}</li>
+          <li>{t('legal.address')}</li>
+          <li>{t('legal.responsible')}</li>
+          <li>{t('legal.email')}</li>
+          <li>{t('legal.siren')}</li>
         </ul>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">Hébergement</h2>
-        <ul className="list-disc list-inside mb-4 text-base">
-          <li>Hébergeur : [Nom de l’hébergeur, ex : OVH, Infomaniak, etc.]</li>
-          <li>Adresse : [adresse de l’hébergeur]</li>
-          <li>Téléphone : [numéro de l’hébergeur]</li>
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('legal.hosting')}</h2>
+        <ul className="list-disc list-inside mb-5 text-base">
+          <li>{t('legal.host')}</li>
+          <li>{t('legal.hostAddress')}</li>
+          <li>{t('legal.hostPhone')}</li>
         </ul>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">Propriété intellectuelle</h2>
-        <p className="mb-4 text-base">
-          Le contenu du site (textes, images, graphismes, logo, etc.) est protégé par le droit d’auteur. Toute reproduction ou utilisation sans autorisation est interdite.
-        </p>
-
-        <h2 className="font-bold text-2xl mt-8 mb-2">Contact</h2>
-        <p className="mb-4 text-base">
-          Pour toute question, contactez-nous à l’adresse suivante : <a href="mailto:contact@nevernamed-esport.com" className="underline text-brand-accent">contact@nevernamed-esport.com</a>
-        </p>
-
-        <p className="text-xs text-gray-400 mt-8 text-center">
-          Dernière mise à jour : août 2025
-        </p>
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('legal.intellectual')}</h2>
+        <p className="mb-5 text-base">{t('legal.intellectualText')}</p>
+        <h2 className="font-bold text-2xl mt-10 mb-3">{t('legal.contact')}</h2>
+        <p className="mb-5 text-base">{t('legal.contact')}</p>
+        <p className="text-xs text-gray-400 mt-10 text-center">{t('legal.lastUpdate')}</p>
       </div>
     </div>
   );

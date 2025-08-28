@@ -18,8 +18,7 @@ const CloseIcon = () => (
   </svg>
 );
 
-function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+function Header({ isOpen, setIsOpen }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

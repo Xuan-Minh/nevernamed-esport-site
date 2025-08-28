@@ -40,6 +40,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [isFooterOpen, setIsFooterOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // <-- Ajoute ici
 
 
     // Affiche la signature une seule fois au montage du composant
@@ -77,21 +78,18 @@ function App() {
     };
   }, [loading]);
 
-  return (
-    
-    <div className="relative min-h-screen">
-      <AnimatePresence>
-        {loading && <LoadingScreen progress={progress} />}
-      </AnimatePresence>
+      return (
+        <div className="relative min-h-screen">
+          <AnimatePresence>
+            {loading && <LoadingScreen progress={progress} />}
+          </AnimatePresence>
 
-      {/* Le contenu de l'application n'est rendu qu'après le chargement */}
-      {!loading && (
-        <>
-        <ScrollToTop />
-          <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
-            <Header />
-            {/* Ajout du padding pour ne pas que le contenu soit caché par le header absolu */}
-            <main className="overflow-x-hidden">
+          {!loading && (
+            <>
+              <ScrollToTop />
+              <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
+                <Header isOpen={isOpen} setIsOpen={setIsOpen} /> {/* Passe les props */}
+                <main className="overflow-x-hidden">
               <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
                 <Route index element={<HomePage isLoading={loading} />} />
@@ -101,15 +99,19 @@ function App() {
                 <Route path="/socialhub" element={<SocialsPage />} />
                 <Route path="/politiques" element={<PolitiquesPage />} />
                 <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+                  <Route path="/terms" element={<TermsPage />} /> 
               </Routes>
               </AnimatePresence>
             </main>
           </div>
 
-          {/* Bouton pour ouvrir le footer */}
+      {/* Bouton pour ouvrir le footer */}
           {!isFooterOpen && (
             <button
-              onClick={() => setIsFooterOpen(true)}
+              onClick={() => {
+                setIsFooterOpen(true);
+                setIsOpen(false); // <-- Ferme le menu mobile si ouvert
+              }}
               className="fixed bottom-5 right-5 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition-colors z-40"
               aria-label="Ouvrir les informations du site"
             >
