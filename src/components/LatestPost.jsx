@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import postImage from '../assets/test.jpg';
 import arrowIcon from '../assets/arrow.svg';
 
-import { InstagramIcon, TwitterIcon, YoutubeIcon } from './Icons';
+import { InstagramIcon, TwitterIcon, TwitchIcon } from './Icons';
 
 function LatestPost() {
 
@@ -73,14 +73,15 @@ function LatestPost() {
         
         {/* Conteneur pour les icônes */}
         <div className="flex items-center gap-4">
-          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Instagram">
-            <InstagramIcon />
-          </a>
-          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitter">
+         
+          <a href="https://x.com/thenevernamed" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitter">
             <TwitterIcon className="w-6 h-6" />
           </a>
-          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Youtube">
-            <YoutubeIcon />
+          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitch">
+            <TwitchIcon />
+          </a>
+           <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Instagram">
+            <InstagramIcon />
           </a>
         </div>
 

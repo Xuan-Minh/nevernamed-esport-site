@@ -36,9 +36,8 @@ function TeamMembersGallery({ roster, current, setCurrent, directionRef }) {
             />
           </div>
           <span className={`
-            text-[10px] md:text-lg font-unbounded font-bold px-1 md:px-3 py-1 rounded
-            bg-white/90 text-gray-900 tracking-wide shadow
-            ${idx === current ? 'text-brand-accent' : ''}
+            text-[10px] md:text-lg font-unbounded font-bold px-1 md:px-3 py-1text-white tracking-wide shadow
+            ${idx === current ? 'text-orange-400  ' : ''}
           `}>
             {m.name}
           </span>

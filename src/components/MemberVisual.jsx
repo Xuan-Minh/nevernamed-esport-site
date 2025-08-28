@@ -32,7 +32,7 @@ function MemberVisual({ member, displayed }) {
             <motion.img
               src={member.championImage}
               alt="Champion"
-              className="absolute inset-0 w-full h-full object-contain opacity-40 pointer-events-none select-none translate-y-[-20%] translate-x-[30%]"
+              className="absolute inset-0 w-full h-full object-contain opacity-40 pointer-events-none select-none translate-y-[-20%] translate-x-[20%]"
               style={{ zIndex: 0 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
