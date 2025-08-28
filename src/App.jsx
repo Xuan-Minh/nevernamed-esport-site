@@ -25,12 +25,6 @@ const InfoIcon = () => (
 );
 
 
-/*
-  ------------------------------------------------------
-  Site développé par Xuan-Minh TRAN - https://xuan-minh.github.io/
-  ------------------------------------------------------
-*/
-
 function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
