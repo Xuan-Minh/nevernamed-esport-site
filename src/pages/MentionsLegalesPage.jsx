@@ -14,7 +14,6 @@ function MentionsLegalesPage() {
       <section className="relative min-h-[calc(65vh-6rem)] flex flex-col items-center justify-center">
         <div className="w-full text-center translate-y-6 sm:translate-y-10 md:translate-y-14">
           <h1 className="font-unbounded text-4xl sm:text-5xl font-bold mb-8">{t('legal.title')}</h1>
-          <p className="mb-8 text-lg">{t('legal.intro')}</p>
         </div>
       </section>
 
