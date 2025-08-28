@@ -4,12 +4,22 @@ import valoImage from '../assets/teams/valorant-bg.jpg';
 import { ValorantLogoText } from '../components/GameLogos';
 
 // Exemple d'import d'assets pour les maillots et champions
-import finnJersey from '../assets/teams/jersey.png';
-import finnChampion from '../assets/teams/champion-finn.png';
-import solenneJersey from '../assets/teams/jersey.png';
-import solenneChampion from '../assets/teams/champion-solenne.png';
-// Ajoute les imports nécessaires pour Valorant si besoin
+import coachJersey from '../assets/teams/jersey.png';
+import coachChampion from '../assets/teams/champion-coach.png';
+import topJersey from '../assets/teams/jersey.png';
+import topChampion from '../assets/teams/champion-top.png';
+import midJersey from '../assets/teams/jersey.png';
+import midChampion from '../assets/teams/champion-mid.png';
+import jungleJersey from '../assets/teams/jersey.png';
+import jungleChampion from '../assets/teams/champion-jungle.png';
+import adcJersey from '../assets/teams/jersey.png';
+import adcChampion from '../assets/teams/champion-adc.png';
+import suppJersey from '../assets/teams/jersey.png';
+import suppChampion from '../assets/teams/champion-supp.png';
+import { s } from 'framer-motion/client';
 
+// Ajoute les imports nécessaires pour Valorant si besoin
+// ===> lien pour les PNG de perso lol https://purepng.com/tags/league%20of%20legends
 export const teamsData = [
     {
     id: 'lol',
@@ -20,14 +30,14 @@ export const teamsData = [
     roster: [
       {
         name: 'Finn',
-        role: 'Head Coach',
+        role: 'Coach',
         description: {
           fr: "Finn est le coach stratégique de l’équipe. Il analyse chaque partie et motive ses joueuses à donner le meilleur d’elles-mêmes. Toujours à l’écoute, il sait transformer la pression en énergie positive.",
           en: "Finn is the team’s strategic coach. He analyzes every game and motivates his players to give their best. Always attentive, he knows how to turn pressure into positive energy.",
         },
         socials: { twitter: 'https://x.com/finn_finnyboy', twitch: '#' },
-        jersey: finnJersey,
-        championImage: finnChampion,
+        jersey: coachJersey,
+        championImage: coachChampion,
       },
       {
         name: 'Kanna',
@@ -37,8 +47,8 @@ export const teamsData = [
           en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
         },
         socials: { twitter: 'https://x.com/kanna_lol9', twitch: '#' },
-        jersey: solenneJersey,
-        championImage: solenneChampion,
+        jersey: topJersey,
+        championImage: topChampion,
       },
       {
         name: 'Lotus',
@@ -48,8 +58,8 @@ export const teamsData = [
           en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
         },
         socials: { twitter: 'https://x.com/LotusVerdoyant', twitch: '#' },
-        jersey: solenneJersey,
-        championImage: solenneChampion,
+        jersey: midJersey,
+        championImage: midChampion,
       },
       {
         name: 'Drazonia',
@@ -59,19 +69,19 @@ export const teamsData = [
           en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
         },
         socials: { twitter: 'https://x.com/Drazoniaa', twitch: 'https://twitch.tv/drazonia' },
-        jersey: solenneJersey,
-        championImage: solenneChampion,
+        jersey: jungleJersey,
+        championImage: jungleChampion,
       },
       {
         name: 'Ryo',
-        role: 'Adc',
+        role: 'ADC',
         description: {
           fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
           en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
         },
         socials: { twitter: 'https://x.com/RyoMaiKo', twitch: '#' },
-        jersey: solenneJersey,
-        championImage: solenneChampion,
+        jersey: adcJersey,
+        championImage: adcChampion,
       },
       {
         name: 'Shinobu',
@@ -81,8 +91,8 @@ export const teamsData = [
           en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
         },
         socials: { twitter: 'https://x.com/shinobulol_', twitch: '#' },
-        jersey: solenneJersey,
-        championImage: solenneChampion,
+        jersey: suppJersey,
+        championImage: suppChampion,
       },
     ]
   },

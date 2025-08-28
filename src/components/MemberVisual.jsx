@@ -16,22 +16,29 @@ function MemberVisual({ member, displayed }) {
           style={{ position: "absolute", inset: 0 }}
         >
           {/* Image du personnage phare en transparence */}
-          {member.championImage && (
-            <img
-              src={member.championImage}
-              alt="Champion"
-              className="absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none select-none"
-              style={{ zIndex: 0 }}
-              aria-hidden
-            />
-          )}
-          {/* Maillot */}
           {member.jersey && (
-            <img
+            <motion.img
               src={member.jersey}
               alt="Maillot"
               className="relative z-10 w-68 md:w-80 object-contain"
               style={{ filter: 'drop-shadow(0 4px 32px #0008)' }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.5, ease: [0.4, 0.2, 0.2, 1] }}
+            />
+          )}
+          {member.championImage && (
+            <motion.img
+              src={member.championImage}
+              alt="Champion"
+              className="absolute inset-0 w-full h-full object-contain opacity-40 pointer-events-none select-none translate-y-[-20%] translate-x-[30%]"
+              style={{ zIndex: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: [0.4, 0.2, 0.2, 1] }}
+              aria-hidden
             />
           )}
         </motion.div>

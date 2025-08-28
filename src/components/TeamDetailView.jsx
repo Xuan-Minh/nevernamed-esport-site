@@ -4,6 +4,17 @@ import TeamHero from './TeamHero';
 import TeamMembersGallery from './TeamMembersGallery';
 import MemberCard from './MemberCard';
 import MemberVisual from './MemberVisual';
+import { IconAdc, IconCoach, IconSupp, IconTop, IconMid, IconJungle } from './Icons';
+
+const roleIcons = {
+ADC: <IconAdc />,     
+Coach: <IconCoach />,
+Support: <IconSupp />,
+Top: <IconTop />,
+Mid: <IconMid />,
+Jungle: <IconJungle />,
+};
+  
 
 function TeamDetailView({ team, onBack }) {
   const { i18n } = useTranslation();
@@ -71,6 +82,7 @@ function TeamDetailView({ team, onBack }) {
               handleNext={handleNext}
               current={displayed.index}
               team={team}
+              roleIcons={roleIcons}
             />
           </div>
           <MemberVisual member={member} displayed={displayed} />
