@@ -7,6 +7,8 @@ import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/Icons';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import valeurs from '../assets/img/valeurs.webp';
+import missions from '../assets/img/missions.jpg';
 
 
 const staffModules = import.meta.glob('../assets/staff/*.{png,jpg,jpeg,webp,svg}', { eager: true });
@@ -83,16 +85,16 @@ const AboutUsPage = () => {
 
       {/* Contenu */}
       <div className="container mx-auto px-4">
-        <main className="flex flex-col items-center gap-y-24 md:gap-y-32 pb-16 md:pb-24">
+        <main className="flex flex-col items-center gap-y-24 md:gap-y-26 pb-8 md:pb-18">
           {/* Section 2: Nos Valeurs */}
           <AnimatedElement>
-            <section className="w-full max-w-5xl font-poppins">
-              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <section className="w-full max-w-7xl font-poppins">
+              <div className="flex flex-col md:flex-row items-center gap-20 md:gap-12">
                 <div className="flex-shrink-0 md:w-1/2">
                   <img
-                    src={avatarPlaceholder}
+                    src={valeurs}
                     alt={t('about.values')}
-                    className="rounded-lg w-full h-auto object-cover"
+                    className="rounded-xl w-full h-auto object-cover"
                   />
                 </div>
                 <div className="md:w-1/2 text-center md:text-left">
@@ -107,18 +109,18 @@ const AboutUsPage = () => {
 
           {/* Section 3: Nos Missions */}
           <AnimatedElement>
-            <section className="w-full max-w-5xl font-poppins">
+            <section className="w-full max-w-7xl font-poppins">
               <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
                 <div className="flex-shrink-0 md:w-1/2">
                   <img
-                    src={avatarPlaceholder}
+                    src={missions}
                     alt={t('about.missions')}
-                    className="rounded-lg w-full h-auto object-cover"
+                    className="rounded-lg  w-full h-auto object-cover"
                   />
                 </div>
                 <div className="md:w-1/2 text-center md:text-left">
                   <h2 className="font-unbounded text-2xl sm:text-3xl font-bold mb-6">{t('about.missions')}</h2>
-                  <p className="text-white/80 leading-relaxed mb-12 text-sm sm:text-base">
+                  <p className="text-white/80 leading-relaxed text-sm sm:text-base">
                     {t('about.missionsText')}
                   </p>
                 </div>
@@ -128,7 +130,7 @@ const AboutUsPage = () => {
 
           <Separator />
 
-          <blockquote className="pl-6 italic text-white/70 font-poppins text-base sm:text-xl text-left">
+          <blockquote className="md:max-w-[50vw] pl-6 italic text-white/70 font-poppins md:text-3xl sm:text-xl text-left">
             <p>{t('about.quote.text')}</p>
             <cite className="block text-right not-italic mt-2">- {t('about.quote.author')}</cite>
           </blockquote>

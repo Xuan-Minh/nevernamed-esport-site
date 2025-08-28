@@ -15,9 +15,9 @@ export const sponsors = [
     subtitle: 'BOISSON ÉNERGISANTE',
     description: 'Depuis août 2022, nous construisons une marque française indépendante avec une ambition claire : bousculer les codes du marché des boissons énergisantes.',
     socials: {
-      instagram: '#',
-      twitter: '#',
-      website: '#',
+      instagram: 'https://www.instagram.com/ragnarok.store.fr/',
+      twitter: 'https://x.com/ragnarokdrink',
+      website: 'https://www.ragnarok-store.fr/',
     }
   },
   {
@@ -26,7 +26,8 @@ export const sponsors = [
     subtitle: 'VÊTEMENTS',
     description: 'Artisan de la mode urbaine, Le Fagoteur propose des collections uniques alliant style et confort pour un look affirmé.',
     socials: {
-      instagram: '#',
+      instagram: 'https://www.instagram.com/lefagoteur/?hl=en',
+      website: 'https://lefagoteur.com/',
     }
   },
   {

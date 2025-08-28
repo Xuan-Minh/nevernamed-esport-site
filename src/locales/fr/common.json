@@ -58,7 +58,10 @@
     ],
     "valuesText": "Nevernamed prône l'inclusivité, l'égalité, la mixité et l'apprentissage ainsi que la sensibilisation au secteur esportif et aux métiers du numérique à travers ses actions. Constituée de passionnés et professionnels, notre structure est prête à accueillir, accompagner et faire briller vos talents. Avec une équipe féminine en plein essor, Nevernamed s'engage à promouvoir et à aider à rendre l'esport féminin plus visible.",
     "missionsText": "Former, éduquer, accompagner et performer sont les missions de notre structure. En intervenant auprès de l'Éducation Nationale dans les collèges et lycées à travers différents ateliers sur l'univers de l'esport, nous participons à la sensibilisation concernant la mixité et l'inclusivité des métiers de l'univers de l'esport et du jeu vidéo. Aussi, nous accompagnons des joueuses dans leur carrière esportive afin de leur permettre de performer au plus haut de leur potentiel. NeverNamed est la structure de tous les possibles, mélangeant professionnalisme et bienveillance.",
-    "quote": { "text": "\"Lorem ipsum dolor sit amet, consectetur.\"", "author": "Auteur" }
+    "quote": {
+  "text": "Le succès n’est pas un accident. C’est le travail, la persévérance, l’apprentissage, le sacrifice et surtout, l’amour de ce que vous faites.",
+  "author": "Pelé"
+}
   },
   "socialHub": {
     "title": "SOCIAL HUB",
@@ -100,6 +103,7 @@
     "closeLabel": "Fermer le pied de page",
     "ariaLabel": "Pied de page",
     "logoAlt": "Logo Nevernamed Esport",
-    "websiteBy": "Site réalisé par"
+    "websiteBy": "Site réalisé par",
+    "terms": "Conditions d’utilisation"
   }
 }
