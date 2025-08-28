@@ -184,7 +184,7 @@ function PartnersPage() {
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center text-left px-4 pb-8 sm:px-0 sm:pb-4">
             <div>
               <h2 className="font-unbounded text-2xl sm:text-3xl font-bold">{t('partners.become.title')}</h2>
-              <p className="text-white/70 mt-4 max-w-md font-unbounded text-sm sm:text-base">{t('partners.become.text')}</p>
+              <p className="text-white/70 mt-4 max-w-md font-poppins text-sm sm:text-base">{t('partners.become.text')}</p>
             </div>
             <Link to="/socialhub#contact-form">
               <Button className="min-w-[140px]">{t('partners.become.button')}</Button>

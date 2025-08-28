@@ -1,5 +1,5 @@
 import React from 'react';
-import avatarPlaceholder from '../assets/avatar-placeholder.png';
+import avatarPlaceholder from '../../assets/avatar-placeholder.png';
 
 function TeamMembersGallery({ roster, current, setCurrent, directionRef }) {
   return (

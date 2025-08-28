@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import arrowSvg from "../../assets/arrow.svg"; 
+import arrowSvg from "../../assets/arrow.svg";
 
 function Button({ children, onClick, className = "" }) {
   return (

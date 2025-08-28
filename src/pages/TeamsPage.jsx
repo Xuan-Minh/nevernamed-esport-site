@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { teamsData } from '../data/teams';
-import TeamSelector from '../components/TeamSelector';
-import TeamDetailView from '../components/TeamDetailView';
+import { teamsData } from '../assets/teams/data/teams';
+import TeamSelector from '../components/team/TeamSelector';
+import TeamDetailView from '../components/team/TeamDetailView';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 

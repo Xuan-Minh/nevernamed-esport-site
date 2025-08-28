@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import AnimatedElement from './common/AnimatedElement'; // Assure-toi que ce chemin est correct
+import AnimatedElement from '../common/AnimatedElement';
 
 function TeamSelector({ teams, onSelect }) {
   const [hovered, setHovered] = useState(null);

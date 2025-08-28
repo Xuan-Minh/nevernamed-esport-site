@@ -17,7 +17,7 @@ function TermsPage() {
         </div>
       </section>
 
-      <div className="max-w-3xl w-full mx-auto">
+      <div className="max-w-3xl w-full mx-auto font-poppins">
         <h2 className="font-bold text-2xl mt-10 mb-3">{t('terms.access')}</h2>
         <p className="mb-5 text-base">{t('terms.accessText')}</p>
 

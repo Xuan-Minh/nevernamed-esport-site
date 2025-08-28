@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import TeamHero from './TeamHero';
-import TeamMembersGallery from './sponsors/TeamMembersGallery';
+import TeamMembersGallery from './TeamMembersGallery';
 import MemberCard from './MemberCard';
 import MemberVisual from './MemberVisual';
-import { IconAdc, IconCoach, IconSupp, IconTop, IconMid, IconJungle } from './icons/Icons';
+import { IconAdc, IconCoach, IconSupp, IconTop, IconMid, IconJungle } from '../icons/Icons';
 
 const roleIcons = {
 ADC: <IconAdc />,     

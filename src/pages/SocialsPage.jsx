@@ -3,13 +3,13 @@ import { useLocation } from 'react-router-dom';
 import { FaInstagram, FaTwitch, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaLinkedin } from 'react-icons/fa';
-import Separator from '../components/Separator';
-import Button from '../components/Button';
-import AnimatedElement from '../components/AnimatedElement';
+import Separator from '../components/common/Separator';
+import Button from '../components/common/Button';
+import AnimatedElement from '../components/common/AnimatedElement';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import SocialFeed from '../components/SocialFeed';
+import SocialFeed from '../components/social/SocialFeed';
 
 {/* POSTS */}
 

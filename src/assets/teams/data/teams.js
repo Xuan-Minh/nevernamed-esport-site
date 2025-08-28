@@ -1,21 +1,21 @@
-import lolImage from '../assets/teams/lol-bg.jpg';
-import { LolLogoText } from '../components/icons/GameLogos';
-import valoImage from '../assets/teams/valorant-bg.jpg';
-import { ValorantLogoText } from '../components/icons/GameLogos';
+import lolImage from '../lol-bg.jpg';
+import { LolLogoText } from '../../../components/icons/GameLogos';
+import valoImage from '../valorant-bg.jpg';
+import { ValorantLogoText } from '../../../components/icons/GameLogos';
 
 // Exemple d'import d'assets pour les maillots et champions
-import coachJersey from '../assets/teams/jersey.png';
-import coachChampion from '../assets/teams/champion-coach.png';
-import topJersey from '../assets/teams/jersey.png';
-import topChampion from '../assets/teams/champion-top.png';
-import midJersey from '../assets/teams/jersey.png';
-import midChampion from '../assets/teams/champion-mid.png';
-import jungleJersey from '../assets/teams/jersey.png';
-import jungleChampion from '../assets/teams/champion-jungle.png';
-import adcJersey from '../assets/teams/jersey.png';
-import adcChampion from '../assets/teams/champion-adc.png';
-import suppJersey from '../assets/teams/jersey.png';
-import suppChampion from '../assets/teams/champion-supp.png';
+import coachJersey from '../jersey.png';
+import coachChampion from '../lol/champion-coach.png';
+import topJersey from '../jersey.png';
+import topChampion from '../lol/champion-top.png';
+import midJersey from '../jersey.png';
+import midChampion from '../lol/champion-mid.png';
+import jungleJersey from '../jersey.png';
+import jungleChampion from '../lol/champion-jungle.png';
+import adcJersey from '../jersey.png';
+import adcChampion from '../lol/champion-adc.png';
+import suppJersey from '../jersey.png';
+import suppChampion from '../lol/champion-supp.png';
 import { s } from 'framer-motion/client';
 
 // Ajoute les imports nécessaires pour Valorant si besoin
