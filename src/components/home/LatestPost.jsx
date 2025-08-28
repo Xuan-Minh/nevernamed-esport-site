@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
 import postImage from '../../assets/test.jpg';
 import arrowIcon from '../../assets/arrow.svg';
+import { useTranslation } from 'react-i18next';
 
 import { InstagramIcon, TwitterIcon, TwitchIcon } from '../icons/Icons';
 
-function LatestPost() {
 
+function LatestPost() {
+  const { t } = useTranslation();
   const scrollContainerRef = useRef(null);
   const posts = Array(8).fill({ image: postImage });
   const isMobile = window.innerWidth < 640;
@@ -24,7 +26,7 @@ function LatestPost() {
   return (
     <div className="container mx-auto px-4 md:AZpy-8 sm:py-12">
   <h2 className="text-2xl sm:text-3xl font-bold mb-8 font-unbounded text-center sm:text-left">
-    DERNIERS POSTS
+    {t('latestPost.title')}
   </h2>
   <div className="relative">
     <div
@@ -61,30 +63,25 @@ function LatestPost() {
   </div>
 
       {/* Section "Suivez-nous" */}
-         <div className="flex flex-col md:flex-row justify-center items-center gap-x-6 gap-y-4 mt-12 text-white">
-        
+      <div className="flex flex-col md:flex-row justify-center items-center gap-x-6 gap-y-4 mt-12 text-white">
         <h3 className="text-2xl font-bold font-unbounded">
-          SUIVEZ-NOUS
+          {t('latestPost.followUs')}
         </h3>
-        
         <p className="text-lg font-bold text-white/70">
-          @thenevernamed
+          {t('latestPost.handle')}
         </p>
-        
         {/* Conteneur pour les icônes */}
         <div className="flex items-center gap-4">
-         
           <a href="https://x.com/thenevernamed" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitter">
             <TwitterIcon className="w-6 h-6" />
           </a>
           <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitch">
             <TwitchIcon />
           </a>
-           <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Instagram">
+          <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Instagram">
             <InstagramIcon />
           </a>
         </div>
-
       </div>
     </div>
   );

@@ -9,6 +9,11 @@
       "policies": "Policies"
     }
   },
+  "latestPost": {
+    "title": "LATEST POSTS",
+    "followUs": "FOLLOW US",
+    "handle": "@thenevernamed"
+  },
   "home": {
     "hero": { "title": "NEVERNAMED ESPORT" },
     "ambition": {
@@ -97,7 +102,7 @@
     "send": "Send your message"
   },
   "footer": {
-    "privacy": "PRIVACY POLICY",
+    "privacy": "Privacy Policy",
     "contact": "Contact",
     "copyright": "© 2025 Nevernamed Esport. All rights reserved",
     "closeLabel": "Close footer",

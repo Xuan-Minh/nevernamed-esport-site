@@ -9,6 +9,11 @@
       "policies": "Politiques"
     }
   },
+  "latestPost": {
+    "title": "DERNIERS POSTS",
+    "followUs": "SUIVEZ-NOUS",
+    "handle": "@thenevernamed"
+  },
   "home": {
     "hero": { "title": "NEVERNAMED ESPORT" },
     "ambition": {

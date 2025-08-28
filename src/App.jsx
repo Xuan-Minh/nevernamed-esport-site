@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -23,18 +24,12 @@ const InfoIcon = () => (
   </svg>
 );
 
-// Signature à afficher dans la console du navigateur
-const showSignature = () => {
-  const signatureStyles = [
-    'color: #F89C2C', // Orange
-    'font-size: 1.2em',
-    'font-weight: bold',
-    'font-family: monospace',
-  ].join(';');
 
-  const textStyles = 'font-family: sans-serif;';
-  console.log('%cSite développé par Xuan-Minh TRAN - https://xuan-minh.github.io/', textStyles);
-};
+/*
+  ------------------------------------------------------
+  Site développé par Xuan-Minh TRAN - https://xuan-minh.github.io/
+  ------------------------------------------------------
+*/
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,10 +38,8 @@ function App() {
   const [isOpen, setIsOpen] = useState(false); // <-- Ajoute ici
 
 
-    // Affiche la signature une seule fois au montage du composant
-  useEffect(() => {
-    showSignature();
-  }, []);
+
+  // Signature supprimée (voir commentaire en haut du fichier)
 
 
   // Effet pour simuler le chargement
