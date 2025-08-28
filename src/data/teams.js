@@ -1,7 +1,7 @@
 import lolImage from '../assets/teams/lol-bg.jpg';
-import { LolLogoText } from '../components/GameLogos';
+import { LolLogoText } from '../components/icons/GameLogos';
 import valoImage from '../assets/teams/valorant-bg.jpg';
-import { ValorantLogoText } from '../components/GameLogos';
+import { ValorantLogoText } from '../components/icons/GameLogos';
 
 // Exemple d'import d'assets pour les maillots et champions
 import coachJersey from '../assets/teams/jersey.png';

@@ -1,9 +1,9 @@
 import React from 'react';
 import mainLogo from '../assets/mainlogo.png';
 import avatarPlaceholder from '../assets/avatar-placeholder.png';
-import Separator from '../components/Separator';
-import AnimatedElement from '../components/AnimatedElement';
-import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/Icons';
+import Separator from '../components/common/Separator';
+import AnimatedElement from '../components/common/AnimatedElement';
+import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/icons/Icons';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';

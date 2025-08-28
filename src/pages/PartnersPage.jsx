@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import ArrowIcon from '../components/ArrowIcon';
+import ArrowIcon from '../components/common/ArrowIcon';
 import { FaInstagram, FaGlobe } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { sponsors } from '../components/sponsors';
-import Button from '../components/Button';
+import { sponsors } from '../components/sponsors/sponsors';
+import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';
-import Separator from '../components/Separator';
-import AnimatedElement from '../components/AnimatedElement';
+import Separator from '../components/common/Separator';
+import AnimatedElement from '../components/common/AnimatedElement';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';

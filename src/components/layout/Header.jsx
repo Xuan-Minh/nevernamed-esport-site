@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { NavLink as RouterNavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion'; // <-- 1. Importer motion et AnimatePresence
 import LanguageSwitcher from './LanguageSwitcher';
-import logoSvg from '../assets/logo.svg';
-import ArrowIcon from './ArrowIcon';
+import logoSvg from '../../assets/logo.svg';
+import ArrowIcon from '../common/ArrowIcon';
 
 // --- Icônes pour le menu mobile ---
 const HamburgerIcon = () => (

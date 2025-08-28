@@ -32,12 +32,12 @@ export const YoutubeIcon = ({ className = "w-6 h-6" }) => (
   </svg>
 );
 
-import iconAdc from '../assets/icons/icon_adc.svg';
-import iconCoach from '../assets/icons/icon_coach.svg';
-import iconSupp from '../assets/icons/icon_supp.svg';
-import iconTop from '../assets/icons/icon_top.svg';
-import iconMid from '../assets/icons/icon_mid.svg';
-import iconJungle from '../assets/icons/icon_jungle.svg';
+import iconAdc from '../../assets/icons/icon_adc.svg';
+import iconCoach from '../../assets/icons/icon_coach.svg';
+import iconSupp from '../../assets/icons/icon_supp.svg';
+import iconTop from '../../assets/icons/icon_top.svg';
+import iconMid from '../../assets/icons/icon_mid.svg';
+import iconJungle from '../../assets/icons/icon_jungle.svg';
 
 // ... (tes icônes réseaux sociaux inchangées)
 

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import logoSvg from '../assets/logo.svg';
+import logoSvg from '../../assets/logo.svg';
 
 function LoadingScreen({ progress }) {
   const radius = 120;

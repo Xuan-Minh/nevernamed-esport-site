@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import postImage from '../assets/test.jpg';
 import arrowIcon from '../assets/arrow.svg';
 
-import { InstagramIcon, TwitterIcon, TwitchIcon } from './Icons';
+import { InstagramIcon, TwitterIcon, TwitchIcon } from '../icons/Icons';
 
 function LatestPost() {
 

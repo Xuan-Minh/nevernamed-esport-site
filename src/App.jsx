@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import ScrollToTop from "./components/ScrollToTop";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import LoadingScreen from "./components/LoadingScreen";
+import ScrollToTop from "./components/common/ScrollToTop";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import LoadingScreen from "./components/layout/LoadingScreen";
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import TeamsPage from "./pages/TeamsPage";

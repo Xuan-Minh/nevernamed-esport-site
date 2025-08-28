@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import logoSvg from '../assets/favicon.svg';
+import logoSvg from '../../assets/favicon.svg';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TwitterIcon, LinkedinIcon, InstagramIcon, TwitchIcon } from './Icons';
+import { TwitterIcon, LinkedinIcon, InstagramIcon, TwitchIcon } from '../icons/Icons';
 
 const CloseIcon = () => (
   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">

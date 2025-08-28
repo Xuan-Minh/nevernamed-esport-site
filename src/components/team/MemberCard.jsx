@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import AnimatedElement from './AnimatedElement';
-import { TwitterIcon, TwitchIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from './Icons';
-import ArrowIcon from './ArrowIcon';
+import AnimatedElement from './common/AnimatedElement';
+import { TwitterIcon, TwitchIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from './icons/Icons';
+import ArrowIcon from './common/ArrowIcon';
 
 function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleIcons }) {
   return (

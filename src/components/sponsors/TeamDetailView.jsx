@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import TeamHero from './TeamHero';
 import TeamMembersGallery from './TeamMembersGallery';
-import MemberCard from './MemberCard';
-import MemberVisual from './MemberVisual';
-import { IconAdc, IconCoach, IconSupp, IconTop, IconMid, IconJungle } from './Icons';
+import MemberCard from '../MemberCard';
+import MemberVisual from '../MemberVisual';
+import { IconAdc, IconCoach, IconSupp, IconTop, IconMid, IconJungle } from './icons/Icons';
 
 const roleIcons = {
 ADC: <IconAdc />,     
