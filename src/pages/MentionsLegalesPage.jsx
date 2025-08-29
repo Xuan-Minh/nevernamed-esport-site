@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import AnimatedElement from '../components/common/AnimatedElement';
 
 function MentionsLegalesPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20 pb-12">
+    <AnimatedElement>
+      <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20 pb-12">
       <Helmet>
         <title>NeverNamed Esport - {t('legal.title')}</title>
         <meta name="description" content={t('legal.intro')} />
@@ -38,7 +40,8 @@ function MentionsLegalesPage() {
         <p className="mb-5 text-base">{t('legal.contact')}</p>
         <p className="text-xs text-gray-400 mt-10 text-center">{t('legal.lastUpdate')}</p>
       </div>
-    </div>
+      </div>
+    </AnimatedElement>
   );
 }
 

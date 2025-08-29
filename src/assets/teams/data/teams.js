@@ -114,4 +114,58 @@ export const teamsData = [
       // ...
     ]
   },
+  {
+    id: 'fortnite',
+    name: 'FORTNITE',
+    image: fortniteImage,
+    LogoComponent: ValorantLogoText,
+    fontClass: 'font-beaufort',
+    roster: [
+      {
+        name: 'Joueur 1',
+        role: 'Captain',
+        description: 'Description...',
+        socials: { twitter: '#', twitch: '#' },
+        jersey: null, // À remplacer par l'import du maillot si tu l'as
+        championImage: null, // À remplacer par l'import du personnage si tu l'as
+      }
+      // ...
+    ]
+  },
+  {
+    id: 'rainbow6',
+    name: 'RAINBOW SIX SIEGE',
+    image: valoImage,
+    LogoComponent: ValorantLogoText,
+    fontClass: 'font-beaufort',
+    roster: [
+      {
+        name: 'Joueur 1',
+        role: 'Captain',
+        description: 'Description...',
+        socials: { twitter: '#', twitch: '#' },
+        jersey: null, // À remplacer par l'import du maillot si tu l'as
+        championImage: null, // À remplacer par l'import du personnage si tu l'as
+      }
+      // ...
+    ]
+  },
+  {
+    id: ' rocketleague',
+    name: 'Rocket League',
+    image: valoImage,
+    LogoComponent: ValorantLogoText,
+    fontClass: 'font-beaufort',
+    roster: [
+      {
+        name: 'Joueur 1',
+        role: 'Captain',
+        description: 'Description...',
+        socials: { twitter: '#', twitch: '#' },
+        jersey: null, // À remplacer par l'import du maillot si tu l'as
+        championImage: null, // À remplacer par l'import du personnage si tu l'as
+      }
+      // ...
+    ]
+  },
 ];

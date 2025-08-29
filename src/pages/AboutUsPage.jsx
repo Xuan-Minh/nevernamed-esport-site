@@ -130,7 +130,7 @@ const AboutUsPage = () => {
 
           <Separator />
 
-          <blockquote className="md:max-w-[50vw] pl-6 italic text-white/70 font-poppins md:text-3xl sm:text-xl text-left">
+          <blockquote className="md:max-w-[50vw] pl-6 italic text-white/70 font-poppins md:text-2xl sm:text-xl text-left">
             <p>{t('about.quote.text')}</p>
             <cite className="block text-right not-italic mt-2">- {t('about.quote.author')}</cite>
           </blockquote>
