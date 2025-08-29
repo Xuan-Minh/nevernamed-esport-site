@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Separator from '../components/common/Separator';
 import AnimatedElement from '../components/common/AnimatedElement';
 import { useTranslation } from 'react-i18next';
+import i18n from '../i18n';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 
@@ -120,7 +121,9 @@ function PartnersPage() {
                     )}
                     {isActive && (
                       <div className="text-center mt-4 animate-fade-in">
-                        <p className="text-xs sm:text-sm text-white/80 my-3 line-clamp-4">{sponsor.description}</p>
+                        <p className="text-xs sm:text-sm text-white/80 my-3 line-clamp-4">
+                          {sponsor.description?.[i18n.language] || sponsor.description?.fr || sponsor.description}
+                        </p>
                         <div className="flex justify-center gap-4 text-lg sm:text-xl">
                           {sponsor.socials?.instagram && (
                             <a
