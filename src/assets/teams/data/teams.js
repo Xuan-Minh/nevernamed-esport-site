@@ -2,6 +2,12 @@ import lolImage from '../lol-bg.jpg';
 import { LolLogoText } from '../../../components/icons/GameLogos';
 import valoImage from '../valorant-bg.jpg';
 import { ValorantLogoText } from '../../../components/icons/GameLogos';
+import fortniteImage from '../fortnite-bg.jpg';
+import { FortniteLogoText } from '../../../components/icons/GameLogos';
+import rainbow6Image from '../rainbow6-bg.jpg';
+import { rainbow6LogoText } from '../../../components/icons/GameLogos';
+import rocketleagueImage from '../rocketleague-bg.jpg';
+import { rocketleagueLogoText } from '../../../components/icons/GameLogos';
 
 // Exemple d'import d'assets pour les maillots et champions
 import coachJersey from '../jersey.png';
@@ -118,7 +124,7 @@ export const teamsData = [
     id: 'fortnite',
     name: 'FORTNITE',
     image: fortniteImage,
-    LogoComponent: ValorantLogoText,
+    LogoComponent: FortniteLogoText,
     fontClass: 'font-beaufort',
     roster: [
       {
@@ -135,8 +141,8 @@ export const teamsData = [
   {
     id: 'rainbow6',
     name: 'RAINBOW SIX SIEGE',
-    image: valoImage,
-    LogoComponent: ValorantLogoText,
+    image: rainbow6Image,
+    LogoComponent: rainbow6LogoText,
     fontClass: 'font-beaufort',
     roster: [
       {
@@ -153,8 +159,8 @@ export const teamsData = [
   {
     id: ' rocketleague',
     name: 'Rocket League',
-    image: valoImage,
-    LogoComponent: ValorantLogoText,
+    image: rocketleagueImage,
+    LogoComponent: rocketleagueLogoText,
     fontClass: 'font-beaufort',
     roster: [
       {
