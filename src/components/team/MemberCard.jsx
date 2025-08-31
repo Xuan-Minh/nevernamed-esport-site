@@ -73,27 +73,27 @@ function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleI
       <div className="flex gap-4 mb-4">
         {member.socials?.twitter && (
           <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <TwitterIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+            <FaXTwitter className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.twitch && (
           <a href={member.socials.twitch} target="_blank" rel="noopener noreferrer" aria-label="Twitch">
-            <TwitchIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+            <FaTwitch className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.instagram && (
           <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <InstagramIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+            <FaInstagram className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.youtube && (
           <a href={member.socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <YoutubeIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+            <FaYoutube className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
         {member.socials?.linkedin && (
           <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <LinkedinIcon className="w-6 h-6 text-white hover:text-brand-accent transition" />
+            <FaLinkedin className="w-6 h-6 text-white hover:text-brand-accent transition" />
           </a>
         )}
       </div>

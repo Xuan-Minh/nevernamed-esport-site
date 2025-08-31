@@ -89,16 +89,16 @@ function Footer({ handleClose }) {
               <p className="text-lg font-bold mb-1">@thenevernamed</p>
               <div className="flex items-center gap-6 text-white">
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="Twitter" onClick={handleClose}>
-                  <TwitterIcon className="w-7 h-7" />
+                  <FaXTwitter className="w-7 h-7" />
                 </a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="LinkedIn" onClick={handleClose}>
-                  <LinkedinIcon className="w-7 h-7" />
+                  <FaLinkedin className="w-7 h-7" />
                 </a>
                 <a href="https://twitch.tv" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="Twitch" onClick={handleClose}>
-                  <TwitchIcon className="w-7 h-7" />
+                  <FaTwitch className="w-7 h-7" />
                 </a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="Instagram" onClick={handleClose}>
-                  <InstagramIcon className="w-7 h-7" />
+                  <FaInstagram className="w-7 h-7" />
                 </a>
               </div>
               <p className="text-sm text-gray-400 mt-2">

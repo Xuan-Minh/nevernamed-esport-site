@@ -133,7 +133,7 @@ function PartnersPage() {
                               className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Instagram"
                             >
-                              <InstagramIcon />
+                              <FaInstagram />
                             </a>
                           )}
                           {sponsor.socials?.twitter && (
@@ -144,7 +144,7 @@ function PartnersPage() {
                               className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Twitter"
                             >
-                              <TwitterIcon />
+                              <FaXTwitter />
                             </a>
                           )}
                           {sponsor.socials?.website && (
@@ -155,7 +155,7 @@ function PartnersPage() {
                               className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Site web"
                             >
-                              <GlobeIcon />
+                              <FaGlobe />
                             </a>
                           )}
                         </div>
