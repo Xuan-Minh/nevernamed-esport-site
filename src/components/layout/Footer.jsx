@@ -26,9 +26,9 @@ function Footer({ handleClose }) {
   }, [handleClose]);
 
   const footerVariants = {
-    hidden: { y: "100%" },
-    visible: { y: 0, transition: { type: "spring", stiffness: 120, damping: 20 } },
-    exit: { y: "100%", transition: { ease: "easeInOut" } }
+    hidden: { y: '100%' },
+    visible: { y: 0, transition: { type: 'spring', stiffness: 120, damping: 20 } },
+    exit: { y: '100%', transition: { ease: 'easeInOut' } },
   };
 
   return (
@@ -63,22 +63,49 @@ function Footer({ handleClose }) {
           <div className="bg-gray-900/80 rounded-xl shadow-2xl px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-8">
             {/* Bloc gauche */}
             <div className="flex flex-col items-center md:items-start gap-3">
-              <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white" onClick={handleClose}>
-                <img src={logoSvg} alt={t('footer.logoAlt')} className="h-16 w-auto rounded-lg shadow" loading="lazy" width="64" height="64" />
+              <Link
+                to="/"
+                className="flex items-center gap-2 text-xl font-bold text-white"
+                onClick={handleClose}
+              >
+                <img
+                  src={logoSvg}
+                  alt={t('footer.logoAlt')}
+                  className="h-16 w-auto rounded-lg shadow"
+                  loading="lazy"
+                  width="64"
+                  height="64"
+                />
                 <span className="hidden sm:inline">NeverNamed Esport</span>
               </Link>
               <div className="text-sm text-gray-400">{t('footer.copyright')}</div>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2">
-                <Link to="/politiques" className="text-sm text-gray-400 hover:text-white transition-colors" onClick={handleClose}>
+                <Link
+                  to="/politiques"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  onClick={handleClose}
+                >
                   {t('footer.privacy')}
                 </Link>
-                <Link to="/mentions-legales" className="text-sm text-gray-400 hover:text-white transition-colors" onClick={handleClose}>
+                <Link
+                  to="/mentions-legales"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  onClick={handleClose}
+                >
                   {t('footer.legal')}
                 </Link>
-                <Link to="/terms" className="text-sm text-gray-400 hover:text-white transition-colors" onClick={handleClose}>
+                <Link
+                  to="/terms"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  onClick={handleClose}
+                >
                   {t('footer.terms')}
                 </Link>
-                <Link to="/socialhub#contact-form" className="text-sm text-gray-400 hover:text-white transition-colors" onClick={handleClose}>
+                <Link
+                  to="/socialhub#contact-form"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  onClick={handleClose}
+                >
                   {t('footer.contact')}
                 </Link>
               </div>
@@ -88,21 +115,52 @@ function Footer({ handleClose }) {
             <div className="flex flex-col items-center md:items-end gap-3">
               <p className="text-lg font-bold mb-1">@thenevernamed</p>
               <div className="flex items-center gap-6 text-white">
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="Twitter" onClick={handleClose}>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-accent transition-colors"
+                  aria-label="Twitter"
+                  onClick={handleClose}
+                >
                   <FaXTwitter className="w-7 h-7" />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="LinkedIn" onClick={handleClose}>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-accent transition-colors"
+                  aria-label="LinkedIn"
+                  onClick={handleClose}
+                >
                   <FaLinkedin className="w-7 h-7" />
                 </a>
-                <a href="https://twitch.tv" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="Twitch" onClick={handleClose}>
+                <a
+                  href="https://twitch.tv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-accent transition-colors"
+                  aria-label="Twitch"
+                  onClick={handleClose}
+                >
                   <FaTwitch className="w-7 h-7" />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors" aria-label="Instagram" onClick={handleClose}>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-accent transition-colors"
+                  aria-label="Instagram"
+                  onClick={handleClose}
+                >
                   <FaInstagram className="w-7 h-7" />
                 </a>
               </div>
               <p className="text-sm text-gray-400 mt-2">
-                {t('footer.websiteBy')} <a href="https://github.com/Xuan-Minh/" className="underline hover:text-white">Xuan-Minh TRAN</a>
+                {t('footer.websiteBy')}{' '}
+                <a href="https://github.com/Xuan-Minh/" className="underline hover:text-white">
+                  Xuan-Minh TRAN
+                </a>
               </p>
             </div>
           </div>

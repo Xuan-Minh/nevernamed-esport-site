@@ -47,13 +47,16 @@ function DesktopDropdown({ currentLanguage, onChange, isOpen, setIsOpen }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
           >
             <ul role="listbox" className="py-2">
               {languages.map((lang) => (
                 <li key={lang.code}>
                   <button
-                    onClick={() => { onChange(lang.code); setIsOpen(false); }}
+                    onClick={() => {
+                      onChange(lang.code);
+                      setIsOpen(false);
+                    }}
                     className="w-full flex items-center gap-3 py-2 px-4 text-left text-white text-base rounded hover:bg-gray-700"
                     role="option"
                     aria-label={`Choisir la langue ${lang.name}`}
@@ -88,14 +91,17 @@ function MobileModal({ currentLanguage, onChange, isOpen, setIsOpen }) {
             initial={{ scale: 0.9, opacity: 0, y: 40 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 40 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            onClick={e => e.stopPropagation()}
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            onClick={(e) => e.stopPropagation()}
           >
             <ul role="listbox" className="space-y-2">
               {languages.map((lang) => (
                 <li key={lang.code}>
                   <button
-                    onClick={() => { onChange(lang.code); setIsOpen(false); }}
+                    onClick={() => {
+                      onChange(lang.code);
+                      setIsOpen(false);
+                    }}
                     className="w-full flex items-center gap-3 py-3 px-4 text-left text-white text-lg rounded hover:bg-gray-700"
                     role="option"
                     aria-label={`Choisir la langue ${lang.name}`}

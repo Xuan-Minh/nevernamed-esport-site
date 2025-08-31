@@ -21,11 +21,11 @@ function TeamHero({ team, showTitle, setShowTitle }) {
       layoutId={`${team.id}-hero`}
       style={{ overflow: 'hidden' }}
       transition={{
-        layout: { duration: 0.7, type: "spring", bounce: 0.25 },
+        layout: { duration: 0.7, type: 'spring', bounce: 0.25 },
       }}
-      initial={{ borderRadius: 39, scale: 0.95, filter: "blur(0px)" }}
-      animate={{ borderRadius: 0, scale: 1, filter: "blur(0px)" }}
-      exit={{ borderRadius: 39, scale: 0.95, filter: "blur(4px)", opacity: 0 }}
+      initial={{ borderRadius: 39, scale: 0.95, filter: 'blur(0px)' }}
+      animate={{ borderRadius: 0, scale: 1, filter: 'blur(0px)' }}
+      exit={{ borderRadius: 39, scale: 0.95, filter: 'blur(4px)', opacity: 0 }}
       onAnimationComplete={() => setShowTitle && setShowTitle(true)}
     >
       {/* Image de fond */}
@@ -35,7 +35,7 @@ function TeamHero({ team, showTitle, setShowTitle }) {
         className="absolute inset-0 w-full h-full object-cover"
         initial={{ scale: 1.1, opacity: 0.2 }}
         animate={{ scale: 1, opacity: 0.4 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
         style={{
           WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
           maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
@@ -74,7 +74,7 @@ function TeamHero({ team, showTitle, setShowTitle }) {
               aria-hidden
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 0.18, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, type: "spring" }}
+              transition={{ duration: 0.7, delay: 0.1, type: 'spring' }}
             >
               {back}
             </motion.span>
@@ -94,7 +94,7 @@ function TeamHero({ team, showTitle, setShowTitle }) {
             }}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, type: "spring" }}
+            transition={{ duration: 0.7, delay: 0.25, type: 'spring' }}
           >
             {front}
           </motion.span>

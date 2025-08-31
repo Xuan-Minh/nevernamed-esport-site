@@ -7,14 +7,13 @@ import MemberVisual from './MemberVisual';
 import { IconAdc, IconCoach, IconSupp, IconTop, IconMid, IconJungle } from '../icons/Icons';
 
 const roleIcons = {
-ADC: <IconAdc />,     
-Coach: <IconCoach />,
-Support: <IconSupp />,
-Top: <IconTop />,
-Mid: <IconMid />,
-Jungle: <IconJungle />,
+  ADC: <IconAdc />,
+  Coach: <IconCoach />,
+  Support: <IconSupp />,
+  Top: <IconTop />,
+  Mid: <IconMid />,
+  Jungle: <IconJungle />,
 };
-  
 
 function TeamDetailView({ team, onBack }) {
   const { i18n } = useTranslation();
@@ -31,26 +30,26 @@ function TeamDetailView({ team, onBack }) {
 
   const handlePrev = () => {
     directionRef.current = -1;
-    setCurrent(c => (c - 1 + team.roster.length) % team.roster.length);
+    setCurrent((c) => (c - 1 + team.roster.length) % team.roster.length);
   };
   const handleNext = () => {
     directionRef.current = 1;
-    setCurrent(c => (c + 1) % team.roster.length);
+    setCurrent((c) => (c + 1) % team.roster.length);
   };
 
   const member = team.roster[displayed.index];
 
   return (
-    <div className="relative min-h-screen brand-background pb-24 sm:pb-0">  
+    <div className="relative min-h-screen brand-background pb-24 sm:pb-0">
       <TeamHero team={team} showTitle={showTitle} setShowTitle={setShowTitle} />
 
       {/* Galerie des membres */}
-            <TeamMembersGallery
-              roster={team.roster}
-              current={current}
-              setCurrent={setCurrent}
-              directionRef={directionRef}
-            />
+      <TeamMembersGallery
+        roster={team.roster}
+        current={current}
+        setCurrent={setCurrent}
+        directionRef={directionRef}
+      />
 
       {/* Bouton retour */}
       <button
@@ -68,7 +67,13 @@ function TeamDetailView({ team, onBack }) {
         aria-label="Fermer"
         type="button"
       >
-        <svg className="w-7 h-7 sm:w-10 sm:h-10" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+        <svg
+          className="w-7 h-7 sm:w-10 sm:h-10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={3}
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
         </svg>
       </button>

@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 const AnimatedElement = ({ children, className, as: Tag = 'div' }) => {
   const { ref, inView } = useInView({
     triggerOnce: true, // L'animation ne se joue qu'une fois
-    threshold: 0.1,    // Se déclenche quand 10% de l'élément est visible
+    threshold: 0.1, // Se déclenche quand 10% de l'élément est visible
   });
 
   return (

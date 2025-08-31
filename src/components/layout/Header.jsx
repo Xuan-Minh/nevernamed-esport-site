@@ -46,10 +46,10 @@ function Header({ isOpen, setIsOpen }) {
   );
 
   const navItems = [
-    { to: "/equipes", text: "TEAMS" },
-    { to: "/a-propos", text: "ABOUT US" },
-    { to: "/partenaires", text: "PARTNERS" },
-    { to: "/socialhub", text: "SOCIALS" },
+    { to: '/equipes', text: 'TEAMS' },
+    { to: '/a-propos', text: 'ABOUT US' },
+    { to: '/partenaires', text: 'PARTNERS' },
+    { to: '/socialhub', text: 'SOCIALS' },
   ];
 
   // 2. Définir les variantes de l'animation
@@ -67,25 +67,38 @@ function Header({ isOpen, setIsOpen }) {
     },
   };
 
- return (
+  return (
     <header
       className={`font-unbounded w-full p-4 fixed top-0 left-0 z-50 transition-colors duration-300 ${
-        isScrolled || isOpen ? 'bg-brand-dark/90 backdrop-blur-lg' : 'bg-gradient-to-b from-black/70 to-transparent'
+        isScrolled || isOpen
+          ? 'bg-brand-dark/90 backdrop-blur-lg'
+          : 'bg-gradient-to-b from-black/70 to-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link
-              to="/"
-              className="flex-shrink-0"
-              onClick={() => setIsOpen(false)} // Ajouté pour fermer le menu mobile
-            >
-              <img src={logoSvg} alt="Logo Nevernamed Esport" className="h-16 md:h-20 w-auto" loading="lazy" />
-            </Link>
+          to="/"
+          className="flex-shrink-0"
+          onClick={() => setIsOpen(false)} // Ajouté pour fermer le menu mobile
+        >
+          <img
+            src={logoSvg}
+            alt="Logo Nevernamed Esport"
+            className="h-16 md:h-20 w-auto"
+            loading="lazy"
+          />
+        </Link>
         <nav className="hidden md:flex items-center justify-center gap-10 text-white text-nowrap">
-          {navItems.map(item => <NavLink key={item.to} to={item.to}>{item.text}</NavLink>)}
+          {navItems.map((item) => (
+            <NavLink key={item.to} to={item.to}>
+              {item.text}
+            </NavLink>
+          ))}
         </nav>
         <div className="flex items-center gap-4">
-          <div className="hidden md:block"><LanguageSwitcher /></div>
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} aria-label="Ouvrir le menu">
               {isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -107,12 +120,14 @@ function Header({ isOpen, setIsOpen }) {
             className="md:hidden container mx-auto overflow-hidden bg-brand-dark/95 backdrop-blur-lg rounded-xl mt-2"
           >
             <nav className="flex flex-col items-center gap-6 py-8 border-t border-white/10 mt-4">
-              {navItems.map(item => (
+              {navItems.map((item) => (
                 <NavLink key={item.to} to={item.to} onClick={() => setIsOpen(false)}>
                   {item.text}
                 </NavLink>
               ))}
-              <div className="mt-4"><LanguageSwitcher /></div>
+              <div className="mt-4">
+                <LanguageSwitcher />
+              </div>
             </nav>
           </motion.div>
         )}

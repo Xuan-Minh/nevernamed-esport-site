@@ -5,7 +5,6 @@ import TeamDetailView from '../components/team/TeamDetailView';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
-  
 function TeamsPage() {
   const [selectedTeam, setSelectedTeam] = useState(null);
 

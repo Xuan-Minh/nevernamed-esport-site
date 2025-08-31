@@ -25,7 +25,7 @@ import suppChampion from '../lol/champion-supp.webp';
 // Ajoute les imports nécessaires pour Valorant si besoin
 // ===> lien pour les PNG de perso lol https://purepng.com/tags/league%20of%20legends
 export const teamsData = [
-    {
+  {
     id: 'lol',
     name: 'LEAGUE OF LEGENDS',
     image: lolImage,
@@ -36,8 +36,8 @@ export const teamsData = [
         name: 'Finn',
         role: 'Coach',
         description: {
-          fr: "Finn est le coach stratégique de l’équipe. Il analyse chaque partie et motive ses joueuses à donner le meilleur d’elles-mêmes. Toujours à l’écoute, il sait transformer la pression en énergie positive.",
-          en: "Finn is the team’s strategic coach. He analyzes every game and motivates his players to give their best. Always attentive, he knows how to turn pressure into positive energy.",
+          fr: 'Finn est le coach stratégique de l’équipe. Il analyse chaque partie et motive ses joueuses à donner le meilleur d’elles-mêmes. Toujours à l’écoute, il sait transformer la pression en énergie positive.',
+          en: 'Finn is the team’s strategic coach. He analyzes every game and motivates his players to give their best. Always attentive, he knows how to turn pressure into positive energy.',
         },
         socials: { twitter: 'https://x.com/finn_finnyboy', twitch: '#' },
         jersey: coachJersey,
@@ -47,8 +47,8 @@ export const teamsData = [
         name: 'Kanna',
         role: 'Top',
         description: {
-          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
-          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+          fr: 'Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.',
+          en: 'Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.',
         },
         socials: { twitter: 'https://x.com/kanna_lol9', twitch: '#' },
         jersey: topJersey,
@@ -58,8 +58,8 @@ export const teamsData = [
         name: 'Lotus',
         role: 'Mid',
         description: {
-          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
-          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+          fr: 'Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.',
+          en: 'Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.',
         },
         socials: { twitter: 'https://x.com/LotusVerdoyant', twitch: '#' },
         jersey: midJersey,
@@ -69,8 +69,8 @@ export const teamsData = [
         name: 'Drazonia',
         role: 'Jungle',
         description: {
-          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
-          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+          fr: 'Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.',
+          en: 'Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.',
         },
         socials: { twitter: 'https://x.com/Drazoniaa', twitch: 'https://twitch.tv/drazonia' },
         jersey: jungleJersey,
@@ -80,8 +80,8 @@ export const teamsData = [
         name: 'Ryo',
         role: 'ADC',
         description: {
-          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
-          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+          fr: 'Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.',
+          en: 'Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.',
         },
         socials: { twitter: 'https://x.com/RyoMaiKo', twitch: '#' },
         jersey: adcJersey,
@@ -91,14 +91,14 @@ export const teamsData = [
         name: 'Shinobu',
         role: 'Support',
         description: {
-          fr: "Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.",
-          en: "Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.",
+          fr: 'Solenne est le pilier défensif de l’équipe. Sa vision de jeu et sa réactivité font d’elle une alliée précieuse dans les moments décisifs. Elle inspire confiance et calme sur la Faille.',
+          en: 'Solenne is the team’s defensive pillar. Her game sense and reactivity make her a valuable ally in clutch moments. She inspires confidence and calm on the Rift.',
         },
         socials: { twitter: 'https://x.com/shinobulol_', twitch: '#' },
         jersey: suppJersey,
         championImage: suppChampion,
       },
-    ]
+    ],
   },
   {
     id: 'valorant',
@@ -114,9 +114,9 @@ export const teamsData = [
         socials: { twitter: '#', twitch: '#' },
         jersey: null, // À remplacer par l'import du maillot si tu l'as
         championImage: null, // À remplacer par l'import du personnage si tu l'as
-      }
+      },
       // ...
-    ]
+    ],
   },
   {
     id: 'fortnite',
@@ -132,9 +132,9 @@ export const teamsData = [
         socials: { twitter: '#', twitch: '#' },
         jersey: null, // À remplacer par l'import du maillot si tu l'as
         championImage: null, // À remplacer par l'import du personnage si tu l'as
-      }
+      },
       // ...
-    ]
+    ],
   },
   {
     id: 'rainbow6',
@@ -150,9 +150,9 @@ export const teamsData = [
         socials: { twitter: '#', twitch: '#' },
         jersey: null, // À remplacer par l'import du maillot si tu l'as
         championImage: null, // À remplacer par l'import du personnage si tu l'as
-      }
+      },
       // ...
-    ]
+    ],
   },
   {
     id: ' rocketleague',
@@ -168,9 +168,9 @@ export const teamsData = [
         socials: { twitter: '#', twitch: '#' },
         jersey: null, // À remplacer par l'import du maillot si tu l'as
         championImage: null, // À remplacer par l'import du personnage si tu l'as
-      }
+      },
       // ...
-    ]
+    ],
   },
   // {
   //   id: "affiliates",

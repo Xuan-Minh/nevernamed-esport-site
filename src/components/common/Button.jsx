@@ -1,12 +1,12 @@
-import React from "react";
-import { motion } from "framer-motion";
-import arrowSvg from "../../assets/arrow.svg";
+import React from 'react';
+import { motion } from 'framer-motion';
+import arrowSvg from '../../assets/arrow.svg';
 
-function Button({ children, onClick, className = "" }) {
+function Button({ children, onClick, className = '' }) {
   return (
-      <motion.button
-    onClick={onClick}
-    className={`
+    <motion.button
+      onClick={onClick}
+      className={`
       group font-unbounded bg-transparent border-2 border-white rounded-full flex items-center gap-2
       px-4 py-2 text-base
       sm:px-6 sm:py-3 sm:text-lg

@@ -10,10 +10,12 @@ function HeroSection({ videoSrc, imageSrc, isLoading, children }) {
       return;
     }
 
-
     const attemptPlay = () => {
-      videoElement.play().catch(error => {
-        console.error("Erreur de lecture automatique, le navigateur a bloqué la tentative :", error);
+      videoElement.play().catch((error) => {
+        console.error(
+          'Erreur de lecture automatique, le navigateur a bloqué la tentative :',
+          error,
+        );
         document.body.addEventListener('click', attemptPlay, { once: true });
       });
     };
@@ -30,11 +32,10 @@ function HeroSection({ videoSrc, imageSrc, isLoading, children }) {
         document.body.removeEventListener('click', attemptPlay);
       }
     };
-  }, [isLoading, videoSrc]); 
+  }, [isLoading, videoSrc]);
 
- return (
+  return (
     <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-
       <div className="absolute top-0 left-0 w-full h-full [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]">
         {videoSrc && (
           <video
@@ -48,19 +49,13 @@ function HeroSection({ videoSrc, imageSrc, isLoading, children }) {
           />
         )}
         {imageSrc && !videoSrc && (
-          <img
-            src={imageSrc}
-            alt="Hero background"
-            className="w-full h-full object-cover"
-          />
+          <img src={imageSrc} alt="Hero background" className="w-full h-full object-cover" />
         )}
       </div>
 
       <div className="absolute inset-0 bg-black/40 -z-10"></div>
 
-      <div className="relative z-10 text-center text-white px-4">
-        {children}
-      </div>
+      <div className="relative z-10 text-center text-white px-4">{children}</div>
     </div>
   );
 }

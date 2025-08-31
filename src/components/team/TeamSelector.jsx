@@ -22,7 +22,7 @@ function TeamSelector({ teams, onSelect }) {
         </h2>
       </AnimatedElement>
       <div className="flex justify-center items-center gap-8">
-        {teams.map(team => (
+        {teams.map((team) => (
           <motion.div
             key={team.id}
             className="w-72 h-72 overflow-hidden shadow-2xl cursor-pointer relative group"
@@ -32,11 +32,23 @@ function TeamSelector({ teams, onSelect }) {
             onMouseLeave={() => setHovered(null)}
             onClick={() => handleClick(team)}
           >
-            <img src={team.image} alt={team.name} className="w-full h-full object-cover" loading="lazy" />
-            <img src={team.image} alt={team.name} className="w-full h-full object-cover" loading="lazy" width="288" height="288" />
+            <img
+              src={team.image}
+              alt={team.name}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <img
+              src={team.image}
+              alt={team.name}
+              className="w-full h-full object-cover"
+              loading="lazy"
+              width="288"
+              height="288"
+            />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
               <AnimatePresence>
-                {(!clicked) && (
+                {!clicked && (
                   <motion.div
                     key="logo"
                     initial={{ opacity: 0 }}

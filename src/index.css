@@ -16,7 +16,7 @@
 }
 html {
   color-scheme: light;
-  scroll-padding-top: 5rem; /* ajuste selon la hauteur de ton header */ 
+  scroll-padding-top: 5rem; /* ajuste selon la hauteur de ton header */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
@@ -30,12 +30,15 @@ body {
   font-weight: 400;
   font-style: normal;
 }
- 
 
 @layer utilities {
   @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
   .animate-marquee {
     animation: marquee 30s linear infinite;
@@ -60,24 +63,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-  .brand-background {
-    /* Layer 1 (Base) : Votre couleur de fond solide */
-    background-color: #000719;
+.brand-background {
+  /* Layer 1 (Base) : Votre couleur de fond solide */
+  background-color: #000719;
 
-    background-image: 
-      radial-gradient(circle, rgba(255, 255, 255, 0.07) 3px, transparent 1px),
-      radial-gradient(circle, rgba(255, 255, 255, 0.07) 3px, transparent 1px),
-      linear-gradient(
-        to bottom, 
-        rgba(0, 0, 0, 0) 54%,
-        rgba(47, 60, 148, 0.2) 100%
-      );
-    
-    background-size: 100px 100px, 100px 100px, auto;
-    background-position: 50px 50px, 0 0, 0 0;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.07) 3px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.07) 3px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 54%, rgba(47, 60, 148, 0.2) 100%);
 
-    background-attachment: scroll;
-  }
+  background-size:
+    100px 100px,
+    100px 100px,
+    auto;
+  background-position:
+    50px 50px,
+    0 0,
+    0 0;
+
+  background-attachment: scroll;
+}
 .loading-active {
   overflow: hidden;
 }
@@ -89,4 +94,3 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-

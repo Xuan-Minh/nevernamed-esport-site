@@ -10,21 +10,10 @@ import RocketLeagueLogo from '../../assets/teams/logotype-rocketleague.svg?react
 
 // Chaque composant exporté rend simplement le SVG importé,
 // en lui passant la className pour le style.
-export const LolLogoText = ({ className }) => (
-  <LolLogo className={className} />
-);
+export const LolLogoText = ({ className }) => <LolLogo className={className} />;
 
-export const ValorantLogoText = ({ className }) => (
-  <ValorantLogo className={className} />
-);
+export const ValorantLogoText = ({ className }) => <ValorantLogo className={className} />;
 
-export const FortniteLogoText = ({ className }) => (
-  <FortniteLogo className={className} />
-);      
-export const rainbow6LogoText = ({ className }) => (
-  <Rainbow6Logo className={className} />
-);
-export const rocketleagueLogoText = ({ className }) => (
-  <RocketLeagueLogo className={className} />
-);
-
+export const FortniteLogoText = ({ className }) => <FortniteLogo className={className} />;
+export const rainbow6LogoText = ({ className }) => <Rainbow6Logo className={className} />;
+export const rocketleagueLogoText = ({ className }) => <RocketLeagueLogo className={className} />;

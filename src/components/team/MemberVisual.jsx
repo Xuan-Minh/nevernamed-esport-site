@@ -13,7 +13,7 @@ function MemberVisual({ member, displayed }) {
           exit={{ opacity: 0, x: displayed.direction > 0 ? 120 : -120, scale: 0.95 }}
           transition={{ duration: 0.45, ease: [0.4, 0.2, 0.2, 1] }}
           className="w-full h-full flex flex-col items-center justify-center relative"
-          style={{ position: "absolute", inset: 0 }}
+          style={{ position: 'absolute', inset: 0 }}
         >
           {/* Image du personnage phare en transparence */}
           {member.jersey && (
