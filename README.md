@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="public/assets/mainlogo.png" alt="NeverNamed Logo" width="120"/>
 </p>
@@ -22,11 +21,12 @@
 
 ## 🛠️ Stack technique
 
-| Frontend  | Routing        | SEO & i18n         | Styles/Tailwind      | Déploiement |
-|-----------|---------------|--------------------|----------------------|-------------|
-| React.js  | React Router  | React Helmet Async | Tailwind CSS, PostCSS| Vercel      |
+| Frontend | Routing      | SEO & i18n         | Styles/Tailwind       | Déploiement |
+| -------- | ------------ | ------------------ | --------------------- | ----------- |
+| React.js | React Router | React Helmet Async | Tailwind CSS, PostCSS | Vercel      |
 
 **Fonctionnalités clés :**
+
 - Lazy loading (React.lazy + Suspense) sur toutes les pages
 - SEO dynamique (React Helmet)
 - Internationalisation (i18next, fichiers fr/en complets)
@@ -104,7 +104,6 @@ Ce projet est soumis à la licence choisie dans ce dépôt. Consulte [LICENSE](L
 </p>
 
 ---
-
 
 ---
 
