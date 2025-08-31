@@ -15,7 +15,7 @@ function SponsorsBanner() {
             {sponsorLogos.map((logoUrl) => {
               const fileName = logoUrl.split('/').pop().replace('.svg', '');
               return (
-                <img 
+                <img loading="lazy"
                   key={fileName}
                   src={logoUrl} 
                   alt={`Logo ${fileName}`}
@@ -39,7 +39,7 @@ function SponsorsBanner() {
           const fileName = logoUrl.split('/').pop().replace('.svg', '');
           return (
             <div key={`logo-${index}`} className="flex-shrink-0 mx-8 md:mx-12">
-              <img 
+              <img loading="lazy"
                 src={logoUrl} 
                 alt={`Logo ${fileName}`}
                 className="h-12 md:h-16 object-contain"
@@ -52,7 +52,7 @@ function SponsorsBanner() {
           const fileName = logoUrl.split('/').pop().replace('.svg', '');
           return (
             <div key={`logo-dup-${index}`} className="flex-shrink-0 mx-8 md:mx-12" aria-hidden="true">
-              <img 
+              <img loading="lazy"
                 src={logoUrl} 
                 alt={`Logo ${fileName}`}
                 className="h-12 md:h-16 object-contain"

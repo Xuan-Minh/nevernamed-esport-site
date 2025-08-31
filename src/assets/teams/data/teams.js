@@ -22,8 +22,6 @@ import adcJersey from '../jersey.png';
 import adcChampion from '../lol/champion-adc.png';
 import suppJersey from '../jersey.png';
 import suppChampion from '../lol/champion-supp.png';
-import { s } from 'framer-motion/client';
-
 // Ajoute les imports nécessaires pour Valorant si besoin
 // ===> lien pour les PNG de perso lol https://purepng.com/tags/league%20of%20legends
 export const teamsData = [
@@ -174,4 +172,21 @@ export const teamsData = [
       // ...
     ]
   },
+  // {
+  //   id: "affiliates",
+  //   name: "AMBASSADEURS / SPORTIFS / CREATORS",
+  //   image: null,
+  //   LogoComponent: undefined, // ou une icône générique si tu veux
+  //   fontClass: 'font-beaufort',
+  //   roster: [
+  //     {
+  //       name: 'Joueur 1',
+  //       role: 'Ambassadeur',
+  //       description: 'Description...',
+  //       socials: { twitter: '#', twitch: '#' },
+  //       jersey: null, // À remplacer par l'import du maillot si tu l'as
+  //       championImage: null // À remplacer par l'import du personnage si tu l'as
+  //     }
+  //   ]
+  // }
 ];

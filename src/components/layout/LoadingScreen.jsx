@@ -23,7 +23,7 @@ function LoadingScreen({ progress }) {
       {/* 2. Augmentation de la taille du conteneur */}
       <div className="relative w-80 h-80 flex items-center justify-center">
         {/* 2. Augmentation de la taille du logo */}
-        <img 
+  <img loading="lazy"
           src={`${logoSvg}#svgView(viewBox(162,0,243,385))`} 
           alt="Logo Nevernamed" 
           className="h-40 w-auto z-10" // h-32 -> h-40

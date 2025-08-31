@@ -32,7 +32,7 @@ function TeamSelector({ teams, onSelect }) {
             onMouseLeave={() => setHovered(null)}
             onClick={() => handleClick(team)}
           >
-            <img src={team.image} alt={team.name} className="w-full h-full object-cover" />
+            <img src={team.image} alt={team.name} className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
               <AnimatePresence>
                 {(!clicked) && (

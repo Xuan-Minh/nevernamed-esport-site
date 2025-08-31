@@ -63,7 +63,7 @@ function Footer({ handleClose }) {
             {/* Bloc gauche */}
             <div className="flex flex-col items-center md:items-start gap-3">
               <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white" onClick={handleClose}>
-                <img src={logoSvg} alt={t('footer.logoAlt')} className="h-16 w-auto rounded-lg shadow" />
+                <img src={logoSvg} alt={t('footer.logoAlt')} className="h-16 w-auto rounded-lg shadow" loading="lazy" />
                 <span className="hidden sm:inline">NeverNamed Esport</span>
               </Link>
               <div className="text-sm text-gray-400">{t('footer.copyright')}</div>

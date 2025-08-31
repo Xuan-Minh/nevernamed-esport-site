@@ -51,14 +51,14 @@ function LatestPost() {
       className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
       aria-label="Post précédent"
     >
-      <img src={arrowIcon} alt="Précédent" className="h-10 w-10 rotate-180" />
+  <img src={arrowIcon} alt="Précédent" className="h-10 w-10 rotate-180" loading="lazy" />
     </button>
     <button
       onClick={() => scroll('right')}
       className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
       aria-label="Post suivant"
     >
-      <img src={arrowIcon} alt="Suivant" className="h-10 w-10" />
+  <img src={arrowIcon} alt="Suivant" className="h-10 w-10" loading="lazy" />
     </button>
   </div>
 
