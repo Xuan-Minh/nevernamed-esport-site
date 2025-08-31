@@ -3,7 +3,7 @@ import mainLogo from '../assets/mainlogo.webp';
 import avatarPlaceholder from '../assets/avatar-placeholder.webp';
 import Separator from '../components/common/Separator';
 import AnimatedElement from '../components/common/AnimatedElement';
-import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/icons/Icons';
+import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/icons/SocialIcons';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
@@ -154,7 +154,7 @@ const AboutUsPage = () => {
                         <img
                           src={staffImages[(member.avatar || member.name).toLowerCase()] || avatarPlaceholder}
                           alt={`Avatar de ${member.name}`}
-                          className="w-16 h-16 sm:w-24 sm:h-24 rounded-full object-cover"
+                          className="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover"
                         />
                         <h3 className="font-unbounded text-lg sm:text-xl md:text-2xl font-bold text-orange-400">
                           {member.name}
@@ -184,17 +184,17 @@ const AboutUsPage = () => {
                       <div className="mt-6 flex items-center gap-4 text-sm">
                         {member.socials?.twitter && (
                           <a href={member.socials.twitter} aria-label="Twitter" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
-                            <TwitterIcon />
+                            <TwitterIcon className="w-6 h-6" />
                           </a>
                         )}
                         {member.socials?.twitch && (
                           <a href={member.socials.twitch} aria-label="Twitch" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
-                            <TwitchIcon />
+                            <TwitchIcon className="w-6 h-6" />
                           </a>
                         )}
                         {member.socials?.linkedin && (
                           <a href={member.socials.linkedin} aria-label="LinkedIn" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
-                            <LinkedinIcon />
+                            <LinkedinIcon className="w-6 h-6" />
                           </a>
                         )}
                       </div>

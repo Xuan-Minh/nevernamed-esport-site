@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ArrowIcon from '../components/common/ArrowIcon';
-import { FaInstagram, FaGlobe } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+import { InstagramIcon, TwitterIcon, GlobeIcon } from '../components/icons/SocialIcons';
 import { sponsors } from '../components/sponsors/sponsors';
 import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';
@@ -133,7 +132,7 @@ function PartnersPage() {
                               className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Instagram"
                             >
-                              <FaInstagram />
+                              <InstagramIcon />
                             </a>
                           )}
                           {sponsor.socials?.twitter && (
@@ -144,7 +143,7 @@ function PartnersPage() {
                               className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Twitter"
                             >
-                              <FaXTwitter />
+                              <TwitterIcon />
                             </a>
                           )}
                           {sponsor.socials?.website && (
@@ -155,7 +154,7 @@ function PartnersPage() {
                               className="text-white hover:text-brand-accent transition-colors hover:scale-110"
                               aria-label="Site web"
                             >
-                              <FaGlobe />
+                              <GlobeIcon />
                             </a>
                           )}
                         </div>

@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaInstagram, FaTwitch, FaYoutube } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import { FaLinkedin } from 'react-icons/fa';
+import { InstagramIcon, TwitterIcon, YoutubeIcon, TwitchIcon, LinkedinIcon } from '../components/icons/SocialIcons';
 import Separator from '../components/common/Separator';
 import Button from '../components/common/Button';
 import AnimatedElement from '../components/common/AnimatedElement';
@@ -21,7 +19,7 @@ const socialPosts = [
     date: '28/07/2025',
     image: 'https://via.placeholder.com/400x300',
     caption: "Notre victoire hier soir sur scène ! Fier-ère d'elles!",
-    icon: <FaInstagram />,
+  icon: <InstagramIcon />,
   },
   {
     id: 2,
@@ -29,7 +27,7 @@ const socialPosts = [
     date: '28/07/2025',
     image: 'https://via.placeholder.com/400x300',
     caption: 'Un match incroyable, une performance à couper le souffle.',
-    icon: <FaXTwitter />,
+  icon: <TwitterIcon />,
   },
   {
     id: 3,
@@ -37,7 +35,7 @@ const socialPosts = [
     date: '28/07/2025',
     image: 'https://via.placeholder.com/400x300',
     caption: 'Revivez les meilleurs moments de la finale dans notre dernière vidéo !',
-    icon: <FaYoutube />,
+  icon: <YoutubeIcon />,
   },
 ];
 
@@ -72,10 +70,10 @@ function SocialsPage() {
             <h1 className="font-unbounded text-4xl sm:text-5xl md:text-6xl font-bold mb-8 sm:mb-12">{t('socialHub.title')}</h1>
             <h2 className="font-unbounded text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">{t('socialHub.channels')}</h2>
               <div className="flex justify-center items-center gap-6 sm:gap-14 text-4xl sm:text-6xl">
-                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><FaInstagram /></a>
-                <a href="https://x.com/thenevernamed" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><FaXTwitter /></a>
-                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><FaTwitch /></a>
-                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><FaLinkedin /></a>
+                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><InstagramIcon /></a>
+                <a href="https://x.com/thenevernamed" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><TwitterIcon /></a>
+                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><TwitchIcon /></a>
+                <a href="#" className="text-white hover:text-brand-accent transition-colors hover:scale-110"><LinkedinIcon /></a>
               </div>
             </div>
           </section>  

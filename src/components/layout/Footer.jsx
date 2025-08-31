@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logoSvg from '../../assets/favicon.svg';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TwitterIcon, LinkedinIcon, InstagramIcon, TwitchIcon } from '../icons/Icons';
+import { TwitterIcon, LinkedinIcon, InstagramIcon, TwitchIcon } from '../icons/SocialIcons';
 
 const CloseIcon = () => (
   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">

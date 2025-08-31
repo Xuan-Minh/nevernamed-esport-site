@@ -3,7 +3,7 @@ import postImage from '../../assets/test.webp';
 import arrowIcon from '../../assets/arrow.svg';
 import { useTranslation } from 'react-i18next';
 
-import { InstagramIcon, TwitterIcon, TwitchIcon } from '../icons/Icons';
+import { InstagramIcon, TwitterIcon, TwitchIcon } from '../icons/SocialIcons';
 
 
 function LatestPost() {
@@ -40,6 +40,8 @@ function LatestPost() {
             alt={`Post ${index + 1}`}
             className="w-full h-56 sm:h-40 md:h-56 object-cover rounded-2xl"
             loading="lazy"
+            width="320"
+            height="224"
           />
         </div>
       ))}
@@ -51,14 +53,14 @@ function LatestPost() {
       className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
       aria-label="Post précédent"
     >
-  <img src={arrowIcon} alt="Précédent" className="h-10 w-10 rotate-180" loading="lazy" />
+  <img src={arrowIcon} alt="Précédent" className="h-10 w-10 rotate-180" loading="lazy" width="40" height="40" />
     </button>
     <button
       onClick={() => scroll('right')}
       className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
       aria-label="Post suivant"
     >
-  <img src={arrowIcon} alt="Suivant" className="h-10 w-10" loading="lazy" />
+  <img src={arrowIcon} alt="Suivant" className="h-10 w-10" loading="lazy" width="40" height="40" />
     </button>
   </div>
 
@@ -76,10 +78,10 @@ function LatestPost() {
             <TwitterIcon className="w-6 h-6" />
           </a>
           <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitch">
-            <TwitchIcon />
+            <TwitchIcon className="w-6 h-6"/>
           </a>
           <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Instagram">
-            <InstagramIcon />
+            <InstagramIcon className="w-6 h-6"/>
           </a>
         </div>
       </div>
