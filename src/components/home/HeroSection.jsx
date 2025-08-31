@@ -49,7 +49,13 @@ function HeroSection({ videoSrc, imageSrc, isLoading, children }) {
           />
         )}
         {imageSrc && !videoSrc && (
-          <img src={imageSrc} alt="Hero background" className="w-full h-full object-cover" />
+          <img
+            src={imageSrc}
+            alt="Hero background"
+            className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+          />
         )}
       </div>
 
