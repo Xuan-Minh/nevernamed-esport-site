@@ -6,14 +6,15 @@ import ScrollToTop from "./components/common/ScrollToTop";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import LoadingScreen from "./components/layout/LoadingScreen";
-import HomePage from "./pages/HomePage";
-import AboutUsPage from "./pages/AboutUsPage";
-import TeamsPage from "./pages/TeamsPage";
-import PartnersPage from "./pages/PartnersPage";
-import SocialsPage from "./pages/SocialsPage";
-import PolitiquesPage from "./pages/PolitiquesPage";
-import MentionsLegalesPage from "./pages/MentionsLegalesPage";
-import TermsPage from "./pages/TermsPage";
+import React, { Suspense } from "react";
+const HomePage = React.lazy(() => import("./pages/HomePage"));
+const AboutUsPage = React.lazy(() => import("./pages/AboutUsPage"));
+const TeamsPage = React.lazy(() => import("./pages/TeamsPage"));
+const PartnersPage = React.lazy(() => import("./pages/PartnersPage"));
+const SocialsPage = React.lazy(() => import("./pages/SocialsPage"));
+const PolitiquesPage = React.lazy(() => import("./pages/PolitiquesPage"));
+const MentionsLegalesPage = React.lazy(() => import("./pages/MentionsLegalesPage"));
+const TermsPage = React.lazy(() => import("./pages/TermsPage"));
 
 import 'flag-icons/css/flag-icons.min.css';
 import './i18n'; 
@@ -78,16 +79,48 @@ function App() {
                 <Header isOpen={isOpen} setIsOpen={setIsOpen} /> {/* Passe les props */}
                 <main className="overflow-x-hidden">
               <AnimatePresence mode="wait">
-              <Routes location={location} key={location.pathname}>
-                <Route index element={<HomePage isLoading={loading} />} />
-                <Route path="/a-propos" element={<AboutUsPage />} />
-                <Route path="/equipes" element={<TeamsPage />} />
-                <Route path="/partenaires" element={<PartnersPage />} />
-                <Route path="/socialhub" element={<SocialsPage />} />
-                <Route path="/politiques" element={<PolitiquesPage />} />
-                <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
-                  <Route path="/terms" element={<TermsPage />} /> 
-              </Routes>
+                <Routes location={location} key={location.pathname}>
+                  <Route index element={
+                    <Suspense fallback={<div>Chargement de la page d'accueil…</div>}>
+                      <HomePage isLoading={loading} />
+                    </Suspense>
+                  } />
+                  <Route path="/a-propos" element={
+                    <Suspense fallback={<div>Chargement de la page à propos…</div>}>
+                      <AboutUsPage />
+                    </Suspense>
+                  } />
+                  <Route path="/equipes" element={
+                    <Suspense fallback={<div>Chargement de la page équipes…</div>}>
+                      <TeamsPage />
+                    </Suspense>
+                  } />
+                  <Route path="/partenaires" element={
+                    <Suspense fallback={<div>Chargement de la page partenaires…</div>}>
+                      <PartnersPage />
+                    </Suspense>
+                  } />
+                  <Route path="/socialhub" element={
+                    <Suspense fallback={<div>Chargement du Social Hub…</div>}>
+                      <SocialsPage />
+                    </Suspense>
+                  } />
+                  <Route path="/politiques" element={
+                    <Suspense fallback={<div>Chargement de la page politiques…</div>}>
+                      <PolitiquesPage />
+                    </Suspense>
+                  } />
+                  <Route path="/mentions-legales" element={
+                    <Suspense fallback={<div>Chargement de la page mentions légales…</div>}>
+                      <MentionsLegalesPage />
+                    </Suspense>
+                  } />
+                  <Route path="/terms" element={
+                    <Suspense fallback={<div>Chargement de la page conditions…</div>}>
+                      <TermsPage />
+                    </Suspense>
+                  } />
+                </Routes>
               </AnimatePresence>
             </main>
           </div>
