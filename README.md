@@ -22,11 +22,17 @@
 
 ## 🛠️ Stack technique
 
-| Frontend  | Routing        | State Management | Styles          | Déploiement |
-|-----------|---------------|------------------|-----------------|-------------|
-| React.js  | React Router  | Context/Redux\*  | CSS3/SASS       | Vercel      |
+| Frontend  | Routing        | SEO & i18n         | Styles/Tailwind      | Déploiement |
+|-----------|---------------|--------------------|----------------------|-------------|
+| React.js  | React Router  | React Helmet Async | Tailwind CSS, PostCSS| Vercel      |
 
-\* À ajuster selon ton projet
+**Fonctionnalités clés :**
+- Lazy loading (React.lazy + Suspense) sur toutes les pages
+- SEO dynamique (React Helmet)
+- Internationalisation (i18next, fichiers fr/en complets)
+- Accessibilité avancée (a11y, navigation clavier, aria-labels)
+- Performances optimisées (lazy loading images, code splitting, WebP)
+- Structure modulaire et composants réutilisables
 
 ---
 
@@ -67,8 +73,8 @@ nevernamed-esport-site/
 │
 ├── src/
 │   ├── assets/          # Images, polices, icônes, etc.
-│   ├── components/      # Composants réutilisables (Navbar, Footer, etc.)
-│   ├── pages/           # Pages principales (Home, Team, Events, Contact, ...)
+│   ├── components/      # Composants réutilisables (Header, Footer, Socials, etc.)
+│   ├── pages/           # Pages principales (Home, About, Teams, Partners, Socials, Legal, Terms, Policies)
 │   ├── App.jsx          # Composant principal, gestion du router
 │   ├── main.jsx         # Point d'entrée de l'application
 │   └── index.css        # Styles globaux
@@ -99,7 +105,21 @@ Ce projet est soumis à la licence choisie dans ce dépôt. Consulte [LICENSE](L
 
 ---
 
-N’hésite pas à contribuer, signaler un bug ou proposer des idées d’amélioration !  
+
+---
+
+## 📝 Bonnes pratiques & Checklist
+
+- [x] Accessibilité (a11y) : balises sémantiques, aria-labels, navigation clavier
+- [x] SEO : balises meta dynamiques, titres, descriptions, Open Graph, Twitter Card
+- [x] Performances : lazy loading images, code splitting, bundle léger
+- [x] Internationalisation : fichiers fr/en complets, détection automatique
+- [x] Sécurité : pas de données sensibles, headers à configurer côté serveur
+- [x] Responsive : Tailwind, breakpoints testés mobile/tablette
+- [x] Nettoyage du code : imports et composants inutiles supprimés
+- [x] Documentation à jour
+
+N’hésite pas à contribuer, signaler un bug ou proposer des idées d’amélioration !
 Pour toute question, contacte-moi sur GitHub.
 
 ---
