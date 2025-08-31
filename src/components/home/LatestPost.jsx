@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import postImage from '../../assets/test.jpg';
+import postImage from '../../assets/test.webp';
 import arrowIcon from '../../assets/arrow.svg';
 import { useTranslation } from 'react-i18next';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import mainLogo from '../assets/mainlogo.png';
-import avatarPlaceholder from '../assets/avatar-placeholder.png';
+import mainLogo from '../assets/mainlogo.webp';
+import avatarPlaceholder from '../assets/avatar-placeholder.webp';
 import Separator from '../components/common/Separator';
 import AnimatedElement from '../components/common/AnimatedElement';
 import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/icons/Icons';
@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import valeurs from '../assets/img/valeurs.webp';
-import missions from '../assets/img/missions.jpg';
+import missions from '../assets/img/missions.webp';
 
 
 const staffModules = import.meta.glob('../assets/staff/*.{png,jpg,jpeg,webp,svg}', { eager: true });

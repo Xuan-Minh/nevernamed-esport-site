@@ -1,27 +1,27 @@
-import lolImage from '../lol-bg.jpg';
+import lolImage from '../lol-bg.webp';
 import { LolLogoText } from '../../../components/icons/GameLogos';
-import valoImage from '../valorant-bg.jpg';
+import valoImage from '../valorant-bg.webp';
 import { ValorantLogoText } from '../../../components/icons/GameLogos';
-import fortniteImage from '../fortnite-bg.jpg';
+import fortniteImage from '../fortnite-bg.webp';
 import { FortniteLogoText } from '../../../components/icons/GameLogos';
-import rainbow6Image from '../rainbow6-bg.jpg';
+import rainbow6Image from '../rainbow6-bg.webp';
 import { rainbow6LogoText } from '../../../components/icons/GameLogos';
-import rocketleagueImage from '../rocketleague-bg.jpg';
+import rocketleagueImage from '../rocketleague-bg.webp';
 import { rocketleagueLogoText } from '../../../components/icons/GameLogos';
 
 // Exemple d'import d'assets pour les maillots et champions
-import coachJersey from '../jersey.png';
-import coachChampion from '../lol/champion-coach.png';
-import topJersey from '../jersey.png';
-import topChampion from '../lol/champion-top.png';
-import midJersey from '../jersey.png';
-import midChampion from '../lol/champion-mid.png';
-import jungleJersey from '../jersey.png';
-import jungleChampion from '../lol/champion-jungle.png';
-import adcJersey from '../jersey.png';
-import adcChampion from '../lol/champion-adc.png';
-import suppJersey from '../jersey.png';
-import suppChampion from '../lol/champion-supp.png';
+import coachJersey from '../jersey.webp';
+import coachChampion from '../lol/champion-coach.webp';
+import topJersey from '../jersey.webp';
+import topChampion from '../lol/champion-top.webp';
+import midJersey from '../jersey.webp';
+import midChampion from '../lol/champion-mid.webp';
+import jungleJersey from '../jersey.webp';
+import jungleChampion from '../lol/champion-jungle.webp';
+import adcJersey from '../jersey.webp';
+import adcChampion from '../lol/champion-adc.webp';
+import suppJersey from '../jersey.webp';
+import suppChampion from '../lol/champion-supp.webp';
 // Ajoute les imports nécessaires pour Valorant si besoin
 // ===> lien pour les PNG de perso lol https://purepng.com/tags/league%20of%20legends
 export const teamsData = [
