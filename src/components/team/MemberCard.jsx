@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedElement from '../common/AnimatedElement';
-import { TwitterIcon, TwitchIcon, InstagramIcon, YoutubeIcon, LinkedinIcon } from '../icons/SocialIcons';
+import { FaInstagram, FaTwitch, FaYoutube, FaLinkedin } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import ArrowIcon from '../common/ArrowIcon';
 
 function MemberCard({ member, lang, handlePrev, handleNext, current, team, roleIcons }) {

@@ -31,6 +31,8 @@ function TeamMembersGallery({ roster, current, setCurrent, directionRef }) {
             <img
               src={m.avatar || avatarPlaceholder}
               alt={m.name}
+              width="112"
+              height="128"
               className="object-cover w-full h-full"
               draggable={false}
             />

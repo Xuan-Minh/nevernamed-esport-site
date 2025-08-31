@@ -3,7 +3,8 @@ import mainLogo from '../assets/mainlogo.webp';
 import avatarPlaceholder from '../assets/avatar-placeholder.webp';
 import Separator from '../components/common/Separator';
 import AnimatedElement from '../components/common/AnimatedElement';
-import { TwitterIcon, TwitchIcon, LinkedinIcon } from '../components/icons/SocialIcons';
+import { FaXTwitter } from 'react-icons/fa6';
+import { FaTwitch, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
@@ -73,7 +74,9 @@ const AboutUsPage = () => {
           <div className="relative flex justify-center items-center w-full max-w-2xl h-96">
             <img
               src={mainLogo}
-              alt=""
+              alt="Logo principal NeverNamed Esport"
+              width="512"
+              height="512"
               className="absolute inset-0 w-full h-full object-contain z-0 opacity-10"
             />
             <h1 className="relative font-unbounded text-3xl sm:text-4xl md:text-5xl font-bold z-10">
@@ -94,6 +97,8 @@ const AboutUsPage = () => {
                   <img
                     src={valeurs}
                     alt={t('about.values')}
+                    width="600"
+                    height="400"
                     className="rounded-xl w-full h-auto object-cover"
                   />
                 </div>
@@ -115,6 +120,8 @@ const AboutUsPage = () => {
                   <img
                     src={missions}
                     alt={t('about.missions')}
+                    width="600"
+                    height="400"
                     className="rounded-lg  w-full h-auto object-cover"
                   />
                 </div>
@@ -154,6 +161,8 @@ const AboutUsPage = () => {
                         <img
                           src={staffImages[(member.avatar || member.name).toLowerCase()] || avatarPlaceholder}
                           alt={`Avatar de ${member.name}`}
+                          width="112"
+                          height="112"
                           className="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover"
                         />
                         <h3 className="font-unbounded text-lg sm:text-xl md:text-2xl font-bold text-orange-400">
@@ -184,17 +193,17 @@ const AboutUsPage = () => {
                       <div className="mt-6 flex items-center gap-4 text-sm">
                         {member.socials?.twitter && (
                           <a href={member.socials.twitter} aria-label="Twitter" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
-                            <TwitterIcon className="w-6 h-6" />
+                            <FaXTwitter className="w-6 h-6" />
                           </a>
                         )}
                         {member.socials?.twitch && (
                           <a href={member.socials.twitch} aria-label="Twitch" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
-                            <TwitchIcon className="w-6 h-6" />
+                            <FaTwitch className="w-6 h-6" />
                           </a>
                         )}
                         {member.socials?.linkedin && (
                           <a href={member.socials.linkedin} aria-label="LinkedIn" className="text-white hover:text-brand-accent transition-colors hover:scale-110">
-                            <LinkedinIcon className="w-6 h-6" />
+                            <FaLinkedin className="w-6 h-6" />
                           </a>
                         )}
                       </div>

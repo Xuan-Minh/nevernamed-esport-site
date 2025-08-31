@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ArrowIcon from '../components/common/ArrowIcon';
-import { InstagramIcon, TwitterIcon, GlobeIcon } from '../components/icons/SocialIcons';
+import { FaInstagram, FaGlobe } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { sponsors } from '../components/sponsors/sponsors';
 import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';

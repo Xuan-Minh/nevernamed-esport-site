@@ -33,6 +33,7 @@ function TeamSelector({ teams, onSelect }) {
             onClick={() => handleClick(team)}
           >
             <img src={team.image} alt={team.name} className="w-full h-full object-cover" loading="lazy" />
+            <img src={team.image} alt={team.name} className="w-full h-full object-cover" loading="lazy" width="288" height="288" />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
               <AnimatePresence>
                 {(!clicked) && (

@@ -3,7 +3,8 @@ import postImage from '../../assets/test.webp';
 import arrowIcon from '../../assets/arrow.svg';
 import { useTranslation } from 'react-i18next';
 
-import { InstagramIcon, TwitterIcon, TwitchIcon } from '../icons/SocialIcons';
+import { FaInstagram, FaTwitch } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 
 function LatestPost() {
@@ -75,13 +76,13 @@ function LatestPost() {
         {/* Conteneur pour les icônes */}
         <div className="flex items-center gap-4">
           <a href="https://x.com/thenevernamed" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitter">
-            <TwitterIcon className="w-6 h-6" />
+            <FaXTwitter className="w-6 h-6" />
           </a>
           <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Twitch">
-            <TwitchIcon className="w-6 h-6"/>
+            <FaTwitch className="w-6 h-6"/>
           </a>
           <a href="#" className="flex-shrink-0 hover:text-white/70 transition-colors" aria-label="Instagram">
-            <InstagramIcon className="w-6 h-6"/>
+            <FaInstagram className="w-6 h-6"/>
           </a>
         </div>
       </div>

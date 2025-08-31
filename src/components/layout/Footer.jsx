@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logoSvg from '../../assets/favicon.svg';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TwitterIcon, LinkedinIcon, InstagramIcon, TwitchIcon } from '../icons/SocialIcons';
+import { FaInstagram, FaTwitch, FaLinkedin } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const CloseIcon = () => (
   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,7 +64,7 @@ function Footer({ handleClose }) {
             {/* Bloc gauche */}
             <div className="flex flex-col items-center md:items-start gap-3">
               <Link to="/" className="flex items-center gap-2 text-xl font-bold text-white" onClick={handleClose}>
-                <img src={logoSvg} alt={t('footer.logoAlt')} className="h-16 w-auto rounded-lg shadow" loading="lazy" />
+                <img src={logoSvg} alt={t('footer.logoAlt')} className="h-16 w-auto rounded-lg shadow" loading="lazy" width="64" height="64" />
                 <span className="hidden sm:inline">NeverNamed Esport</span>
               </Link>
               <div className="text-sm text-gray-400">{t('footer.copyright')}</div>

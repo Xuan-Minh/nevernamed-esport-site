@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { InstagramIcon, TwitterIcon, YoutubeIcon, TwitchIcon, LinkedinIcon } from '../components/icons/SocialIcons';
 import Separator from '../components/common/Separator';
 import Button from '../components/common/Button';
 import AnimatedElement from '../components/common/AnimatedElement';
@@ -11,6 +10,8 @@ import SocialFeed from '../components/social/SocialFeed';
 
 {/* POSTS */}
 
+import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 // Données fictives pour les publications sur les réseaux sociaux
 const socialPosts = [
   {
@@ -19,7 +20,7 @@ const socialPosts = [
     date: '28/07/2025',
     image: 'https://via.placeholder.com/400x300',
     caption: "Notre victoire hier soir sur scène ! Fier-ère d'elles!",
-  icon: <InstagramIcon />,
+    icon: <FaInstagram />,
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ const socialPosts = [
     date: '28/07/2025',
     image: 'https://via.placeholder.com/400x300',
     caption: 'Un match incroyable, une performance à couper le souffle.',
-  icon: <TwitterIcon />,
+    icon: <FaXTwitter />,
   },
   {
     id: 3,
@@ -35,7 +36,7 @@ const socialPosts = [
     date: '28/07/2025',
     image: 'https://via.placeholder.com/400x300',
     caption: 'Revivez les meilleurs moments de la finale dans notre dernière vidéo !',
-  icon: <YoutubeIcon />,
+    icon: <FaYoutube />,
   },
 ];
 

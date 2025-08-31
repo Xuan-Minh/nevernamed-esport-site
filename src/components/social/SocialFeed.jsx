@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { InstagramIcon, TwitterIcon, YoutubeIcon } from '../icons/SocialIcons';
+import { FaInstagram, FaYoutube, FaTwitch, FaLinkedin } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const platformIcons = {
-  instagram: <InstagramIcon />,
-  twitter: <TwitterIcon />,
-  youtube: <YoutubeIcon />,
+  instagram: <FaInstagram />,
+  twitter: <FaXTwitter />,
+  youtube: <FaYoutube />,
   // tiktok: <TiktokIcon />, etc.
 };
 
@@ -38,6 +39,8 @@ function SocialFeed({ apiUrl = '/api/social-feed', limit = 6, platforms }) {
           <img
             src={post.image}
             alt={post.caption}
+            width="400"
+            height="300"
             className="rounded-lg w-full h-36 sm:h-48 object-cover mb-3 sm:mb-4"
           />
           <p className="text-white/90 flex-grow text-sm sm:text-base">{post.caption}</p>
