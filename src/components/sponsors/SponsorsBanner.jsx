@@ -1,4 +1,5 @@
 import React from 'react';
+import Marquee from 'react-fast-marquee';
 import { sponsors } from './sponsors';
 
 // Import dynamique des logos SVG (corrigé pour le bon chemin)
@@ -39,16 +40,20 @@ function SponsorsBanner() {
     );
   }
 
-  // Si on a assez de sponsors, on affiche le carrousel défilant.
+  // Si on a assez de sponsors, on affiche le carrousel défilant avec react-fast-marquee.
   return (
     <div className="sponsors-banner py-8 overflow-hidden relative w-full">
-      {/* Le conteneur qui va défiler */}
-      <div className="flex animate-marquee whitespace-nowrap">
-        {/* On affiche la liste des logos une première fois */}
+      <Marquee
+        gradient={false}
+        speed={40}
+        pauseOnHover={true}
+        autoFill={true}
+        className="flex items-center"
+      >
         {sponsorsWithLogo
           .filter((s) => s.logo)
           .map((s, index) => (
-            <div key={`logo-${index}`} className="flex-shrink-0 mx-8 md:mx-12">
+            <div key={s.id} className="flex-shrink-0 mx-8 md:mx-12">
               <img
                 loading="lazy"
                 src={s.logo}
@@ -59,26 +64,7 @@ function SponsorsBanner() {
               />
             </div>
           ))}
-        {/* On affiche la liste une DEUXIÈME fois pour un défilement infini parfait */}
-        {sponsorsWithLogo
-          .filter((s) => s.logo)
-          .map((s, index) => (
-            <div
-              key={`logo-dup-${index}`}
-              className="flex-shrink-0 mx-8 md:mx-12"
-              aria-hidden="true"
-            >
-              <img
-                loading="lazy"
-                src={s.logo}
-                alt={`Logo ${s.name}`}
-                width="64"
-                height="64"
-                className="h-12 md:h-16 object-contain"
-              />
-            </div>
-          ))}
-      </div>
+      </Marquee>
     </div>
   );
 }
