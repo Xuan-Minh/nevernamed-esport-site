@@ -119,7 +119,7 @@
     "association": "Nom de l’association : NeverNamed Esport",
     "address": "Adresse : [adresse du siège social]",
     "responsible": "Responsable de la publication : [Nom, Prénom ou fonction]",
-    "email": "Email : contact@nevernamed-esport.com",
+    "email": "Email : contact@thenevernamed.com",
     "siren": "Numéro RNA ou SIREN : [à compléter]",
     "hosting": "Hébergement",
     "host": "Hébergeur : [Nom de l’hébergeur]",
@@ -127,7 +127,7 @@
     "hostPhone": "Téléphone : [numéro de l’hébergeur]",
     "intellectual": "Propriété intellectuelle",
     "intellectualText": "Le contenu du site (textes, images, graphismes, logo, etc.) est protégé par le droit d’auteur. Toute reproduction ou utilisation sans autorisation est interdite.",
-    "contact": "Pour toute question, contactez-nous à l’adresse suivante : contact@nevernamed-esport.com",
+    "contact": "Pour toute question, contactez-nous à l’adresse suivante : contact@thenevernamed.com",
     "lastUpdate": "Dernière mise à jour : août 2025"
   },
   "terms": {
@@ -160,7 +160,7 @@
     "shareTitle": "4. Partage des données",
     "shareText": "Vos données ne sont jamais revendues. Elles peuvent être partagées uniquement avec des prestataires techniques nécessaires au fonctionnement du site (hébergement, statistiques).",
     "rightsTitle": "5. Vos droits",
-    "rightsText": "Conformément au RGPD, vous pouvez demander l’accès, la rectification ou la suppression de vos données personnelles en nous contactant à l’adresse suivante :",
+    "rightsText": "Conformément au RGPD, vous pouvez demander l’accès, la rectification ou la suppression de vos données personnelles en nous contactant à l’adresse suivante : contact@thenevernamed.com",
     "contactTitle": "6. Contact",
     "contactText": "Pour toute question concernant la confidentialité ou vos données, contactez-nous à l’adresse ci-dessus.",
     "lastUpdate": "Dernière mise à jour : août 2025"

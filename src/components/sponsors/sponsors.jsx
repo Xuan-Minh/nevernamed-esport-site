@@ -49,7 +49,7 @@ export const sponsors = [
     },
     socials: {
       twitter: '#',
-      website: '#',
+      website: 'https://www.weriseup.fr/',
     },
   },
   {
