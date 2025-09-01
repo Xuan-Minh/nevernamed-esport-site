@@ -4,12 +4,14 @@ export const sponsors = [
     name: 'Factory & Co',
     subtitle: 'RESTAURANT',
     description: {
-      fr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Factory & Co est un restaurant parisien qui propose une cuisine française moderne et raffinée.',
-      en: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Factory & Co is a Parisian restaurant offering modern and refined French cuisine.',
+      fr: "Spécialisé dans l'accompagnement d'athlètes et la création d'entreprise, Factory Club peut vous accompagner dans vos aventures",
+      en: 'Specializing in athlete support and business creation, Factory Club can accompany you in your adventures',
     },
     socials: {
-      instagram: '#',
-      website: '#',
+      instagram: 'https://www.instagram.com/factoryclub_off/',
+      tiktok: 'https://www.tiktok.com/@factoryclub_off',
+      linkedin: 'https://www.linkedin.com/company/factory-club-officiel/',
+      twitter: 'https://x.com/FactoryClubFR',
     },
   },
   {
@@ -31,8 +33,8 @@ export const sponsors = [
     name: 'Le Fagoteur',
     subtitle: 'VÊTEMENTS',
     description: {
-      fr: 'Artisan de la mode urbaine, Le Fagoteur propose des collections uniques alliant style et confort pour un look affirmé.',
-      en: 'Urban fashion artisan, Le Fagoteur offers unique collections combining style and comfort for a bold look.',
+      fr: 'Artisan de la mode urbaine, Le Fagoteur propose des collections uniques alliant style et confort pour un look affirmé. Producteurs et distributeurs de notre futur jersey (et merch 👀) ils sauront vous en mettre plein les yeux',
+      en: 'Urban fashion artisan, Le Fagoteur offers unique collections combining style and comfort for a bold look. Producers and distributors of our future shirt (and merch 👀) they will know how to blow you away 🤩',
     },
     socials: {
       instagram: 'https://www.instagram.com/lefagoteur/?hl=en',
@@ -44,38 +46,37 @@ export const sponsors = [
     name: 'WeRiseUp',
     subtitle: '*',
     description: {
-      fr: 'Lorem ipsum.',
-      en: 'Lorem ipsum.',
+      fr: 'Agence créative spécialisée dans le marketing digital et la communication, WeRiseUp accompagne les marques dans leur croissance en ligne.',
+      en: 'Creative agency specializing in digital marketing and communication, WeRiseUp supports brands in their online growth.',
     },
     socials: {
-      twitter: '#',
       website: 'https://www.weriseup.fr/',
     },
   },
-  {
-    id: 'sponso-E', // Correspond à Weriseup
-    name: 'WeRiseUp',
-    subtitle: '*',
-    description: {
-      fr: 'Lorem ipsum.',
-      en: 'Lorem ipsum.',
-    },
-    socials: {
-      twitter: '#',
-      website: '#',
-    },
-  },
-  {
-    id: 'sponso-F', // Correspond à Weriseup
-    name: 'WeRiseUp',
-    subtitle: '*',
-    description: {
-      fr: '6',
-      en: '6',
-    },
-    socials: {
-      twitter: '#',
-      website: '#',
-    },
-  },
+  // {
+  //   id: 'sponso-E', // Correspond à Weriseup
+  //   name: 'WeRiseUp',
+  //   subtitle: '*',
+  //   description: {
+  //     fr: 'Lorem ipsum.',
+  //     en: 'Lorem ipsum.',
+  //   },
+  //   socials: {
+  //     twitter: '#',
+  //     website: '#',
+  //   },
+  // },
+  // {
+  //   id: 'sponso-F', // Correspond à Weriseup
+  //   name: 'WeRiseUp',
+  //   subtitle: '*',
+  //   description: {
+  //     fr: '6',
+  //     en: '6',
+  //   },
+  //   socials: {
+  //     twitter: '#',
+  //     website: '#',
+  //   },
+  // },
 ];

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ArrowIcon from '../components/common/ArrowIcon';
 import { FaInstagram, FaGlobe } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import { FaLinkedin } from 'react-icons/fa';
+import { FaTiktok } from 'react-icons/fa';
 import { sponsors } from '../components/sponsors/sponsors';
 import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';
@@ -135,6 +137,28 @@ function PartnersPage() {
                               sponsor.description}
                           </p>
                           <div className="flex justify-center gap-4 text-lg sm:text-xl">
+                            {sponsor.socials?.tiktok && (
+                              <a
+                                href={sponsor.socials.tiktok}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-brand-accent transition-colors hover:scale-110"
+                                aria-label="TikTok"
+                              >
+                                <FaTiktok />
+                              </a>
+                            )}
+                            {sponsor.socials?.linkedin && (
+                              <a
+                                href={sponsor.socials.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-brand-accent transition-colors hover:scale-110"
+                                aria-label="LinkedIn"
+                              >
+                                <FaLinkedin />
+                              </a>
+                            )}
                             {sponsor.socials?.instagram && (
                               <a
                                 href={sponsor.socials.instagram}
