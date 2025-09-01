@@ -109,9 +109,20 @@ const AboutUsPage = () => {
                     <h2 className="font-unbounded text-2xl sm:text-3xl font-bold mb-6">
                       {t('about.values')}
                     </h2>
-                    <p className="text-white/80 leading-relaxed text-sm sm:text-base">
-                      {t('about.valuesText')}
-                    </p>
+                    {Array.isArray(t('about.valuesText', { returnObjects: true })) ? (
+                      t('about.valuesText', { returnObjects: true }).map((para, idx) => (
+                        <p
+                          key={idx}
+                          className="text-white/80 leading-relaxed text-sm sm:text-base mb-3 indent-8"
+                        >
+                          {para}
+                        </p>
+                      ))
+                    ) : (
+                      <p className="text-white/80 leading-relaxed text-sm sm:text-base">
+                        {t('about.valuesText')}
+                      </p>
+                    )}
                   </div>
                 </div>
               </section>
@@ -134,9 +145,20 @@ const AboutUsPage = () => {
                     <h2 className="font-unbounded text-2xl sm:text-3xl font-bold mb-6">
                       {t('about.missions')}
                     </h2>
-                    <p className="text-white/80 leading-relaxed text-sm sm:text-base">
-                      {t('about.missionsText')}
-                    </p>
+                    {Array.isArray(t('about.missionsText', { returnObjects: true })) ? (
+                      t('about.missionsText', { returnObjects: true }).map((para, idx) => (
+                        <p
+                          key={idx}
+                          className="text-white/80 leading-relaxed text-sm sm:text-base mb-3 indent-8"
+                        >
+                          {para}
+                        </p>
+                      ))
+                    ) : (
+                      <p className="text-white/80 leading-relaxed text-sm sm:text-base">
+                        {t('about.missionsText')}
+                      </p>
+                    )}
                   </div>
                 </div>
               </section>

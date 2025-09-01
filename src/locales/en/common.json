@@ -61,8 +61,17 @@
         "socials": { "twitter": "#", "twitch": "#", "linkedin": "#" }
       }
     ],
-    "valuesText": "Nevernamed promotes inclusivity, equality, diversity and learning, as well as raising awareness of esports and digital careers. Made up of passionate professionals, our structure is ready to welcome, support and make talents shine. With a growing women’s team, Nevernamed is committed to promoting and making women’s esports more visible.",
-    "missionsText": "Train, educate, support and perform are our missions. By working with the National Education system in middle and high schools through various workshops on esports, we raise awareness of diversity and inclusion in esports and video game-related careers. We also support players so they can perform at their full potential. NeverNamed blends professionalism and kindness.",
+    "valuesText": [
+      "Nevernamed promotes inclusivity, equality, diversity and learning, as well as raising awareness of esports and digital careers.",
+      "Made up of passionate professionals, our structure is ready to welcome, support and make talents shine.",
+      "With a growing women’s team, Nevernamed is committed to promoting and making women’s esports more visible."
+    ],
+    "missionsText": [
+      "Train, educate, support and perform are our missions.",
+      "By working with the National Education system in middle and high schools through various workshops on esports, we raise awareness of diversity and inclusion in esports and video game-related careers.",
+      "We also support players so they can perform at their full potential.",
+      "NeverNamed blends professionalism and kindness."
+    ],
     "quote": {
       "text": "Success is no accident. It is hard work, perseverance, learning, sacrifice and most of all, love of what you are doing.",
       "author": "Pelé"
