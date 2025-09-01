@@ -41,7 +41,7 @@ function PolitiquesPage() {
           <p className="mb-5 text-base">
             {t('privacy.rightsText')}{' '}
             <a href="mailto:contact@nevernamed-esport.com" className="underline text-brand-accent">
-              contact@nevernamed-esport.com
+              contact@thenevernamed.com
             </a>
           </p>
           <h2 className="font-bold text-2xl mt-10 mb-3">{t('privacy.contactTitle')}</h2>
