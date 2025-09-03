@@ -73,8 +73,8 @@ function App() {
       {!loading && (
         <>
           <ScrollToTop />
+          <Header isOpen={isOpen} setIsOpen={setIsOpen} /> {/* Passe les props */}
           <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
-            <Header isOpen={isOpen} setIsOpen={setIsOpen} /> {/* Passe les props */}
             <main className="overflow-x-hidden">
               <AnimatePresence mode="wait">
                 <Routes location={location} key={location.pathname}>
@@ -86,6 +86,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/a-propos"
                     element={
@@ -94,6 +95,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/equipes"
                     element={
@@ -102,6 +104,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/partenaires"
                     element={
@@ -110,6 +113,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/socialhub"
                     element={
@@ -118,6 +122,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/politiques"
                     element={
@@ -126,6 +131,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/mentions-legales"
                     element={
@@ -134,6 +140,7 @@ function App() {
                       </Suspense>
                     }
                   />
+
                   <Route
                     path="/terms"
                     element={
@@ -146,7 +153,6 @@ function App() {
               </AnimatePresence>
             </main>
           </div>
-
           {/* Bouton pour ouvrir le footer */}
           {!isFooterOpen && (
             <button
@@ -160,7 +166,6 @@ function App() {
               <InfoIcon />
             </button>
           )}
-
           {/* Le Footer animé */}
           <AnimatePresence>
             {isFooterOpen && <Footer handleClose={() => setIsFooterOpen(false)} />}
