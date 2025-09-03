@@ -90,6 +90,7 @@ function PartnersPage() {
           <AnimatedElement>
             <div
               className="relative w-full max-w-5xl mx-auto h-56 sm:h-72 flex items-center justify-center my-10 sm:my-16"
+              style={{ perspective: 1200 }}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -97,23 +98,64 @@ function PartnersPage() {
               {sponsorsData.map((sponsor, index) => {
                 let position = index - currentIndex;
                 const totalItems = sponsorsData.length;
+                // wrap positions to allow circular behavior
                 if (position > totalItems / 2) position -= totalItems;
                 if (position < -totalItems / 2) position += totalItems;
 
                 const isActive = position === 0;
-                const isVisible = Math.abs(position) <= 2; // Affiche 5 sponsors au total
+                // Only show center and direct neighbors => 3 visible items
+                const isVisible = Math.abs(position) <= 1;
+
+                // 3D triangle illusion: all cards on same vertical level, use translateZ+rotateY for depth
+                const xOffset = 55; // horizontal offset percent for side cards
+                const zFront = 90; // translateZ for the active card (px)
+                const zSide = 24; // translateZ for side cards (px)
+
+                let transform = '';
+                let opacity = 0;
+                let zIndex = 1;
+                let pointerEventsVal = 'none';
+
+                if (position === 0) {
+                  // center: closer to camera, slight tilt back
+                  transform = `translateX(0%) translateZ(${zFront}px) rotateX(6deg) scale(1)`;
+                  opacity = 1;
+                  zIndex = totalItems;
+                  pointerEventsVal = 'auto';
+                } else if (position === -1) {
+                  // left side: rotate to the left
+                  transform = `translateX(-${xOffset}%) translateZ(${zSide}px) rotateY(18deg) rotateX(2deg) scale(0.92)`;
+                  opacity = 0.5;
+                  zIndex = totalItems - 1;
+                  pointerEventsVal = 'auto';
+                } else if (position === 1) {
+                  // right side: rotate to the right
+                  transform = `translateX(${xOffset}%) translateZ(${zSide}px) rotateY(-18deg) rotateX(2deg) scale(0.92)`;
+                  opacity = 0.5;
+                  zIndex = totalItems - 1;
+                  pointerEventsVal = 'auto';
+                } else {
+                  // hidden / far behind
+                  transform = `translateX(0%) translateZ(-60px) scale(0.8)`;
+                  opacity = 0;
+                  zIndex = 0;
+                  pointerEventsVal = 'none';
+                }
 
                 const styles = {
-                  transform: `translateX(${position * 70}%) scale(${isActive ? 1 : 0.6})`,
-                  opacity: isVisible ? 1 : 0,
-                  zIndex: totalItems - Math.abs(position),
-                  transition: 'transform 0.5s ease, opacity 0.5s ease',
+                  transform,
+                  transformStyle: 'preserve-3d',
+                  opacity,
+                  zIndex,
+                  transition: 'transform 0.55s cubic-bezier(.22,.9,.28,1), opacity 0.35s ease',
+                  pointerEvents: pointerEventsVal,
                 };
 
                 return (
                   <div
                     key={sponsor.id}
                     className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 cursor-pointer"
+                    aria-hidden={!isVisible}
                     style={styles}
                     onClick={() => setCurrentIndex(index)}
                   >
