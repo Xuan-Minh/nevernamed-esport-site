@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import postImage from '../../assets/test.webp';
 import arrowIcon from '../../assets/arrow.svg';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +10,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 function LatestPost() {
   const { t } = useTranslation();
   const scrollContainerRef = useRef(null);
+  const [showLeftGradient, setShowLeftGradient] = useState(false);
+  const [showRightGradient, setShowRightGradient] = useState(false);
   const posts = Array(8).fill({ image: postImage });
   const isMobile = window.innerWidth < 640;
   const visiblePosts = isMobile ? posts.slice(0, 2) : posts;
@@ -22,6 +25,27 @@ function LatestPost() {
       });
     }
   };
+
+  // Met à jour l'affichage des gradients en fonction du scroll
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      setShowLeftGradient(scrollLeft > 5); // tolérance
+      setShowRightGradient(scrollLeft + clientWidth < scrollWidth - 5);
+    };
+
+    update();
+    el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+
+    return () => {
+      el.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, [scrollContainerRef]);
 
   return (
     <div className="container mx-auto px-4 md:AZpy-8 sm:py-12">
@@ -46,11 +70,34 @@ function LatestPost() {
             </div>
           ))}
         </div>
-        <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none"></div>
+        <AnimatePresence>
+          {showLeftGradient && (
+            <motion.div
+              key="left-gradient"
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -8 }}
+              transition={{ duration: 0.32, ease: 'easeInOut' }}
+              className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none"
+            />
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {showRightGradient && (
+            <motion.div
+              key="right-gradient"
+              initial={{ opacity: 0, x: 8 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 8 }}
+              transition={{ duration: 0.32, ease: 'easeInOut' }}
+              className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none"
+            />
+          )}
+        </AnimatePresence>
         {/* Flèches masquées sur mobile */}
         <button
           onClick={() => scroll('left')}
-          className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
+          className="absolute top-1/2 -left-16 -translate-y-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
           aria-label="Post précédent"
         >
           <img
@@ -64,7 +111,7 @@ function LatestPost() {
         </button>
         <button
           onClick={() => scroll('right')}
-          className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
+          className="absolute top-1/2 -right-16 -translate-y-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
           aria-label="Post suivant"
         >
           <img
@@ -86,21 +133,21 @@ function LatestPost() {
         <div className="flex items-center gap-4">
           <a
             href="https://x.com/thenevernamed"
-            className="flex-shrink-0 hover:text-white/70 transition-colors"
+            className="text-white hover:text-brand-accent transition-colors hover:scale-110"
             aria-label="Twitter"
           >
             <FaXTwitter className="w-6 h-6" />
           </a>
           <a
             href="#"
-            className="flex-shrink-0 hover:text-white/70 transition-colors"
+            className="text-white hover:text-brand-accent transition-colors hover:scale-110"
             aria-label="Twitch"
           >
             <FaTwitch className="w-6 h-6" />
           </a>
           <a
             href="#"
-            className="flex-shrink-0 hover:text-white/70 transition-colors"
+            className="text-white hover:text-brand-accent transition-colors hover:scale-110"
             aria-label="Instagram"
           >
             <FaInstagram className="w-6 h-6" />
