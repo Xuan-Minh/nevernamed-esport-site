@@ -12,7 +12,7 @@ import LatestPost from '../components/home/LatestPost';
 
 import SponsorsBanner from '../components/sponsors/SponsorsBanner';
 // Import des ressources
-import heroVideo from '../assets/valreal.mp4';
+import heroVideo from '../assets/herobg1.mp4';
 import testImage from '../assets/test.jpg';
 
 const HomePage = ({ isLoading }) => {
