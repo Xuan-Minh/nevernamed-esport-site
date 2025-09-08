@@ -44,7 +44,7 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-8">
+    <div className="flex flex-col items-center justify-center min-h-[60vh] md:h-screen gap-6 px-2">
       <AnimatedElement>
         <h2 className="text-3xl md:text-4xl font-bold tracking-wider font-unbounded mb-8 text-white text-center">
           SELECT YOUR GAME
@@ -52,7 +52,7 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
       </AnimatedElement>
       <div
         className="w-full max-w-5xl px-2 flex flex-row items-center justify-center"
-        style={{ minHeight: '340px' }}
+        style={{ minHeight: '260px' }}
       >
         <style>{`
           .swiper-pagination-bullet-active {
@@ -69,7 +69,7 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
         </button>
         <Swiper
           modules={[Navigation, Pagination, A11y]}
-          spaceBetween={24}
+          spaceBetween={12}
           slidesPerView={1}
           navigation={false}
           pagination={{ clickable: true }}
@@ -78,7 +78,6 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.realIndex);
-            // Si on attendait un centrage, et qu'on y est, on pop le hero (par id)
             if (pendingSelectId) {
               const centeredTeam = teams[swiper.realIndex];
               if (centeredTeam && centeredTeam.id === pendingSelectId) {
@@ -92,6 +91,8 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
             }
           }}
           breakpoints={{
+            320: { slidesPerView: 1, centeredSlides: true },
+            480: { slidesPerView: 1, centeredSlides: true },
             640: { slidesPerView: 2, centeredSlides: true },
             1024: { slidesPerView: 3, centeredSlides: true },
           }}
@@ -99,10 +100,10 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
         >
           {teams.map((team, idx) => (
             <SwiperSlide key={team.id}>
-              <div className="flex items-center justify-center h-80 w-80">
+              <div className="flex items-center justify-center h-56 w-56 md:h-80 md:w-80">
                 <motion.div
                   className={`flex items-center justify-center overflow-hidden shadow-2xl cursor-pointer relative group transition-all duration-300
-                    ${activeIndex === idx ? 'w-80 h-80 z-20 shadow-3xl opacity-100 scale-105' : 'w-56 h-56 z-10 opacity-30 scale-90'}
+                    ${activeIndex === idx ? 'w-40 h-40 md:w-80 md:h-80 z-20 shadow-3xl opacity-100 scale-105' : 'w-24 h-24 md:w-56 md:h-56 z-10 opacity-30 scale-90'}
                   `}
                   layoutId={`${team.id}-hero`}
                   style={{ borderRadius: 39, overflow: 'hidden' }}
@@ -130,7 +131,7 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
                           className="flex items-center justify-center w-full h-full"
                         >
                           <team.LogoComponent
-                            className={`${activeIndex === idx ? 'w-56 h-56' : 'w-32 h-32'} text-white transition-all duration-300`}
+                            className={`${activeIndex === idx ? 'w-32 h-32 md:w-56 md:h-56' : 'w-16 h-16 md:w-32 md:h-32'} text-white transition-all duration-300`}
                           />
                         </motion.div>
                       )}
