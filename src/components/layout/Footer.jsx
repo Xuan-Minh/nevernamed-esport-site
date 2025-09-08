@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createPortal } from 'react-dom';
 import logoSvg from '../../assets/favicon.svg';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -31,7 +32,9 @@ function Footer({ handleClose }) {
     exit: { y: '100%', transition: { ease: 'easeInOut' } },
   };
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <>
       {/* Overlay pour bloquer les interactions */}
       <div
@@ -166,7 +169,8 @@ function Footer({ handleClose }) {
           </div>
         </div>
       </motion.footer>
-    </>
+    </>,
+    document.body,
   );
 }
 

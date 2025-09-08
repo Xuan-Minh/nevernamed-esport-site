@@ -33,7 +33,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [isFooterOpen, setIsFooterOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // <-- Ajoute ici
+  const [isOpen, setIsOpen] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Signature supprimée (voir commentaire en haut du fichier)
 
@@ -74,9 +75,15 @@ function App() {
         <>
           <ScrollToTop />
           <Header isOpen={isOpen} setIsOpen={setIsOpen} /> {/* Passe les props */}
-          <div className={`transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}>
-            <main className="overflow-x-hidden">
-              <AnimatePresence mode="wait">
+          <div className="transition-all duration-300">
+            <main
+              className={`overflow-x-hidden transition-all duration-300 ${isFooterOpen ? 'blur-sm' : ''}`}
+            >
+              <AnimatePresence
+                mode="wait"
+                onExitComplete={() => setIsTransitioning(false)}
+                onEnter={() => setIsTransitioning(true)}
+              >
                 <Routes location={location} key={location.pathname}>
                   <Route
                     index
@@ -157,11 +164,14 @@ function App() {
           {!isFooterOpen && (
             <button
               onClick={() => {
-                setIsFooterOpen(true);
-                setIsOpen(false); // <-- Ferme le menu mobile si ouvert
+                if (!isTransitioning) {
+                  setIsFooterOpen(true);
+                  setIsOpen(false); // <-- Ferme le menu mobile si ouvert
+                }
               }}
-              className="fixed bottom-5 right-5 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition-colors z-40"
+              className={`fixed bottom-5 right-5 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition-colors z-40${isTransitioning ? ' opacity-50 pointer-events-none' : ''}`}
               aria-label="Ouvrir les informations du site"
+              disabled={isTransitioning}
             >
               <InfoIcon />
             </button>
