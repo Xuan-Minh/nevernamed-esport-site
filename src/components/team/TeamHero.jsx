@@ -55,7 +55,7 @@ function TeamHero({ team, showTitle, setShowTitle }) {
       />
       {/* Titre stylisé */}
       {showTitle && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center select-none pointer-events-none">
+        <div className="absolute inset-0 flex flex-col items-center justify-center select-none pointer-events-none ">
           {back && (
             <motion.span
               className="block text-white"
