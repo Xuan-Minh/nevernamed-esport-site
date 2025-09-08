@@ -54,6 +54,11 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
         className="w-full max-w-5xl px-2 flex flex-row items-center justify-center"
         style={{ minHeight: '340px' }}
       >
+        <style>{`
+          .swiper-pagination-bullet-active {
+            background: #fff !important;
+          }
+        `}</style>
         {/* Flèche gauche custom */}
         <button
           className="hidden md:flex items-center justify-center w-12 h-12 rounded-full hover:scale-150 text-white mr-2 transition"
@@ -124,7 +129,9 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
                           transition={{ duration: 0.3 }}
                           className="flex items-center justify-center w-full h-full"
                         >
-                          <team.LogoComponent className="w-56 h-56 text-white transition-all duration-300" />
+                          <team.LogoComponent
+                            className={`${activeIndex === idx ? 'w-56 h-56' : 'w-32 h-32'} text-white transition-all duration-300`}
+                          />
                         </motion.div>
                       )}
                     </AnimatePresence>
