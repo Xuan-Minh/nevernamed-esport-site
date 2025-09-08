@@ -62,81 +62,78 @@ function TeamSelector({ teams, onSelect, selectedTeamId }) {
         >
           <ArrowIcon style={{ transform: 'rotate(180deg)' }} className="w-12 h-12" />
         </button>
-        <div className="flex flex-col items-center w-full">
-          <Swiper
-            modules={[Navigation, Pagination, A11y]}
-            spaceBetween={24}
-            slidesPerView={1}
-            navigation={false}
-            pagination={{ clickable: true, el: '.team-selector-pagination' }}
-            loop={true}
-            centeredSlides={true}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onSlideChange={(swiper) => {
-              setActiveIndex(swiper.realIndex);
-              // Si on attendait un centrage, et qu'on y est, on pop le hero (par id)
-              if (pendingSelectId) {
-                const centeredTeam = teams[swiper.realIndex];
-                if (centeredTeam && centeredTeam.id === pendingSelectId) {
-                  setClicked(centeredTeam.id);
-                  setTimeout(() => {
-                    onSelect(centeredTeam);
-                    setClicked(null);
-                    setPendingSelectId(null);
-                  }, 350);
-                }
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          spaceBetween={24}
+          slidesPerView={1}
+          navigation={false}
+          pagination={{ clickable: true }}
+          loop={true}
+          centeredSlides={true}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => {
+            setActiveIndex(swiper.realIndex);
+            // Si on attendait un centrage, et qu'on y est, on pop le hero (par id)
+            if (pendingSelectId) {
+              const centeredTeam = teams[swiper.realIndex];
+              if (centeredTeam && centeredTeam.id === pendingSelectId) {
+                setClicked(centeredTeam.id);
+                setTimeout(() => {
+                  onSelect(centeredTeam);
+                  setClicked(null);
+                  setPendingSelectId(null);
+                }, 350);
               }
-            }}
-            breakpoints={{
-              640: { slidesPerView: 2, centeredSlides: true },
-              1024: { slidesPerView: 3, centeredSlides: true },
-            }}
-            className="team-selector-swiper"
-          >
-            {teams.map((team, idx) => (
-              <SwiperSlide key={team.id}>
-                <div className="flex items-center justify-center h-80 w-80">
-                  <motion.div
-                    className={`flex items-center justify-center overflow-hidden shadow-2xl cursor-pointer relative group transition-all duration-300
-                      ${activeIndex === idx ? 'w-80 h-80 z-20 shadow-3xl opacity-100 scale-105' : 'w-56 h-56 z-10 opacity-30 scale-90'}
-                    `}
-                    layoutId={`${team.id}-hero`}
-                    style={{ borderRadius: 39, overflow: 'hidden' }}
-                    onMouseEnter={() => setHovered(team.id)}
-                    onMouseLeave={() => setHovered(null)}
-                    onClick={() => handleSlideClick(swiperRef.current, idx)}
-                  >
-                    <img
-                      src={team.image}
-                      alt={team.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      width="100%"
-                      height="100%"
-                    />
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                      <AnimatePresence>
-                        {!clicked && (
-                          <motion.div
-                            key="logo"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: hovered === team.id ? 1 : 0 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="flex items-center justify-center w-full h-full"
-                          >
-                            <team.LogoComponent className="w-56 h-56 text-white transition-all duration-300" />
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </motion.div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className="team-selector-pagination mt-6 flex justify-center"></div>
-        </div>
+            }
+          }}
+          breakpoints={{
+            640: { slidesPerView: 2, centeredSlides: true },
+            1024: { slidesPerView: 3, centeredSlides: true },
+          }}
+          className="team-selector-swiper"
+        >
+          {teams.map((team, idx) => (
+            <SwiperSlide key={team.id}>
+              <div className="flex items-center justify-center h-80 w-80">
+                <motion.div
+                  className={`flex items-center justify-center overflow-hidden shadow-2xl cursor-pointer relative group transition-all duration-300
+                    ${activeIndex === idx ? 'w-80 h-80 z-20 shadow-3xl opacity-100 scale-105' : 'w-56 h-56 z-10 opacity-30 scale-90'}
+                  `}
+                  layoutId={`${team.id}-hero`}
+                  style={{ borderRadius: 39, overflow: 'hidden' }}
+                  onMouseEnter={() => setHovered(team.id)}
+                  onMouseLeave={() => setHovered(null)}
+                  onClick={() => handleSlideClick(swiperRef.current, idx)}
+                >
+                  <img
+                    src={team.image}
+                    alt={team.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    width="100%"
+                    height="100%"
+                  />
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                    <AnimatePresence>
+                      {!clicked && (
+                        <motion.div
+                          key="logo"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: hovered === team.id ? 1 : 0 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex items-center justify-center w-full h-full"
+                        >
+                          <team.LogoComponent className="w-56 h-56 text-white transition-all duration-300" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
         {/* Flèche droite custom */}
         <button
           className="hidden md:flex items-center justify-center w-12 h-12 rounded-full hover:scale-150 text-white ml-2 transition"
