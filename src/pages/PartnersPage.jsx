@@ -89,7 +89,7 @@ function PartnersPage() {
           {/* --- Carrousel des Sponsors --- */}
           <AnimatedElement>
             <div
-              className="relative w-full max-w-5xl mx-auto h-56 sm:h-72 flex items-center justify-center my-10 sm:my-16"
+              className="relative w-full max-w-5xl mx-auto h-56 sm:h-72 flex items-center justify-center my-14 sm:my-16"
               style={{ perspective: 1200 }}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}

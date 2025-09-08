@@ -1,20 +1,20 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedElement from '../common/AnimatedElement';
 
 function TeamSelectorMobile({ teams, onSelect, selectedTeamId }) {
+  const { t } = useTranslation();
   const [hovered, setHovered] = useState(null);
   const [clicked, setClicked] = useState(null);
 
   return (
-    <div className="w-full min-h-screen bg-[#0a1833] pt-8 flex flex-col">
+    <div className="w-full min-h-screen pt-8 flex flex-col">
       {/* Titre sous la navbar */}
-      <section className="w-full flex flex-col items-center mb-6">
-        <AnimatedElement>
-          <h2 className="text-3xl font-bold tracking-wider font-unbounded text-white text-center">
-            SELECT YOUR GAME
-          </h2>
-        </AnimatedElement>
+      <section className="relative min-h-[calc(65vh-6rem)] flex flex-col items-center justify-center">
+        <div className="w-full text-center translate-y-6 sm:translate-y-10 md:translate-y-14">
+          <h1 className="font-unbounded text-4xl sm:text-5xl font-bold mb-8"> SELECT YOUR GAME</h1>
+        </div>
       </section>
       {/* Liste verticale scrollable */}
       <div className="w-full flex flex-col gap-6 px-4 pb-8">
@@ -23,7 +23,12 @@ function TeamSelectorMobile({ teams, onSelect, selectedTeamId }) {
             key={team.id}
             className={`mx-auto flex items-center justify-center overflow-hidden shadow-2xl cursor-pointer relative group transition-all duration-300 w-64 h-64 rounded-3xl bg-gradient-to-br from-[#1a2a4d] to-[#0a1833] ${selectedTeamId === team.id ? 'ring-4 ring-white' : ''}`}
             layoutId={`${team.id}-hero`}
-            onClick={() => onSelect(team)}
+            onClick={() => {
+              if (window && 'scrollY' in window) {
+                sessionStorage.setItem('teamScrollY', window.scrollY);
+              }
+              onSelect(team);
+            }}
             onMouseEnter={() => setHovered(team.id)}
             onMouseLeave={() => setHovered(null)}
           >
