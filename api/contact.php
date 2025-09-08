@@ -1,33 +1,51 @@
 <?php
-// Utilise PHPMailer depuis le dossier vendor
+// contact.php - version robuste avec PHPMailer pour hébergement mutualisé (o2switch)
+// Place PHPMailer dans un dossier vendor ou incluez via Composer
+
+require __DIR__ . '/../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Charge l'autoloader de Composer
-require '../vendor/autoload.php';
-
-// --- CONFIGURATION ---
-// Remplacez par vos informations
-$turnstile_secret_key = 'votre-clé-secrète-turnstile-ici';
-$recipient_email = 'votre-email@domaine.com'; // L'email qui recevra les messages
-
-// Configuration SMTP (trouvez-les dans votre cPanel o2switch)
-$smtp_host = 'mail.o2switch.net';
-$smtp_username = 'contact@votre-domaine.com'; // Votre adresse email complète
-$smtp_password = 'votre-mot-de-passe-email';
-$smtp_port = 465; // Port pour SSL
-// --- FIN CONFIGURATION ---
-
-// Headers pour la réponse JSON et CORS (Cross-Origin Resource Sharing)
 header('Content-Type: application/json');
-// Autorise votre site à appeler ce script (sécurité)
-header('Access-Control-Allow-Origin: *'); // Mettez l'URL de votre site en production
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
 
-// Gère la requête pre-flight OPTIONS
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
+// Sécurité : n'accepte que POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['error' => 'Méthode non autorisée']);
+    exit;
+}
+
+// Récupération et validation des données
+$name    = trim($_POST['name'] ?? '');
+$email   = trim($_POST['email'] ?? '');
+$message = trim($_POST['message'] ?? '');
+
+if (!$name || !$email || !$message || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Données invalides']);
+    exit;
+}
+
+// Préparation de l'email
+$mail = new PHPMailer(true);
+try {
+    // Config SMTP o2switch (à adapter si besoin)
+    // $mail->isSMTP();
+    // $mail->Host = 'localhost';
+    // $mail->SMTPAuth = false;
+    // $mail->Port = 25;
+
+    $mail->setFrom('no-reply@thenevernamed.com', 'Formulaire Contact');
+    $mail->addAddress('ton.email@thenevernamed.com'); // À adapter
+    $mail->addReplyTo($email, $name);
+    $mail->Subject = 'Nouveau message via le formulaire de contact';
+    $mail->Body    = "Nom: $name\nEmail: $email\nMessage:\n$message";
+
+    $mail->send();
+    echo json_encode(['success' => true]);
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['error' => "Erreur d'envoi: {$mail->ErrorInfo}"]);
 }
 
 // Accepte uniquement les requêtes POST
