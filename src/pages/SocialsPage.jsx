@@ -60,10 +60,10 @@ function SocialsPage() {
     >
       <div className="text-white">
         <Helmet>
-          <title>NeverNamed Esport - Social Hub</title>
+          <title>NeverNamed - {t('header.nav.socialHub')}</title>
           <meta
             name="description"
-            content="Retrouvez tous les réseaux sociaux et dernières actualités de NeverNamed Esport."
+            content="Retrouvez tous les réseaux sociaux et dernières actualités de NeverNamed."
           />
         </Helmet>
         <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20">

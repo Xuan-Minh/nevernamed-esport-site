@@ -9,7 +9,7 @@ function TermsPage() {
     <AnimatedElement>
       <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20 pb-12">
         <Helmet>
-          <title>NeverNamed Esport - {t('terms.title')}</title>
+          <title>NeverNamed - {t('terms.title')}</title>
           <meta name="description" content={t('terms.intro')} />
         </Helmet>
 

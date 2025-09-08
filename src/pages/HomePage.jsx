@@ -27,10 +27,10 @@ const HomePage = ({ isLoading }) => {
     >
       <div className="text-white">
         <Helmet>
-          <title>NeverNamed Esport - Accueil</title>
+          <title>NeverNamed - {t('header.nav.home')}</title>
           <meta
             name="description"
-            content="NeverNamed Esport : équipe, ambition, sponsors et actualités."
+            content="NeverNamed : équipe, ambition, sponsors et actualités."
           />
         </Helmet>
         {/* Section 1: Hero Vidéo. Elle est maintenant à la racine et peut prendre 100% de la largeur. */}

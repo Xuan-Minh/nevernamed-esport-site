@@ -65,10 +65,10 @@ const AboutUsPage = () => {
     >
       <div className="text-white py-16 md:py-24">
         <Helmet>
-          <title>NeverNamed Esport - À propos</title>
+          <title>NeverNamed - {t('header.nav.about')}</title>
           <meta
             name="description"
-            content="Découvrez l’histoire, les valeurs et l’équipe NeverNamed Esport."
+            content="Découvrez l’histoire, les valeurs et l’équipe NeverNamed."
           />
         </Helmet>
         {/* Section 1: Hero plein écran */}
@@ -77,7 +77,7 @@ const AboutUsPage = () => {
             <div className="relative flex justify-center items-center w-full max-w-2xl h-96">
               <img
                 src={mainLogo}
-                alt="Logo principal NeverNamed Esport"
+                alt="Logo principal NeverNamed"
                 width="512"
                 height="512"
                 className="absolute inset-0 w-full h-full object-contain z-0 opacity-10"

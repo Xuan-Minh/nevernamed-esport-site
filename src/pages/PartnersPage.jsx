@@ -71,10 +71,10 @@ function PartnersPage() {
     >
       <div className="min-h-screen flex flex-col justify-center text-white sm:pt-18 sm:pb-8 sm:pt-20 px-4">
         <Helmet>
-          <title>NeverNamed Esport - Partenaires & Sponsors</title>
+          <title>NeverNamed - {t('header.nav.partners')}</title>
           <meta
             name="description"
-            content="Nos sponsors, partenaires et comment rejoindre l’aventure NeverNamed Esport."
+            content="Nos sponsors, partenaires et comment rejoindre l’aventure NeverNamed."
           />
         </Helmet>
         <div className="container mx-auto text-center pt-20 sm:pt-24">

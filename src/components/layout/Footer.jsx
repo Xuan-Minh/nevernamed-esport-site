@@ -76,7 +76,7 @@ function Footer({ handleClose }) {
                   width="64"
                   height="64"
                 />
-                <span className="hidden sm:inline">NeverNamed Esport</span>
+                <span className="hidden sm:inline">NeverNamed</span>
               </Link>
               <div className="text-sm text-gray-400">{t('footer.copyright')}</div>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2">

@@ -9,7 +9,7 @@ function MentionsLegalesPage() {
     <AnimatedElement>
       <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20 pb-12">
         <Helmet>
-          <title>NeverNamed Esport - {t('legal.title')}</title>
+          <title>NeverNamed - {t('legal.title')}</title>
           <meta name="description" content={t('legal.intro')} />
         </Helmet>
 

@@ -2,7 +2,7 @@
   <img src="public/assets/mainlogo.png" alt="NeverNamed Logo" width="120"/>
 </p>
 
-<h1 align="center">🎮 NeverNamed Esport Site</h1>
+<h1 align="center">🎮 NeverNamed</h1>
 
 <p align="center">
   <a href="https://nevernamed-esport-site.vercel.app/"><img src="https://img.shields.io/badge/Site%20en%20ligne-Vercel-000?logo=vercel&logoColor=white" alt="Vercel"></a>

@@ -9,7 +9,7 @@ function PolitiquesPage() {
     <AnimatedElement>
       <div className="container mx-auto px-4 overflow-y-hidden pt-10 sm:pt-20 pb-12">
         <Helmet>
-          <title>NeverNamed Esport - {t('privacy.title')}</title>
+          <title>NeverNamed - {t('privacy.title')}</title>
           <meta name="description" content={t('privacy.intro')} />
         </Helmet>
 
