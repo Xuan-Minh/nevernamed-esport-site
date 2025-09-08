@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { teamsData } from '../assets/teams/data/teams';
 import TeamSelector from '../components/team/TeamSelector';
+import TeamSelectorMobile from '../components/team/TeamSelectorMobile';
 import TeamDetailView from '../components/team/TeamDetailView';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -24,11 +25,22 @@ function TeamsPage() {
       {selectedTeam ? (
         <TeamDetailView team={selectedTeam} onBack={handleBack} />
       ) : (
-        <TeamSelector
-          teams={teamsData}
-          onSelect={handleSelectTeam}
-          selectedTeamId={selectedTeamId}
-        />
+        <>
+          <div className="md:hidden">
+            <TeamSelectorMobile
+              teams={teamsData}
+              onSelect={handleSelectTeam}
+              selectedTeamId={selectedTeamId}
+            />
+          </div>
+          <div className="hidden md:block">
+            <TeamSelector
+              teams={teamsData}
+              onSelect={handleSelectTeam}
+              selectedTeamId={selectedTeamId}
+            />
+          </div>
+        </>
       )}
     </motion.div>
   );
