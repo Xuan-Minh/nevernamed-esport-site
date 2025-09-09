@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import postImage from '../../assets/test.webp';
+import { postsData } from '../../assets/posts/postsData';
 import arrowIcon from '../../assets/arrow.svg';
 import { useTranslation } from 'react-i18next';
 
@@ -12,7 +12,7 @@ function LatestPost() {
   const scrollContainerRef = useRef(null);
   const [showLeftGradient, setShowLeftGradient] = useState(false);
   const [showRightGradient, setShowRightGradient] = useState(false);
-  const posts = Array(8).fill({ image: postImage });
+  const posts = postsData;
   const isMobile = window.innerWidth < 640;
   const visiblePosts = isMobile ? posts.slice(0, 2) : posts;
 
