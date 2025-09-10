@@ -95,34 +95,50 @@ function LatestPost() {
           )}
         </AnimatePresence>
         {/* Flèches masquées sur mobile */}
-        <button
-          onClick={() => scroll('left')}
-          className="absolute top-1/2 -left-16 -translate-y-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
-          aria-label="Post précédent"
-        >
-          <img
-            src={arrowIcon}
-            alt="Précédent"
-            className="h-10 w-10 rotate-180"
-            loading="lazy"
-            width="40"
-            height="40"
-          />
-        </button>
-        <button
-          onClick={() => scroll('right')}
-          className="absolute top-1/2 -right-16 -translate-y-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
-          aria-label="Post suivant"
-        >
-          <img
-            src={arrowIcon}
-            alt="Suivant"
-            className="h-10 w-10"
-            loading="lazy"
-            width="40"
-            height="40"
-          />
-        </button>
+        <AnimatePresence>
+          {showLeftGradient && (
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => scroll('left')}
+              className="absolute top-1/2 -left-16 -translate-y-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
+              aria-label="Post précédent"
+            >
+              <img
+                src={arrowIcon}
+                alt="Précédent"
+                className="h-10 w-10 rotate-180"
+                loading="lazy"
+                width="40"
+                height="40"
+              />
+            </motion.button>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {showRightGradient && (
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => scroll('right')}
+              className="absolute top-1/2 -right-16 -translate-y-1/2 text-white p-3 rounded-full shadow-lg z-10 hover:scale-110 transition-transform hidden sm:block"
+              aria-label="Post suivant"
+            >
+              <img
+                src={arrowIcon}
+                alt="Suivant"
+                className="h-10 w-10"
+                loading="lazy"
+                width="40"
+                height="40"
+              />
+            </motion.button>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Section "Suivez-nous" */}

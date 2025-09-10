@@ -36,7 +36,7 @@ const HomePage = ({ isLoading }) => {
         {/* Section 1: Hero Vidéo. Elle est maintenant à la racine et peut prendre 100% de la largeur. */}
         <HeroSection videoSrc={heroVideo} isLoading={isLoading}>
           <AnimatedElement>
-            <h1 className="font-unbounded text-3xl sm:text-4xl md:text-7xl font-bold mb-4">
+            <h1 className="font-unbounded text-3xl sm:text-4xl md:text-7xl font-bold mb-4 shadow-xl">
               {t('home.hero.title')}
             </h1>
           </AnimatedElement>

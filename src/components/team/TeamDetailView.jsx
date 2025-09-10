@@ -42,6 +42,24 @@ function TeamDetailView({ team, onBack }) {
 
   return (
     <div className="relative min-h-screen brand-background pb-24 sm:pb-0">
+      {/* Bouton fermeture desktop uniquement */}
+      <button
+        onClick={onBack}
+        className="hidden md:flex fixed right-8 top-8 z-50 bg-white/10 hover:bg-brand-accent/80 text-white rounded-full w-14 h-14 items-center justify-center shadow-lg transition-colors border-2 border-white/30"
+        aria-label="Fermer"
+        type="button"
+      >
+        <svg
+          className="w-10 h-10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={3}
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+        </svg>
+      </button>
+
       <TeamHero team={team} showTitle={showTitle} setShowTitle={setShowTitle} />
 
       {/* Galerie des membres */}
