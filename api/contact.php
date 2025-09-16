@@ -1,5 +1,5 @@
 <?php
-// contact.php – Flux unifié (JSON ou POST), Turnstile optionnel, PHPMailer via vendor/composer
+NeverNamed : NOW OR NEVER// contact.php – Flux unifié (JSON ou POST), Turnstile optionnel, PHPMailer via vendor/composer
 header('Content-Type: application/json');
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -85,6 +85,7 @@ try {
     $smtp_username = $smtp_username ?? getenv('SMTP_USERNAME');
     $smtp_password = $smtp_password ?? getenv('SMTP_PASSWORD');
     $smtp_port     = $smtp_port     ?? (getenv('SMTP_PORT') ?: 465);
+    $smtp_encryption = $smtp_encryption ?? (getenv('SMTP_ENCRYPTION') ?: 'ssl'); // 'ssl' ou 'tls'
     $recipient_email = $recipient_email ?? (getenv('RECIPIENT_EMAIL') ?: $smtp_username);
 
     if (!empty($smtp_host) && !empty($smtp_username) && !empty($smtp_password)) {
@@ -93,7 +94,13 @@ try {
         $mail->SMTPAuth   = true;
         $mail->Username   = $smtp_username;
         $mail->Password   = $smtp_password;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        // Détermine le chiffrement à utiliser
+        $smtp_encryption = strtolower((string)$smtp_encryption);
+        if ($smtp_encryption === 'tls') {
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        } else {
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // défaut: ssl
+        }
         $mail->Port       = (int)$smtp_port;
     } else {
         // Fallback: utilise la fonction mail/sendmail du serveur
