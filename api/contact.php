@@ -1,138 +1,133 @@
 <?php
-// contact.php - version robuste avec PHPMailer pour hébergement mutualisé (o2switch)
-// Place PHPMailer dans un dossier vendor ou incluez via Composer
+// contact.php – Flux unifié (JSON ou POST), Turnstile optionnel, PHPMailer via vendor/composer
+header('Content-Type: application/json');
 
 require __DIR__ . '/../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-header('Content-Type: application/json');
-
-// Sécurité : n'accepte que POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['error' => 'Méthode non autorisée']);
-    exit;
+// Charge une config locale si présente (non versionnée)
+if (file_exists(__DIR__ . '/config.php')) {
+    require __DIR__ . '/config.php';
 }
 
-// Récupération et validation des données
-$name    = trim($_POST['name'] ?? '');
-$email   = trim($_POST['email'] ?? '');
-$message = trim($_POST['message'] ?? '');
-
-if (!$name || !$email || !$message || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(['error' => 'Données invalides']);
-    exit;
-}
-
-// Préparation de l'email
-$mail = new PHPMailer(true);
-try {
-    // Config SMTP o2switch (à adapter si besoin)
-    // $mail->isSMTP();
-    // $mail->Host = 'localhost';
-    // $mail->SMTPAuth = false;
-    // $mail->Port = 25;
-
-    $mail->setFrom('no-reply@thenevernamed.com', 'Formulaire Contact');
-    $mail->addAddress('ton.email@thenevernamed.com'); // À adapter
-    $mail->addReplyTo($email, $name);
-    $mail->Subject = 'Nouveau message via le formulaire de contact';
-    $mail->Body    = "Nom: $name\nEmail: $email\nMessage:\n$message";
-
-    $mail->send();
-    echo json_encode(['success' => true]);
-} catch (Exception $e) {
-    http_response_code(500);
-    echo json_encode(['error' => "Erreur d'envoi: {$mail->ErrorInfo}"]);
-}
-
-// Accepte uniquement les requêtes POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+// Autorise uniquement POST
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     http_response_code(405);
     echo json_encode(['status' => 'error', 'message' => 'Method Not Allowed']);
     exit;
 }
 
-// Récupère les données JSON envoyées par React
-$input = json_decode(file_get_contents('php://input'), true);
+// Récupère les données: JSON (application/json) ou formulaire (POST)
+$raw = file_get_contents('php://input');
+$isJson = isset($_SERVER['CONTENT_TYPE']) && stripos($_SERVER['CONTENT_TYPE'], 'application/json') !== false;
+$input = $isJson ? json_decode($raw, true) : null;
 
-// 1. Sécurité : Honeypot (champ caché pour les bots)
-if (!empty($input['company'])) {
+// Normalise les champs
+$honeypot = $isJson ? trim($input['company'] ?? '') : trim($_POST['company'] ?? '');
+if (!empty($honeypot)) {
     http_response_code(400);
     echo json_encode(['status' => 'error', 'message' => 'Spam detected']);
     exit;
 }
 
-// 2. Sécurité : Validation des données
-$firstname = filter_var(trim($input['firstname'] ?? ''), FILTER_SANITIZE_STRING);
-$lastname = filter_var(trim($input['lastname'] ?? ''), FILTER_SANITIZE_STRING);
-$email = filter_var(trim($input['email'] ?? ''), FILTER_VALIDATE_EMAIL);
-$message = filter_var(trim($input['message'] ?? ''), FILTER_SANITIZE_STRING);
-$token = $input['cf-turnstile-response'] ?? '';
+if ($isJson && is_array($input)) {
+    $firstname = filter_var(trim($input['firstname'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $lastname  = filter_var(trim($input['lastname'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $email     = filter_var(trim($input['email'] ?? ''), FILTER_VALIDATE_EMAIL);
+    $message   = filter_var(trim($input['message'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $phone     = filter_var(trim($input['phone'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $topic     = filter_var(trim($input['topic'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $token     = $input['cf-turnstile-response'] ?? '';
+    $displayName = trim($firstname . ' ' . $lastname);
+} else {
+    $name    = filter_var(trim($_POST['name'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $email   = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL);
+    $message = filter_var(trim($_POST['message'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $phone   = filter_var(trim($_POST['phone'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $topic   = filter_var(trim($_POST['topic'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $token   = $_POST['cf-turnstile-response'] ?? '';
+    $displayName = $name;
+}
 
-if (empty($firstname) || empty($lastname) || empty($email) || empty($message) || empty($token)) {
+if (empty($displayName) || empty($email) || empty($message)) {
     http_response_code(400);
     echo json_encode(['status' => 'error', 'message' => 'Veuillez remplir tous les champs requis.']);
     exit;
 }
 
-// 3. Sécurité : Vérification du CAPTCHA Turnstile
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://challenges.cloudflare.com/turnstile/v0/siteverify');
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
-    'secret' => $turnstile_secret_key,
-    'response' => $token,
-    'remoteip' => $_SERVER['REMOTE_ADDR']
-]));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$turnstile_response = curl_exec($ch);
-curl_close($ch);
-$turnstile_data = json_decode($turnstile_response, true);
-
-if (!($turnstile_data['success'] ?? false)) {
-    http_response_code(400);
-    echo json_encode(['status' => 'error', 'message' => 'La vérification anti-robot a échoué.']);
-    exit;
+// Vérification Turnstile (optionnelle): nécessite $turnstile_secret_key défini (config/env) et un token
+$turnstile_secret_key = $turnstile_secret_key ?? getenv('TURNSTILE_SECRET') ?: '';
+if (!empty($turnstile_secret_key) && !empty($token)) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://challenges.cloudflare.com/turnstile/v0/siteverify');
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+        'secret'   => $turnstile_secret_key,
+        'response' => $token,
+        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
+    ]));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $turnstile_response = curl_exec($ch);
+    curl_close($ch);
+    $turnstile_data = json_decode($turnstile_response, true);
+    if (!($turnstile_data['success'] ?? false)) {
+        http_response_code(400);
+        echo json_encode(['status' => 'error', 'message' => 'La vérification anti-robot a échoué.']);
+        exit;
+    }
 }
 
-// 4. Envoi de l'email avec PHPMailer
+// Prépare PHPMailer
 $mail = new PHPMailer(true);
 try {
-    // Configuration du serveur SMTP
-    $mail->isSMTP();
-    $mail->Host       = $smtp_host;
-    $mail->SMTPAuth   = true;
-    $mail->Username   = $smtp_username;
-    $mail->Password   = $smtp_password;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = $smtp_port;
-    $mail->CharSet    = 'UTF-8';
+    $smtp_host     = $smtp_host     ?? getenv('SMTP_HOST');
+    $smtp_username = $smtp_username ?? getenv('SMTP_USERNAME');
+    $smtp_password = $smtp_password ?? getenv('SMTP_PASSWORD');
+    $smtp_port     = $smtp_port     ?? (getenv('SMTP_PORT') ?: 465);
+    $recipient_email = $recipient_email ?? (getenv('RECIPIENT_EMAIL') ?: $smtp_username);
 
-    // Destinataires
-    $mail->setFrom($smtp_username, 'Contact Nevernamed'); // L'expéditeur
-    $mail->addAddress($recipient_email);                 // Le destinataire
-    $mail->addReplyTo($email, $firstname . ' ' . $lastname); // Pour répondre directement à l'utilisateur
+    if (!empty($smtp_host) && !empty($smtp_username) && !empty($smtp_password)) {
+        $mail->isSMTP();
+        $mail->Host       = $smtp_host;
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $smtp_username;
+        $mail->Password   = $smtp_password;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port       = (int)$smtp_port;
+    } else {
+        // Fallback: utilise la fonction mail/sendmail du serveur
+        $mail->isMail();
+    }
+    $mail->CharSet = 'UTF-8';
 
-    // Contenu de l'email
-    $mail->isHTML(false); // Email en format texte
-    $mail->Subject = 'Nouveau message de ' . $firstname . ' - Nevernamed';
-    $mail->Body    = "Vous avez reçu un nouveau message :\n\n" .
-                     "Nom: " . $firstname . " " . $lastname . "\n" .
-                     "Email: " . $email . "\n" .
-                     "Téléphone: " . ($input['phone'] ?? 'Non fourni') . "\n" .
-                     "Sujet: " . ($input['topic'] ?? 'Non précisé') . "\n\n" .
-                     "Message:\n" . $message;
+    // Expéditeur et destinataire
+    $fromAddress = !empty($smtp_username) ? $smtp_username : ('no-reply@' . ($_SERVER['HTTP_HOST'] ?? 'localhost'));
+    $mail->setFrom($fromAddress, 'Contact Nevernamed');
+    $mail->addAddress($recipient_email ?: $fromAddress);
+    $mail->addReplyTo($email, $displayName);
+
+    // Contenu
+    $mail->isHTML(false);
+    $subjectName = $displayName ?: 'Utilisateur';
+    $mail->Subject = 'Nouveau message - Nevernamed (' . $subjectName . ')';
+    $lines = [
+        'Nom: ' . $subjectName,
+        'Email: ' . $email,
+        'Téléphone: ' . ($phone ?: 'Non fourni'),
+        'Sujet: ' . ($topic ?: 'Non précisé'),
+        '',
+        'Message:',
+        $message,
+    ];
+    $mail->Body = implode("\n", $lines);
 
     $mail->send();
     http_response_code(200);
     echo json_encode(['status' => 'success', 'message' => 'Message envoyé avec succès !']);
 } catch (Exception $e) {
     http_response_code(500);
-    // Ne jamais afficher l'erreur exacte à l'utilisateur en production
-    error_log("Mailer Error: {$mail->ErrorInfo}"); // Log l'erreur pour vous
+    error_log('Mailer Error: ' . $mail->ErrorInfo);
     echo json_encode(['status' => 'error', 'message' => 'Le message n\'a pas pu être envoyé.']);
 }
 ?>
